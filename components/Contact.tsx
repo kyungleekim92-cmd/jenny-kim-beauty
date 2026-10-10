@@ -27,8 +27,6 @@ export default function Contact() {
             <div>
               <dt>Address</dt>
               <dd>
-                {site.venue.name}
-                <br />
                 {site.venue.address}
                 <br />
                 {site.venue.city}

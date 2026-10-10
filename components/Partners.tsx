@@ -1,51 +1,36 @@
 "use client";
 
+import { useState } from "react";
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import Photo from "@/components/Photo";
-
-const steps = [
-  {
-    n: "I",
-    title: "You consult with Jenny",
-    body: "Your plan is built independently — before any spa enters the picture.",
-  },
-  {
-    n: "II",
-    title: "Jenny matches you",
-    body: "She pairs your plan with the partner spa and practitioner best suited to deliver it.",
-  },
-  {
-    n: "III",
-    title: "You book directly",
-    body: "You meet the spa as an informed client. Jenny remains available throughout.",
-  },
-];
 
 const criteria = [
   {
     n: "01",
     title: "Licensed practitioners",
-    body: "Physicians, nurse injectors, or certified aestheticians — credentials verified, experience confirmed.",
+    body: "Physicians, nurse injectors, or certified aestheticians — credentials verified.",
   },
   {
     n: "02",
     title: "Authentic devices",
-    body: "Real, maintained technology with Health Canada authorizations for its uses — no grey-market equipment.",
+    body: "Real, maintained technology with Health Canada authorizations — no grey-market equipment.",
   },
   {
     n: "03",
     title: "Honest pricing",
-    body: "Clear quotes before you commit. No surprise add-ons, no pressure tactics in the treatment room.",
+    body: "Clear quotes before you commit. No surprise add-ons, no pressure tactics.",
   },
   {
     n: "04",
     title: "Hygiene & aftercare",
-    body: "Clinical standards of cleanliness and proper follow-up protocols for every treatment offered.",
+    body: "Clinical standards of cleanliness and proper follow-up for every treatment.",
   },
 ];
 
 export default function Partners() {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id="partners" className="section" aria-labelledby="partners-title">
       <div className="wrap">
@@ -57,21 +42,8 @@ export default function Partners() {
               Trusted referrals, not <em>listings</em>.
             </>
           }
-          lede="A short, curated circle of Toronto medi spas — each vetted personally, against standards most directories never check."
+          lede="A short, curated circle of Toronto medi spas — each vetted personally."
         />
-
-        <ol className="grid-3 mt-4" style={{ listStyle: "none" }}>
-          {steps.map((s, i) => (
-            <Reveal as="li" key={s.n} delay={120 + i * 110} className="step">
-              <span className="hairline-draw" aria-hidden="true" />
-              <p className="step-num" aria-hidden="true">
-                {s.n}
-              </p>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </Reveal>
-          ))}
-        </ol>
 
         <Reveal as="p" className="disclosure mt-4">
           Disclosure: partner spas may pay Jenny a referral fee when you book through her. It never
@@ -90,32 +62,42 @@ export default function Partners() {
             <p className="eyebrow">Founding partner — in discussion</p>
             <h3 className="display-sm mt-2">Skinlab Medispa</h3>
             <p className="lede mt-2">
-              North York, Toronto — a full-spectrum medi spa offering injectables, ultrasound and
-              radiofrequency tightening, picosecond laser, Hydrafacial, and medical-grade peels.
-              Profile and practitioner details to be confirmed on partnership signing.
-            </p>
-            <p className="partner-note mt-2">
-              Draft placeholder — final profile pending partnership confirmation.
+              North York, Toronto. Full profile on partnership signing.
             </p>
           </div>
         </Reveal>
 
-        <div className="block-gap">
-          <Reveal as="p" className="eyebrow chrome">
-            How spas are vetted
-          </Reveal>
-          <div className="grid-4 mt-3">
-            {criteria.map((c, i) => (
-              <Reveal key={c.n} delay={i * 100} className="criterion">
-                <p className="numeral" aria-hidden="true">
-                  {c.n}
-                </p>
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
-              </Reveal>
-            ))}
+        <Reveal className="mt-4">
+          <div className={`acc-item${open ? " is-open" : ""}`}>
+            <h3>
+              <button
+                type="button"
+                className="acc-trigger"
+                aria-expanded={open}
+                aria-controls="vetting-panel"
+                onClick={() => setOpen(!open)}
+              >
+                <span>How spas are vetted</span>
+                <span className="acc-icon" aria-hidden="true" />
+              </button>
+            </h3>
+            <div id="vetting-panel" role="region" className="acc-panel" inert={!open}>
+              <div className="acc-inner">
+                <div className="grid-4 mt-3">
+                  {criteria.map((c) => (
+                    <div key={c.n} className="criterion">
+                      <p className="numeral" aria-hidden="true">
+                        {c.n}
+                      </p>
+                      <h3>{c.title}</h3>
+                      <p>{c.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <Reveal className="mt-4">
           <a href="#consult" className="quiet-link">

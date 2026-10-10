@@ -4,7 +4,6 @@ export const site = {
   brandLine: "Beauty Consultant",
   tagline: "Independent skincare guidance, privately given.",
   venue: {
-    name: "St. Regis Hotel and Residences",
     address: "311 Bay St., 32nd floor",
     city: "Toronto",
     blurb:
@@ -36,4 +35,4 @@ export const site = {
   },
 };
 
-export const VENUE_LINE = `${site.venue.name}, ${site.venue.address}, ${site.venue.city}`;
+export const VENUE_LINE = `${site.venue.address}, ${site.venue.city}`;

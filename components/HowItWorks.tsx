@@ -7,17 +7,17 @@ const steps = [
   {
     n: "I",
     title: "You share",
-    body: "Your concerns, your history, your goals — in the quiz, the booking form, or across the table.",
+    body: "Your concerns, history, and goals — in the quiz, the form, or in person.",
   },
   {
     n: "II",
     title: "Jenny advises",
-    body: "One private, unhurried consultation. The treatments that suit your skin — and the ones to leave alone.",
+    body: "One private consultation. What suits your skin — and what to skip.",
   },
   {
     n: "III",
     title: "You're matched",
-    body: "A vetted Toronto medi spa and the right practitioner for your plan. Jenny stays in your corner.",
+    body: "The right Toronto medi spa and practitioner for your plan.",
   },
 ];
 
@@ -29,7 +29,6 @@ export default function HowItWorks() {
           id="how-title"
           eyebrow="How it works"
           title="Guidance first. Everything else after."
-          lede="Designed around you, not a treatment menu. Jenny listens, translates, and matches — so you walk into every room informed."
         />
         <ol className="grid-3 mt-4" style={{ listStyle: "none" }}>
           {steps.map((s, i) => (

@@ -27,8 +27,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="lede line-reveal" style={line(3)}>
-            Honest, unhurried advice from someone with nothing to sell. Jenny listens, explains,
-            then guides you to the Toronto medi spa that suits your plan.
+            Honest, unhurried advice from someone with nothing to sell.
           </p>
           <span className="line-reveal" style={line(4)}>
             <a href="#consult" className="quiet-link hero-cta">
@@ -42,8 +41,8 @@ export default function Hero() {
 
         <div className="hero-portrait curtain-reveal" style={line(2)}>
           <Photo
-            src="/images/hero.jpg"
-            alt="A clear glass serum bottle with a chrome collar, resting on travertine against a warm beige wall"
+            src="/images/jenny-portrait.jpg"
+            alt="Portrait of Jenny Kim, independent beauty consultant"
             ratio="45"
             sizes="(max-width: 900px) min(440px, 92vw), 40vw"
             parallax={0.05}

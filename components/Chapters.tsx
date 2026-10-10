@@ -96,7 +96,7 @@ export default function Chapters() {
           id="guides-title"
           eyebrow="Treatment guides"
           title="Understanding is the first treatment."
-          lede="Twenty guides in plain language — what each treatment does, what it asks of you, and who it truly suits."
+          lede="Twenty guides, in plain language."
         />
 
         <Reveal delay={150} className="guides-strip">

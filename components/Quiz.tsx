@@ -117,9 +117,7 @@ export default function Quiz() {
                 </h2>
                 <span className="hairline-draw mt-3" style={{ width: 56 }} aria-hidden="true" />
                 <p className="lede mt-3">
-                  A few honest questions about your concerns and the downtime your life allows.
-                  You&apos;ll receive the guides worth reading first — matched to you, never to a
-                  sales target.
+                  A few questions. Get the guides worth reading first — matched to you.
                 </p>
                 <div className="quiz-actions">
                   <button type="button" className="quiet-link text-btn" onClick={() => setStep(1)}>
