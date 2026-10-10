@@ -8,7 +8,7 @@ export const site = {
     address: "311 Bay St., 32nd floor",
     city: "Toronto",
     blurb:
-      "Every consultation takes place in a private suite at the St. Regis Hotel and Residences — unhurried, discreet, and entirely about you.",
+      "Private consultations by appointment.",
   },
   // Extensible category system: skincare now; hair, nail, fashion, travel later.
   categories: [
@@ -18,11 +18,15 @@ export const site = {
     { slug: "fashion", name: "Style", active: false },
     { slug: "travel", name: "Travel", active: false },
   ],
+  // Section anchors, in page order. #top (wordmark) and #consult (CTA) are linked separately.
   nav: [
-    { href: "/guides", label: "Guides" },
-    { href: "/quiz", label: "Skin Quiz" },
-    { href: "/about", label: "About" },
-    { href: "/partners", label: "Partners" },
+    { href: "#how", label: "Approach" },
+    { href: "#guides", label: "Guides" },
+    { href: "#quiz", label: "Skin Quiz" },
+    { href: "#about", label: "About" },
+    { href: "#partners", label: "Partners" },
+    { href: "#faq", label: "FAQ" },
+    { href: "#contact", label: "Contact" },
   ],
   contact: {
     // PLACEHOLDERS — replace with real details before launch

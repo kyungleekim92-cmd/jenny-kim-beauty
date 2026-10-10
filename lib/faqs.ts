@@ -10,7 +10,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "What happens in a consultation?",
-    a: "You meet Jenny privately at the St. Regis Hotel and Residences (311 Bay St., 32nd floor, Toronto). She reviews your skin, history, and goals, explains which treatments may suit you — and which to avoid — then matches you with the right partner spa and practitioner for your plan.",
+    a: "You meet Jenny privately for your consultation at 311 Bay St., 32nd floor, Toronto. She reviews your skin, history, and goals, explains which treatments may suit you — and which to avoid — then matches you with the right partner spa and practitioner for your plan.",
   },
   {
     q: "How much does a consultation cost?",

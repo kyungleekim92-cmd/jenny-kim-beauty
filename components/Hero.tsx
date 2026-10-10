@@ -1,0 +1,54 @@
+"use client";
+
+import { type CSSProperties } from "react";
+import { useScrolledPast } from "@/components/motion";
+import Photo from "@/components/Photo";
+
+const line = (i: number) => ({ "--i": i }) as CSSProperties;
+
+export default function Hero() {
+  const scrolled = useScrolledPast(24);
+
+  return (
+    <section id="top" className="hero">
+      <div className="wrap hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow chrome line-reveal" style={line(0)}>
+            Independent skincare guidance — Toronto
+          </p>
+          <h1 className="display">
+            <span className="line-reveal" style={line(1)}>
+              Know your skin
+            </span>
+            <span className="line-reveal" style={line(2)}>
+              before you <em>treat</em> it.
+            </span>
+          </h1>
+          <p className="lede line-reveal" style={line(3)}>
+            Honest, unhurried advice from someone with nothing to sell. Jenny listens, explains,
+            then guides you to the Toronto medi spa that suits your plan.
+          </p>
+          <span className="line-reveal" style={line(4)}>
+            <a href="#consult" className="quiet-link hero-cta">
+              Reserve your hour
+            </a>
+          </span>
+        </div>
+
+        <div className="hero-portrait line-reveal" style={line(2)}>
+          <Photo
+            src="/images/hero.jpg"
+            alt="A clear glass serum bottle with a chrome collar, resting on travertine against a warm beige wall"
+            ratio="45"
+            sizes="(max-width: 900px) min(440px, 92vw), 40vw"
+            parallax={0.05}
+            drift
+            eager
+          />
+        </div>
+      </div>
+
+      <span className={`scroll-cue${scrolled ? " is-hidden" : ""}`} aria-hidden="true" />
+    </section>
+  );
+}
