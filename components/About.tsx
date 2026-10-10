@@ -38,50 +38,63 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="section band-cream2" aria-labelledby="about-title">
+    <section id="about" className="section band-cream2 about" aria-labelledby="about-title">
       <div className="wrap">
-        <div className="grid-2 about-grid">
-          <Reveal>
-            <Photo
-              src="/images/ritual.jpg"
-              alt="Hands warming a little cream between the fingertips, over soft natural linen"
-              ratio="45"
-              sizes="(max-width: 860px) min(440px, 92vw), 46vw"
-              parallax={0.05}
-              className="about-portrait"
-            />
+        <header className="about-masthead center">
+          <Reveal as="p" className="eyebrow">
+            About Jenny
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="wordmark-xl" aria-hidden="true">
+              Jenny Kim
+            </p>
+          </Reveal>
+        </header>
+
+        <div className="about-feature">
+          <Reveal className="about-figure">
+            <figure>
+              <Photo
+                src="/images/jenny-portrait.jpg"
+                alt="Portrait of Jenny Kim in a black turtleneck against a soft grey backdrop"
+                ratio="45"
+                sizes="(max-width: 860px) min(560px, 92vw), 50vw"
+                className="about-portrait"
+              />
+              <figcaption className="about-caption">
+                <span>Jenny Kim</span>
+                <span>Independent beauty consultant, Toronto</span>
+              </figcaption>
+            </figure>
           </Reveal>
 
           <div className="about-copy">
-            <Reveal as="p" className="eyebrow chrome">
-              About Jenny
-            </Reveal>
-            <Reveal as="h2" delay={100} className="display-sm mt-2">
+            <Reveal as="h2" className="display-sm">
               <span id="about-title">
                 Compassion, candour, and nothing to <em>sell</em>.
               </span>
             </Reveal>
-            <Reveal delay={200}>
+            <Reveal delay={120}>
               <span className="hairline-draw section-rule" aria-hidden="true" />
             </Reveal>
-            <Reveal as="p" delay={300} className="lede mt-3">
+            <Reveal as="p" delay={240} className="lede mt-3">
               Jenny Kim is an independent beauty consultant in Toronto. She doesn&apos;t perform
               treatments and doesn&apos;t represent any clinic. Her advice is independent — she
               recommends only what she would choose for her own skin.
             </Reveal>
-            <Reveal as="p" delay={400} className="body-narrow mt-2">
+            <Reveal as="p" delay={340} className="body-narrow mt-2">
               After years of navigating the aesthetic world herself — the consultations, the
               conflicting advice, the treatments that overpromised — Jenny built the service she
               wished existed: one honest expert, in your corner, translating an entire industry into
               a plan made for your skin.
             </Reveal>
-            <Reveal as="p" delay={500} className="about-belief mt-3">
+            <Reveal as="p" delay={440} className="about-belief">
               Your skin goes everywhere you go. It deserves to be understood before it is treated.
             </Reveal>
           </div>
         </div>
 
-        <div className="does mt-4">
+        <div className="does block-gap">
           <Reveal>
             <h3 className="eyebrow chrome">She does</h3>
             <ul>
@@ -100,7 +113,7 @@ export default function About() {
           </Reveal>
         </div>
 
-        <div className="grid-3 mt-4" style={{ paddingTop: 24 }}>
+        <div className="grid-3 block-gap">
           {values.map((v, i) => (
             <Reveal key={v.n} delay={i * 110} className="value step">
               <span className="hairline-draw" aria-hidden="true" />

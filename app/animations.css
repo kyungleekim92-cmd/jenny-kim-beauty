@@ -451,11 +451,76 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
   .field-row { grid-template-columns: 1fr; }
 }
 
+/* ---------- editorial: wordmark statement, statement dividers, block spacing ---------- */
+/* Oversized, widely letterspaced serif name — the brand set as a statement.
+   Trailing letter-spacing is cancelled with an equal indent so it centres optically. */
+.wordmark-xl {
+  font-family: var(--font-serif), serif;
+  font-weight: 300;
+  font-size: clamp(2.3rem, 8vw, 7.25rem);
+  line-height: 1;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.block-gap { margin-top: clamp(80px, 10vw, 152px); }
+
+.statement { padding: clamp(72px, 9vw, 136px) 0; }
+.statement figure { display: flex; flex-direction: column; align-items: center; }
+.statement-rule { width: 56px; margin: 0 auto; transform-origin: center; }
+.statement-text { margin-top: clamp(32px, 4vw, 48px); }
+.statement-text p {
+  font-family: var(--font-serif), serif;
+  font-weight: 300;
+  font-size: clamp(1.9rem, 4.4vw, 3.6rem);
+  line-height: 1.18;
+  max-width: 22ch;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+.statement-text em { font-style: italic; color: var(--chrome-deep); }
+.statement-sign {
+  margin-top: clamp(28px, 3.5vw, 40px);
+  font-family: var(--font-serif), serif;
+  font-size: 13px;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 /* ---------- about ---------- */
-.about-grid { align-items: start; }
-.about-portrait { will-change: transform; }
-.about-portrait .photo { box-shadow: 0 40px 70px -50px rgba(46, 42, 36, 0.3); }
-.about-belief { font-family: var(--font-serif), serif; font-style: italic; font-weight: 300; font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.4; color: var(--ink-soft); max-width: 34ch; }
+.about-masthead .wordmark-xl { margin-top: clamp(20px, 2.5vw, 32px); }
+.about-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(48px, 8vw, 128px);
+  align-items: end;
+  margin-top: clamp(64px, 8vw, 120px);
+}
+.about-portrait .photo { box-shadow: 0 50px 80px -60px rgba(46, 42, 36, 0.35); }
+.about-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+.about-copy { padding-bottom: clamp(0px, 3vw, 48px); }
+.about-belief {
+  font-family: var(--font-serif), serif; font-style: italic; font-weight: 300;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.4; color: var(--ink-soft); max-width: 34ch;
+  margin-top: clamp(40px, 5vw, 64px); padding-top: 28px; border-top: 1px solid var(--line);
+}
 .does { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
 .does h3 { margin-bottom: 14px; }
 .does ul { list-style: none; border-top: 1px solid var(--line); }
@@ -466,15 +531,17 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .value p:not(.numeral) { margin-top: 10px; color: var(--muted); font-size: 1rem; }
 @media (max-width: 860px) {
   .does { grid-template-columns: 1fr; }
-  .about-portrait { max-width: 440px; }
+  .about-feature { grid-template-columns: 1fr; }
+  .about-figure { max-width: 560px; }
+  .wordmark-xl { letter-spacing: 0.2em; text-indent: 0.2em; }
 }
 
 /* ---------- partners ---------- */
 .disclosure { font-size: 14px; color: var(--muted); max-width: 64ch; }
 .partner-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(40px, 6vw, 96px);
   align-items: center;
   padding: clamp(28px, 4vw, 56px);
   border-top: 1px solid var(--chrome);
@@ -494,15 +561,21 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .faq-trigger { font-family: var(--font-serif), serif; font-size: clamp(1.25rem, 2.2vw, 1.5rem); line-height: 1.3; }
 .faq-answer { padding: 0 0 30px; color: var(--muted); max-width: 62ch; }
 
-/* ---------- contact ---------- */
-.contact-grid { align-items: start; }
-.contact-rows { border-top: 1px solid var(--line); }
-.contact-row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
-.contact-row dt { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 500; flex-shrink: 0; }
-.contact-row dd { font-family: var(--font-serif), serif; font-size: 1.25rem; text-align: right; overflow-wrap: anywhere; }
-.contact-row a { text-decoration: none; }
-.contact-small { font-size: 13px; color: var(--muted); }
-.contact-note { color: var(--muted); font-size: 1rem; }
+/* ---------- contact (quiet, factual) ---------- */
+.contact-block { margin-top: clamp(64px, 8vw, 112px); }
+.contact-facts {
+  display: grid;
+  grid-template-columns: 1.4fr 1.2fr 1fr 1fr;
+  gap: 32px;
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+}
+.contact-facts dt { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.contact-facts dd { margin-top: 12px; font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
+.contact-facts a { text-decoration: none; }
+.contact-small { font-size: 13px; color: var(--muted); margin-top: 40px; }
+@media (max-width: 960px) { .contact-facts { grid-template-columns: 1fr 1fr; row-gap: 40px; } }
+@media (max-width: 560px) { .contact-facts { grid-template-columns: 1fr; row-gap: 28px; } }
 
 /* ---------- footer ---------- */
 .footer { padding: clamp(64px, 8vw, 104px) 0 40px; }

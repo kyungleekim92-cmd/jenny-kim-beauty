@@ -2,65 +2,79 @@
 
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
-import { site, VENUE_LINE } from "@/lib/site";
+import { site } from "@/lib/site";
 
 // PLACEHOLDERS — site.contact values are not final; replace in lib/site.ts before launch.
-const rows = [
-  { label: "Email", value: site.contact.email, href: `mailto:${site.contact.email}` },
-  { label: "Phone", value: site.contact.phone, href: `tel:${site.contact.phone.replace(/[^\d+]/g, "")}` },
-  { label: "Instagram", value: "Follow on Instagram", href: site.contact.instagram },
-];
+const tel = `tel:${site.contact.phone.replace(/[^\d+]/g, "")}`;
 
 export default function Contact() {
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
-      <div className="wrap grid-2 contact-grid">
-        <div>
-          <SectionHead
-            id="contact-title"
-            eyebrow="Contact"
-            title={
-              <>
-                Begin with a <em>conversation</em>.
-              </>
-            }
-            lede="A question before you book, or simply hello. Jenny answers every message herself."
-          />
-        </div>
+      <div className="wrap">
+        <SectionHead
+          id="contact-title"
+          eyebrow="Contact"
+          title={
+            <>
+              Begin with a <em>conversation</em>.
+            </>
+          }
+          lede="A question before you book, or simply hello. Jenny answers every message herself."
+        />
 
-        <div>
-          <Reveal delay={200}>
-            <dl className="contact-rows">
-              {rows.map((r) => (
-                <div className="contact-row" key={r.label}>
-                  <dt>{r.label}</dt>
-                  <dd>
-                    <a
-                      href={r.href}
-                      className="underline-draw"
-                      {...(r.label === "Instagram" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    >
-                      {r.value}
-                    </a>
-                  </dd>
-                </div>
-              ))}
-              <div className="contact-row">
-                <dt>Address</dt>
-                <dd>{VENUE_LINE}</dd>
-              </div>
-            </dl>
-            <p className="contact-small mt-1">
-              Placeholder details — to be confirmed before launch. Consultations by appointment.
-            </p>
-          </Reveal>
-          <Reveal delay={300} className="mt-3">
-            <p className="contact-note">Jenny replies within one business day.</p>
-            <a href="#consult" className="btn-outline mt-3">
-              Reserve your hour
-            </a>
-          </Reveal>
-        </div>
+        <Reveal delay={200} className="contact-block">
+          <dl className="contact-facts">
+            <div>
+              <dt>Address</dt>
+              <dd>
+                {site.venue.name}
+                <br />
+                {site.venue.address}
+                <br />
+                {site.venue.city}
+              </dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href={`mailto:${site.contact.email}`} className="underline-draw">
+                  {site.contact.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>
+                <a href={tel} className="underline-draw">
+                  {site.contact.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>Instagram</dt>
+              <dd>
+                <a
+                  href={site.contact.instagram}
+                  className="underline-draw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Follow on Instagram
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <p className="contact-small">
+            Placeholder details — to be confirmed before launch. Consultations by appointment.
+            Jenny replies within one business day.
+          </p>
+        </Reveal>
+
+        <Reveal delay={300} className="mt-4">
+          <a href="#consult" className="quiet-link">
+            Reserve your hour
+          </a>
+        </Reveal>
       </div>
     </section>
   );

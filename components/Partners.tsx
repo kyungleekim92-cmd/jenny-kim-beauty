@@ -78,12 +78,13 @@ export default function Partners() {
           changes what you pay, and every client is told before any referral is made.
         </Reveal>
 
-        <Reveal className="band-cream2 partner-panel mt-4">
+        <Reveal className="band-cream2 partner-panel block-gap">
           <Photo
             src="/images/spa.jpg"
             alt="A folded white towel, a smooth grey stone and a single white orchid on a linen treatment bed"
             ratio="11"
-            sizes="(max-width: 860px) 84vw, 40vw"
+            sizes="(max-width: 860px) 84vw, 50vw"
+            parallax={0.03}
           />
           <div>
             <p className="eyebrow">Founding partner — in discussion</p>
@@ -99,7 +100,7 @@ export default function Partners() {
           </div>
         </Reveal>
 
-        <div className="mt-4">
+        <div className="block-gap">
           <Reveal as="p" className="eyebrow chrome">
             How spas are vetted
           </Reveal>
