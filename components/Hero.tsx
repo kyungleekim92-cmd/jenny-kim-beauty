@@ -17,11 +17,13 @@ export default function Hero() {
             Independent skincare guidance — Toronto
           </p>
           <h1 className="display">
-            <span className="line-reveal" style={line(1)}>
-              Know your skin
+            <span className="mask-line" style={line(1)}>
+              <span className="mask-inner">Know your skin</span>
             </span>
-            <span className="line-reveal" style={line(2)}>
-              before you <em>treat</em> it.
+            <span className="mask-line" style={line(2)}>
+              <span className="mask-inner">
+                before you <em>treat</em> it.
+              </span>
             </span>
           </h1>
           <p className="lede line-reveal" style={line(3)}>
@@ -30,12 +32,15 @@ export default function Hero() {
           </p>
           <span className="line-reveal" style={line(4)}>
             <a href="#consult" className="quiet-link hero-cta">
-              Reserve your hour
+              Reserve your hour{" "}
+              <span aria-hidden="true" className="cta-arrow">
+                →
+              </span>
             </a>
           </span>
         </div>
 
-        <div className="hero-portrait line-reveal" style={line(2)}>
+        <div className="hero-portrait curtain-reveal" style={line(2)}>
           <Photo
             src="/images/hero.jpg"
             alt="A clear glass serum bottle with a chrome collar, resting on travertine against a warm beige wall"
