@@ -117,6 +117,15 @@ export default function Nav({ lang, path, home = true }: NavProps) {
         aria-hidden={!open}
         inert={!open}
       >
+        <a
+          href={home ? "#top" : localePath(lang, "/")}
+          className="menu-wordmark"
+          onClick={close}
+          style={{ "--i": 0 } as CSSProperties}
+        >
+          {site.brand}
+          <small>{site.brandLine}</small>
+        </a>
         {items.map((item, i) => (
           <a
             key={item.href}
