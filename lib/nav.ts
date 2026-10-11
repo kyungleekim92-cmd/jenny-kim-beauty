@@ -10,7 +10,7 @@ const koLabels: Record<string, string> = {
   "#partners": "파트너",
   "#faq": "FAQ",
   "#contact": "문의",
-  "/shop": "숍",
+  "/shop": "추천 제품",
 };
 
 // Primary navigation: the home-page sections, plus "Shop" (/shop) before Contact once the

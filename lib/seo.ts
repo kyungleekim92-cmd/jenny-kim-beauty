@@ -64,7 +64,7 @@ export function guideDescription(t: Treatment, lang: Lang = "en"): string {
 export function concernDescription(c: Condition, lang: Lang = "en"): string {
   const lead = firstSentence(c.overview[0]);
   return lang === "ko"
-    ? `${lead} 토론토에서 선택할 수 있는 시술을 제가 독립적으로 안내해 드려요.`
+    ? `${lead} 토론토에서 받을 수 있는 시술을 제가 특정 업체에 치우치지 않고 안내해 드려요.`
     : `${lead} Treatment options in Toronto, explained independently by Jenny Kim.`;
 }
 

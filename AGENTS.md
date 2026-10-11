@@ -51,6 +51,9 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
   Same compliance rules: Jenny is an independent consultant, not a medical practitioner;
   캐나다 보건부(Health Canada), never the FDA. On this site "PRF" means
   pulsed radiofrequency (펄스 고주파), not platelet-rich fibrin.
+- Korean must read as native Korean, never as a translation. Follow
+  `.claude/skills/korean-voice/SKILL.md` for any Korean text (examples of what to avoid and the
+  words Korean clinics actually use).
 - Form emails stay in English for the owner and include `Language: Korean (한국어)` for Korean
   submissions.
 

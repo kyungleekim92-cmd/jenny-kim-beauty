@@ -26,20 +26,20 @@ const copy = {
       " Olive Young's 5% discount is set by Olive Young and may change. Olive Young Global ships from Korea; duties may apply.",
   },
   ko: {
-    crumb: "디 에디트",
-    eyebrow: "디 에디트 · 숍",
+    crumb: "추천 제품",
+    eyebrow: "추천 제품",
     title: (
       <>
-        정성껏 고른 <em>짧은</em> 셀렉션.
+        제가 <em>아껴</em> 쓰는 제품들.
       </>
     ),
-    lede: "제가 추천하는 스킨케어예요.",
+    lede: "제가 직접 써 보고 추천하는 스킨케어예요.",
     ledeOliveYoung: " 제 올리브영 링크로 구매하시면 5% 할인돼요.",
     shopAt: (store: string) => `${store}에서 구매`,
     notes:
-      "제품 소개는 제 개인적인 추천이고 의학적 조언이 아니에요. 새 제품은 먼저 패치 테스트를 해 보시고, 민감한 성분이 있다면 전성분을 확인해 주세요.",
+      "제품 추천은 제 개인적인 의견이고, 의학적 조언이 아니에요. 새 제품은 먼저 패치 테스트를 해 보시고, 피부가 예민하시면 전성분을 꼭 확인해 주세요.",
     oliveYoungNote:
-      " 올리브영 5% 할인은 올리브영 정책이라 바뀔 수 있어요. 올리브영 글로벌은 한국에서 발송돼서 관세가 붙을 수 있어요.",
+      " 5% 할인은 올리브영 정책에 따라 바뀔 수 있어요. 올리브영 글로벌은 한국에서 발송되기 때문에 관세가 붙을 수 있어요.",
   },
 };
 
