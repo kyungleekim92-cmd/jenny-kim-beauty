@@ -9,7 +9,7 @@
 export const amazon = {
   store: "https://www.amazon.ca",
   // Amazon Associates tracking ID (Store ID), e.g. "byjennykim-20". Amazon links need it.
-  tag: "",
+  tag: "byjennykim-20",
 };
 
 export interface ShopProduct {
