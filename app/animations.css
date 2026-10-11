@@ -636,6 +636,12 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .shop-name { font-family: var(--font-serif), serif; font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1.2; margin-top: 8px; }
 .shop-note { margin-top: 12px; color: var(--ink-soft); max-width: 60ch; }
 .shop-links { display: flex; flex-wrap: wrap; gap: 14px 32px; margin-top: 18px; }
+.shop-item.has-photo { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 40px; align-items: center; }
+.shop-photo { width: 100%; }
+@media (max-width: 560px) {
+  .shop-item.has-photo { grid-template-columns: 1fr; gap: 20px; }
+  .shop-photo { max-width: 280px; }
+}
 .shop-perk { display: block; margin-top: 6px; font-size: 11px; letter-spacing: 0.08em; text-transform: none; color: var(--chrome-deep); font-weight: 400; }
 
 /* ---------- language toggle (EN | KO) ---------- */
