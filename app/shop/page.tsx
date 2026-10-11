@@ -61,7 +61,7 @@ export default function ShopPage() {
                         rel="sponsored noopener noreferrer"
                       >
                         Shop at {l.store} <span aria-hidden="true">→</span>
-                        {l.perk && <span className="shop-perk">{l.perk}</span>}
+                        <span className="shop-perk">{l.perk}</span>
                       </a>
                     ))}
                   </div>
