@@ -9,7 +9,7 @@ const line = (i: number) => ({ "--i": i }) as CSSProperties;
 
 const copy = {
   en: {
-    eyebrow: "Independent skincare guidance",
+    eyebrow: "Skincare consultations",
     city: "Toronto",
     line1: "Know your skin",
     line2: (
@@ -22,7 +22,7 @@ const copy = {
     alt: "Portrait of Jenny Kim, independent beauty consultant",
   },
   ko: {
-    eyebrow: "독립 스킨케어 컨설팅",
+    eyebrow: "스킨케어 상담",
     city: "토론토",
     line1: "시술보다 먼저,",
     line2: (
