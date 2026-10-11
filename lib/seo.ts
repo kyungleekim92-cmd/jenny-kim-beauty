@@ -3,7 +3,12 @@
 import { faqs } from "@/lib/faqs";
 import { site } from "@/lib/site";
 import { treatments, type Treatment } from "@/lib/treatments";
-import { conditions } from "@/lib/conditions";
+import { conditions, type Condition } from "@/lib/conditions";
+
+// Content review date shown on guides and used in the sitemap. Bump when content changes.
+// A fixed value: new Date() during prerender is disallowed with cacheComponents.
+export const REVIEWED = "2026-10-11";
+export const REVIEWED_LABEL = "October 2026";
 
 export const abs = (path = "/") => new URL(path, site.url).toString();
 
@@ -14,13 +19,29 @@ const ids = {
 };
 
 export const guidePath = (t: Treatment) => `/guides/${t.slug}`;
+export const concernPath = (c: Condition) => `/concerns/${c.page}`;
 
 export const sortedTreatments = [...treatments].sort((a, b) => a.number.localeCompare(b.number));
 
-export function concernNames(t: Treatment): string[] {
+export function concernsFor(t: Treatment): Condition[] {
   return t.concerns
-    .map((slug) => conditions.find((c) => c.slug === slug)?.name)
-    .filter((n): n is string => Boolean(n));
+    .map((slug) => conditions.find((c) => c.slug === slug))
+    .filter((c): c is Condition => Boolean(c));
+}
+
+export const concernNames = (t: Treatment) => concernsFor(t).map((c) => c.name);
+
+export function treatmentsFor(c: Condition): Treatment[] {
+  return c.treatments
+    .map((slug) => treatments.find((t) => t.slug === slug))
+    .filter((t): t is Treatment => Boolean(t));
+}
+
+export const AUTHOR_BIO =
+  "Jenny Kim is an independent beauty consultant in Toronto. She helps clients understand aesthetic treatments before they commit, builds considered plans, and introduces them to vetted medi spas and licensed practitioners.";
+
+export function concernDescription(c: Condition): string {
+  return `${firstSentence(c.overview[0])} Treatment options in Toronto, explained independently by Jenny Kim.`;
 }
 
 // Up to three guides that share a concern with `t`, in guide order.
@@ -113,6 +134,9 @@ export function guideJsonLd(t: Treatment, title: string) {
         author: { "@id": ids.person },
         publisher: { "@id": ids.business },
         about: { "@type": "MedicalProcedure", name: t.name },
+        reviewedBy: { "@id": ids.person },
+        lastReviewed: REVIEWED,
+        dateModified: REVIEWED,
         breadcrumb: { "@id": `${url}#breadcrumb` },
       },
       {
@@ -155,5 +179,49 @@ export function guidesIndexJsonLd() {
         url: abs(guidePath(t)),
       })),
     },
+  };
+}
+
+export function concernJsonLd(c: Condition, title: string) {
+  const url = abs(concernPath(c));
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: title,
+        description: concernDescription(c),
+        inLanguage: "en-CA",
+        isPartOf: { "@id": ids.website },
+        author: { "@id": ids.person },
+        publisher: { "@id": ids.business },
+        reviewedBy: { "@id": ids.person },
+        lastReviewed: REVIEWED,
+        dateModified: REVIEWED,
+        about: { "@type": "Thing", name: c.name },
+        mainEntity: {
+          "@type": "ItemList",
+          name: `Treatments often considered for ${c.name}`,
+          itemListElement: treatmentsFor(c).map((t, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: t.name,
+            url: abs(guidePath(t)),
+          })),
+        },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: abs("/") },
+          { "@type": "ListItem", position: 2, name: "Treatment guides", item: abs("/guides") },
+          { "@type": "ListItem", position: 3, name: c.name, item: url },
+        ],
+      },
+    ],
   };
 }

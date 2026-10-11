@@ -17,8 +17,8 @@ export const faqs: Faq[] = [
     a: "Consultation pricing will be confirmed when you book. If you proceed with a referred treatment at a partner spa, your consultation fee is credited toward your plan. Treatment pricing itself is set by the partner spas.",
   },
   {
-    q: "Do you receive a commission from partner spas?",
-    a: "Yes — partner spas may pay Jenny a referral fee when you book through her. It never changes what you pay, and she only refers to spas she would trust with her own skin. This is disclosed to every client before any referral.",
+    q: "Are there benefits to booking through Jenny?",
+    a: "Often, yes. Introductions through Jenny may include partner privileges, such as preferred pricing or complimentary added services, depending on the spa and treatment. Jenny confirms what applies to your plan at your consultation.",
   },
   {
     q: "How are partner spas chosen?",

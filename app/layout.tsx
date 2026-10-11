@@ -27,6 +27,10 @@ export const metadata: Metadata = {
   title: { default: title, template: `%s | ${site.brand}` },
   description,
   alternates: { canonical: "/" },
+  verification: {
+    google: site.verification.google || undefined,
+    other: site.verification.bing ? { "msvalidate.01": site.verification.bing } : undefined,
+  },
   openGraph: {
     title,
     description,

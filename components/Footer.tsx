@@ -44,6 +44,14 @@ export default function Footer() {
             Back to top<span aria-hidden="true">↑</span>
           </a>
         </div>
+
+        <p className="fine-print">
+          Jenny Kim provides independent consultation and introductions only, and does not perform,
+          supervise or guarantee any treatment. Treatments are provided by independent licensed
+          practitioners, who are solely responsible for assessment, care and outcomes. Jenny Kim
+          accepts no liability for any treatment or its results. Partner privileges vary and are
+          subject to each provider&apos;s terms.
+        </p>
       </div>
     </footer>
   );

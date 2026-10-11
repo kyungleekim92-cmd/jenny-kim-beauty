@@ -4,7 +4,8 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { guidePath, guidesIndexJsonLd, sortedTreatments } from "@/lib/seo";
+import { concernPath, guidePath, guidesIndexJsonLd, sortedTreatments } from "@/lib/seo";
+import { conditions } from "@/lib/conditions";
 
 const title = "Aesthetic Treatment Guides — Botox, Fillers, Lasers & More";
 const description =
@@ -51,6 +52,21 @@ export default function GuidesIndex() {
                 </li>
               ))}
             </ul>
+
+            <section className="guide-block" aria-labelledby="by-concern-title">
+              <h2 id="by-concern-title" className="eyebrow chrome">
+                Browse by concern
+              </h2>
+              <ul className="concern-links mt-2">
+                {conditions.map((c) => (
+                  <li key={c.slug}>
+                    <Link href={concernPath(c)} className="underline-draw">
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
         </section>
       </main>

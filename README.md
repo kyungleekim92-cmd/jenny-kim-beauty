@@ -22,9 +22,12 @@ Business details (domain, address, Instagram, nav) live in `lib/site.ts`.
 ## Search (SEO / AI answer engines)
 
 - `/guides` and `/guides/[slug]` — one indexable page per treatment, generated from `lib/treatments.ts`.
+- `/concerns/[page]` — one page per skin concern (overview + treatment options), from `lib/conditions.ts`.
 - `lib/seo.ts` — schema.org JSON-LD (business, Jenny, FAQs, guide pages) and shared helpers.
 - `app/sitemap.ts`, `app/robots.ts`, and `app/llms.txt/route.ts` (plain-language summary for AI assistants).
-- Bump `UPDATED` in `app/sitemap.ts` when guide content changes.
+- Bump `REVIEWED` / `REVIEWED_LABEL` in `lib/seo.ts` when guide content changes (shown on pages and in the sitemap).
+- Google / Bing ownership: paste each console's HTML-tag code into `site.verification` in `lib/site.ts`.
+- After deploying new or changed pages, run `node scripts/indexnow.mjs` to notify Bing (and other IndexNow engines).
 Live at https://www.byjennykim.com (bare domain redirects to www; registered at GoDaddy, nameservers on Vercel).
 
 ## Forms → Jenny's inbox

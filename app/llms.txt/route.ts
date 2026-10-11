@@ -1,6 +1,7 @@
 // /llms.txt — a plain-language summary for AI assistants (https://llmstxt.org).
 import { faqs } from "@/lib/faqs";
-import { abs, concernNames, guidePath, sortedTreatments } from "@/lib/seo";
+import { conditions } from "@/lib/conditions";
+import { abs, concernNames, concernPath, guidePath, sortedTreatments, treatmentsFor } from "@/lib/seo";
 import { DISCLAIMER } from "@/lib/treatments";
 import { site, VENUE_LINE } from "@/lib/site";
 
@@ -10,6 +11,9 @@ function body(): string {
       const concerns = concernNames(t);
       return `- [${t.name}](${abs(guidePath(t))}): ${t.tagline}${concerns.length ? ` Often considered for: ${concerns.join(", ")}.` : ""}`;
     })
+    .join("\n");
+  const concerns = conditions
+    .map((c) => `- [${c.name}](${abs(concernPath(c))}): ${c.overview[0]} Options: ${treatmentsFor(c).map((t) => t.name).join(", ")}.`)
     .join("\n");
   const qa = faqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n");
 
@@ -26,6 +30,10 @@ ${DISCLAIMER}
 ## Treatment guides
 
 ${guides}
+
+## Skin concerns
+
+${concerns}
 
 ## Frequently asked questions
 

@@ -314,7 +314,9 @@ export default function Booking() {
                         />
                         <span>
                           I agree to be contacted about my consultation and — only with my permission
-                          at the appointment — to have relevant details shared with a partner spa. *
+                          at the appointment — to have relevant details shared with a partner spa. I
+                          understand Jenny provides consultation and introductions only, and that any
+                          treatment is the responsibility of the provider who performs it. *
                         </span>
                       </label>
                     </fieldset>

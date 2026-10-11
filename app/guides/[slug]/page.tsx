@@ -8,7 +8,11 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { DISCLAIMER, treatments } from "@/lib/treatments";
 import {
-  concernNames,
+  AUTHOR_BIO,
+  REVIEWED,
+  REVIEWED_LABEL,
+  concernPath,
+  concernsFor,
   guideDescription,
   guideJsonLd,
   guidePath,
@@ -37,7 +41,7 @@ export async function generateMetadata({ params }: PageProps<"/guides/[slug]">):
 export default async function GuidePage({ params }: PageProps<"/guides/[slug]">) {
   const t = find((await params).slug);
   if (!t) notFound();
-  const concerns = concernNames(t);
+  const concerns = concernsFor(t);
   const related = relatedGuides(t);
 
   return (
@@ -60,7 +64,8 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
               <h1 className="display-sm mt-2">{t.name}</h1>
               <p className="chapter-lead mt-3">{t.tagline}</p>
               <p className="guide-byline mt-3">
-                An independent guide by Jenny Kim, beauty consultant in Toronto.
+                An independent guide by Jenny Kim, beauty consultant in Toronto · Reviewed{" "}
+                <time dateTime={REVIEWED}>{REVIEWED_LABEL}</time>
               </p>
             </header>
 
@@ -89,7 +94,15 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
                 <h2 id="concerns-title" className="eyebrow chrome">
                   Often considered for
                 </h2>
-                <p className="mt-2">{concerns.join(" · ")}</p>
+                <ul className="concern-links mt-2">
+                  {concerns.map((c) => (
+                    <li key={c.slug}>
+                      <Link href={concernPath(c)} className="underline-draw">
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </section>
             )}
 
@@ -133,6 +146,14 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
                 </ul>
               </section>
             )}
+
+            <aside className="author-box guide-block" aria-label="About the author">
+              <p className="eyebrow">About the author</p>
+              <p className="mt-2">{AUTHOR_BIO}</p>
+              <Link href="/#about" className="quiet-link mt-2">
+                More about Jenny
+              </Link>
+            </aside>
 
             <p className="disclaimer guide-block">{DISCLAIMER}</p>
           </div>

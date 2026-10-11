@@ -45,9 +45,9 @@ export default function Partners() {
           lede="A handful of Toronto medi spas, each one vetted by Jenny personally."
         />
 
-        <Reveal as="p" className="disclosure mt-4">
-          Disclosure: partner spas may pay Jenny a referral fee when you book through her. It never
-          changes what you pay, and every client is told before any referral is made.
+        <Reveal as="p" className="privileges mt-4">
+          Introductions through Jenny may include partner privileges — preferred pricing or
+          complimentary added services, where offered.
         </Reveal>
 
         <Reveal className="band-cream2 partner-panel block-gap">
