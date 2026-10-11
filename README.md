@@ -12,6 +12,9 @@ npm run dev   # → http://localhost:3000
 
 Production check: `npm run build` and `npm run lint`.
 
+**Working on this repo (people or AI agents):** read `AGENTS.md` first. It holds the shared rules
+for every change (Claude Code loads it via `CLAUDE.md`; Codex reads it directly).
+
 ## Page sections (top to bottom, `app/page.tsx`)
 
 Hero → How it works → Treatment guides (`lib/treatments.ts`) → Skin quiz (`lib/conditions.ts`) →
@@ -28,6 +31,7 @@ Business details (domain, address, Instagram, nav) live in `lib/site.ts`.
 - Bump `REVIEWED` / `REVIEWED_LABEL` in `lib/seo.ts` when guide content changes (shown on pages and in the sitemap).
 - Google / Bing ownership: paste each console's HTML-tag code into `site.verification` in `lib/site.ts`.
 - After deploying new or changed pages, run `node scripts/indexnow.mjs` to notify Bing (and other IndexNow engines).
+
 Live at https://www.byjennykim.com (bare domain redirects to www; registered at GoDaddy, nameservers on Vercel).
 
 ## Forms → Jenny's inbox
@@ -44,7 +48,7 @@ message Jenny on Instagram instead of pretending the request went through.
 
 1. Web3Forms access key (above)
 2. Partner spa profiles once agreements are signed (`components/Partners.tsx`)
-3. Legal review of the referral-fee disclosure wording (Ontario)
+3. Legal review of the liability fine print and partner-privileges wording (Ontario)
 4. Footer year is hardcoded (`components/Footer.tsx`) — bump in January
 
 ## Notes
