@@ -8,20 +8,108 @@ import FormError from "@/components/FormError";
 import { conditions } from "@/lib/conditions";
 import { sendInquiry, type InquiryResult } from "@/lib/inquiry";
 import { treatments, type Treatment } from "@/lib/treatments";
+import type { Lang } from "@/lib/i18n";
+import { getConditions, getTreatments } from "@/lib/i18n/content";
 
 type Step = 0 | 1 | 2 | 3;
 type Downtime = "none" | "minimal" | "moderate" | "significant";
+const downtimeIds: Downtime[] = ["none", "minimal", "moderate", "significant"];
 
-const downtimeOptions: { id: Downtime; label: string }[] = [
-  { id: "none", label: "None — I need zero recovery" },
-  { id: "minimal", label: "Minimal — a day or two" },
-  { id: "moderate", label: "Moderate — up to a week" },
-  { id: "significant", label: "Significant — I'll plan around it" },
-];
+const copy = {
+  en: {
+    section: "Skin quiz",
+    downtime: {
+      none: "None — I need zero recovery",
+      minimal: "Minimal — a day or two",
+      moderate: "Moderate — up to a week",
+      significant: "Significant — I'll plan around it",
+    },
+    introTitle: (
+      <>
+        Two minutes. Your skin, <em>mapped</em>.
+      </>
+    ),
+    introLede: "A few questions. Get the guides worth reading first — matched to you.",
+    begin: "Begin",
+    q1Eyebrow: "Skin quiz — question 1 of 2",
+    q1: "What concerns you most?",
+    q1Aside: "Choose all that apply.",
+    q1Group: "Skin concerns",
+    continue: "Continue",
+    back: "← Back",
+    q2Eyebrow: "Skin quiz — question 2 of 2",
+    q2: "How much downtime can you accept?",
+    q2Aside: "Be honest — the right plan respects your real life.",
+    q2Group: "Acceptable downtime",
+    seeMatches: "See my matches",
+    resultsEyebrow: "Skin quiz — your reading list",
+    results: "Your matches.",
+    moleNote:
+      "A note on moles: anything changing, dark, or unusual needs a physician's assessment first. Jenny works on aesthetic concerns only and will redirect you when that's the right call.",
+    co2Note:
+      "We've set aside deeper resurfacing options since you preferred no downtime — mention it at your consultation if you reconsider.",
+    readGuide: "Read the guide",
+    noMatches:
+      "None of the guides fit zero downtime for this concern — Jenny can walk you through the options in person.",
+    keep: "Keep your matches",
+    thanks: (email: string) =>
+      `Thank you — Jenny will send your matches, with a personal note, to ${email}.`,
+    emailLabel: "Email address",
+    sending: "Sending…",
+    send: "Send my matches",
+    reserve: "Reserve your hour",
+    retake: "Retake the quiz",
+    alt: "A single golden drop of serum falling from a glass dropper",
+  },
+  ko: {
+    section: "스킨 퀴즈",
+    downtime: {
+      none: "없음 — 회복 기간이 전혀 없어야 해요",
+      minimal: "최소 — 하루 이틀 정도",
+      moderate: "보통 — 일주일 이내",
+      significant: "충분히 — 일정을 맞출 수 있어요",
+    },
+    introTitle: (
+      <>
+        2분이면, 내 피부를 <em>그려</em> 봅니다.
+      </>
+    ),
+    introLede: "몇 가지 질문에 답하시면, 먼저 읽어 볼 만한 가이드를 골라 드립니다.",
+    begin: "시작하기",
+    q1Eyebrow: "스킨 퀴즈 — 질문 1/2",
+    q1: "가장 신경 쓰이는 고민은 무엇인가요?",
+    q1Aside: "해당하는 항목을 모두 선택해 주세요.",
+    q1Group: "피부 고민",
+    continue: "다음",
+    back: "← 이전",
+    q2Eyebrow: "스킨 퀴즈 — 질문 2/2",
+    q2: "회복 기간은 어느 정도까지 괜찮으신가요?",
+    q2Aside: "솔직하게 답해 주세요. 좋은 플랜은 실제 생활을 존중합니다.",
+    q2Group: "가능한 회복 기간",
+    seeMatches: "결과 보기",
+    resultsEyebrow: "스킨 퀴즈 — 추천 가이드",
+    results: "당신을 위한 가이드.",
+    moleNote:
+      "점에 관한 안내: 모양이나 색이 변하거나 평소와 다른 점은 반드시 의사의 진료를 먼저 받으셔야 합니다. 제니는 미용 목적의 고민만 다루며, 필요한 경우 진료를 먼저 권해 드립니다.",
+    co2Note:
+      "회복 기간이 없기를 원하셔서 깊은 리서페이싱 시술은 제외했습니다. 생각이 바뀌시면 상담 때 말씀해 주세요.",
+    readGuide: "가이드 읽기",
+    noMatches:
+      "회복 기간 없이 가능한 가이드가 없습니다. 상담에서 제니가 가능한 선택지를 직접 안내해 드립니다.",
+    keep: "결과 받아 보기",
+    thanks: (email: string) => `감사합니다. 제니가 직접 쓴 메모와 함께 ${email}(으)로 결과를 보내 드립니다.`,
+    emailLabel: "이메일 주소",
+    sending: "보내는 중…",
+    send: "결과 받기",
+    reserve: "상담 예약하기",
+    retake: "다시 하기",
+    alt: "유리 스포이트에서 떨어지는 황금빛 세럼 한 방울",
+  },
+};
 
 // Selected conditions → unique treatment slugs (in condition order), minus CO2 when
 // no downtime is acceptable, capped at four.
-function matchTreatments(selected: string[], downtime: Downtime | null) {
+function matchTreatments(selected: string[], downtime: Downtime | null, list: Treatment[]) {
   const slugs: string[] = [];
   for (const cs of selected) {
     const c = conditions.find((x) => x.slug === cs);
@@ -30,7 +118,7 @@ function matchTreatments(selected: string[], downtime: Downtime | null) {
     });
   }
   let results = slugs
-    .map((s) => treatments.find((t) => t.slug === s))
+    .map((s) => list.find((t) => t.slug === s))
     .filter((t): t is Treatment => Boolean(t));
   const filteredCo2 = downtime === "none" && results.some((t) => t.slug === "co2-laser");
   if (downtime === "none") results = results.filter((t) => t.slug !== "co2-laser");
@@ -53,7 +141,9 @@ function readGuide(slug: string) {
   }
 }
 
-export default function Quiz() {
+export default function Quiz({ lang }: { lang: Lang }) {
+  const t = copy[lang];
+  const localConditions = getConditions(lang);
   const [step, setStep] = useState<Step>(0);
   const [selected, setSelected] = useState<string[]>([]);
   const [downtime, setDowntime] = useState<Downtime | null>(null);
@@ -90,7 +180,7 @@ export default function Quiz() {
     setStep(0);
   };
 
-  const { results, filteredCo2 } = matchTreatments(selected, downtime);
+  const { results, filteredCo2 } = matchTreatments(selected, downtime, getTreatments(lang));
   const showMoleNote = selected.includes("mole-removal");
 
   // Sends the visitor's matches to Jenny, who follows up personally from her own inbox.
@@ -99,15 +189,19 @@ export default function Quiz() {
     if (!email.includes("@") || sending) return;
     setSending(true);
     setError(null);
+    // Jenny's inbox stays in English; "Language" tells her which language to reply in.
     const result = await sendInquiry(
       `Skin quiz matches — ${email}`,
       {
         Email: email,
+        Language: lang === "ko" ? "Korean (한국어)" : "English",
         Concerns: selected
           .map((slug) => conditions.find((c) => c.slug === slug)?.name ?? slug)
           .join(", "),
-        "Downtime OK": downtimeOptions.find((o) => o.id === downtime)?.label ?? "",
-        Matches: results.map((t) => t.name).join(", ") || "None — wants to talk options through",
+        "Downtime OK": downtime ? copy.en.downtime[downtime] : "",
+        Matches:
+          results.map((r) => treatments.find((x) => x.slug === r.slug)?.name ?? r.slug).join(", ") ||
+          "None — wants to talk options through",
       },
       email,
     );
@@ -125,23 +219,21 @@ export default function Quiz() {
   );
 
   return (
-    <section id="quiz" ref={sectionRef} className="section band-deep quiz" aria-label="Skin quiz">
+    <section id="quiz" ref={sectionRef} className="section band-deep quiz" aria-label={t.section}>
       <div className="wrap quiz-grid">
         <Reveal>
           <div className="quiz-step" key={step}>
             {step === 0 && (
               <>
-                <p className="eyebrow">Skin quiz</p>
+                <p className="eyebrow">{t.section}</p>
                 <h2 ref={headingRef} tabIndex={-1} className="display-sm mt-2">
-                  Two minutes. Your skin, <em>mapped</em>.
+                  {t.introTitle}
                 </h2>
                 <span className="hairline-draw mt-3" style={{ width: 56 }} aria-hidden="true" />
-                <p className="lede mt-3">
-                  A few questions. Get the guides worth reading first — matched to you.
-                </p>
+                <p className="lede mt-3">{t.introLede}</p>
                 <div className="quiz-actions">
                   <button type="button" className="quiet-link text-btn" onClick={() => setStep(1)}>
-                    Begin
+                    {t.begin}
                   </button>
                 </div>
               </>
@@ -149,14 +241,14 @@ export default function Quiz() {
 
             {step === 1 && (
               <>
-                <p className="eyebrow">Skin quiz — question 1 of 2</p>
+                <p className="eyebrow">{t.q1Eyebrow}</p>
                 {progress}
                 <h2 ref={headingRef} tabIndex={-1} className="display-sm mt-3">
-                  What concerns you most?
+                  {t.q1}
                 </h2>
-                <p className="quiz-aside mt-2">Choose all that apply.</p>
-                <div className="chip-group mt-3" role="group" aria-label="Skin concerns">
-                  {conditions.map((c) => (
+                <p className="quiz-aside mt-2">{t.q1Aside}</p>
+                <div className="chip-group mt-3" role="group" aria-label={t.q1Group}>
+                  {localConditions.map((c) => (
                     <button
                       key={c.slug}
                       type="button"
@@ -176,10 +268,10 @@ export default function Quiz() {
                     disabled={selected.length === 0}
                     onClick={() => setStep(2)}
                   >
-                    Continue
+                    {t.continue}
                   </button>
                   <button type="button" className="text-btn back-btn" onClick={() => setStep(0)}>
-                    ← Back
+                    {t.back}
                   </button>
                 </div>
               </>
@@ -187,22 +279,22 @@ export default function Quiz() {
 
             {step === 2 && (
               <>
-                <p className="eyebrow">Skin quiz — question 2 of 2</p>
+                <p className="eyebrow">{t.q2Eyebrow}</p>
                 {progress}
                 <h2 ref={headingRef} tabIndex={-1} className="display-sm mt-3">
-                  How much downtime can you accept?
+                  {t.q2}
                 </h2>
-                <p className="quiz-aside mt-2">Be honest — the right plan respects your real life.</p>
-                <div className="chip-group mt-3" role="group" aria-label="Acceptable downtime">
-                  {downtimeOptions.map((d) => (
+                <p className="quiz-aside mt-2">{t.q2Aside}</p>
+                <div className="chip-group mt-3" role="group" aria-label={t.q2Group}>
+                  {downtimeIds.map((id) => (
                     <button
-                      key={d.id}
+                      key={id}
                       type="button"
                       className="chip"
-                      aria-pressed={downtime === d.id}
-                      onClick={() => setDowntime(d.id)}
+                      aria-pressed={downtime === id}
+                      onClick={() => setDowntime(id)}
                     >
-                      {d.label}
+                      {t.downtime[id]}
                     </button>
                   ))}
                 </div>
@@ -213,10 +305,10 @@ export default function Quiz() {
                     disabled={!downtime}
                     onClick={() => setStep(3)}
                   >
-                    See my matches
+                    {t.seeMatches}
                   </button>
                   <button type="button" className="text-btn back-btn" onClick={() => setStep(1)}>
-                    ← Back
+                    {t.back}
                   </button>
                 </div>
               </>
@@ -224,63 +316,51 @@ export default function Quiz() {
 
             {step === 3 && (
               <>
-                <p className="eyebrow">Skin quiz — your reading list</p>
+                <p className="eyebrow">{t.resultsEyebrow}</p>
                 {progress}
                 <h2 ref={headingRef} tabIndex={-1} className="display-sm mt-3">
-                  Your matches.
+                  {t.results}
                 </h2>
 
                 {showMoleNote && (
-                  <p className="quiz-note mt-3">
-                    A note on moles: anything changing, dark, or unusual needs a physician&apos;s
-                    assessment first. Jenny works on aesthetic concerns only and will redirect you
-                    when that&apos;s the right call.
-                  </p>
+                  <p className="quiz-note mt-3">{t.moleNote}</p>
                 )}
                 {filteredCo2 && (
-                  <p className="quiz-aside mt-3">
-                    We&apos;ve set aside deeper resurfacing options since you preferred no downtime —
-                    mention it at your consultation if you reconsider.
-                  </p>
+                  <p className="quiz-aside mt-3">{t.co2Note}</p>
                 )}
 
                 {results.length > 0 ? (
                   <ul className="matches mt-3" style={{ listStyle: "none" }}>
-                    {results.map((t, i) => (
-                      <Reveal as="li" key={t.slug} delay={120 + i * 100} className="match">
-                        <p className="numeral">{t.number}</p>
-                        <h3>{t.name}</h3>
-                        <p>{t.tagline}</p>
+                    {results.map((r, i) => (
+                      <Reveal as="li" key={r.slug} delay={120 + i * 100} className="match">
+                        <p className="numeral">{r.number}</p>
+                        <h3>{r.name}</h3>
+                        <p>{r.tagline}</p>
                         <a
-                          href={`#chapter-${t.slug}`}
+                          href={`#chapter-${r.slug}`}
                           className="quiet-link"
                           onClick={(e) => {
                             e.preventDefault();
-                            readGuide(t.slug);
+                            readGuide(r.slug);
                           }}
                         >
-                          Read the guide
+                          {t.readGuide}
                         </a>
                       </Reveal>
                     ))}
                   </ul>
                 ) : (
-                  <p className="quiz-aside mt-3">
-                    None of the guides fit zero downtime for this concern — Jenny can walk you
-                    through the options in person.
-                  </p>
+                  <p className="quiz-aside mt-3">{t.noMatches}</p>
                 )}
 
                 <Reveal delay={200} className="quiz-capture mt-4">
-                  <p className="eyebrow">Keep your matches</p>
+                  <p className="eyebrow">{t.keep}</p>
                   {emailDone ? (
-                    <p className="mt-2">
-                      Thank you — Jenny will send your matches, with a personal note, to {email}.
-                    </p>
+                    <p className="mt-2">{t.thanks(email)}</p>
                   ) : (
                     <form className="mt-2" onSubmit={onEmail}>
                       <div className="field">
-                        <label htmlFor="quiz-email">Email address</label>
+                        <label htmlFor="quiz-email">{t.emailLabel}</label>
                         <input
                           id="quiz-email"
                           type="email"
@@ -292,19 +372,19 @@ export default function Quiz() {
                         />
                       </div>
                       <button type="submit" className="btn-outline" disabled={sending}>
-                        {sending ? "Sending…" : "Send my matches"}
+                        {sending ? t.sending : t.send}
                       </button>
-                      {error && <FormError reason={error} />}
+                      {error && <FormError reason={error} lang={lang} />}
                     </form>
                   )}
                 </Reveal>
 
                 <div className="quiz-actions">
                   <a href="#consult" className="quiet-link">
-                    Reserve your hour
+                    {t.reserve}
                   </a>
                   <button type="button" className="text-btn back-btn" onClick={reset}>
-                    Retake the quiz
+                    {t.retake}
                   </button>
                 </div>
               </>
@@ -315,7 +395,7 @@ export default function Quiz() {
         <Reveal delay={200} className="quiz-media">
           <Photo
             src="/images/drop.jpg"
-            alt="A single golden drop of serum falling from a glass dropper"
+            alt={t.alt}
             ratio="34"
             sizes="(max-width: 960px) 0px, 30vw"
             parallax={0.04}

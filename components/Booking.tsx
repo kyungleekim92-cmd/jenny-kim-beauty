@@ -7,12 +7,160 @@ import Photo from "@/components/Photo";
 import FormError from "@/components/FormError";
 import { conditions } from "@/lib/conditions";
 import { sendInquiry, type InquiryResult } from "@/lib/inquiry";
+import type { Lang } from "@/lib/i18n";
+import { getConditions } from "@/lib/i18n/content";
 
-const contactMethods = ["Email", "Phone", "Text"];
-const budgetBands = ["Under $500", "$500–$1,500", "$1,500–$3,000", "$3,000+", "Not sure yet"];
-const skinTypes = ["Normal", "Dry", "Oily", "Combination", "Sensitive", "Not sure"];
-const skinTones = ["Fair", "Light", "Medium", "Olive", "Brown", "Deep", "Not sure"];
-const heardFrom = ["Instagram", "Google", "Friend referral", "Other"];
+// Choice lists: `value` is what Jenny receives (always English); labels are shown per language.
+type Choice = { value: string; ko: string };
+const contactMethods: Choice[] = [
+  { value: "Email", ko: "이메일" },
+  { value: "Phone", ko: "전화" },
+  { value: "Text", ko: "문자" },
+  { value: "KakaoTalk", ko: "카카오톡" },
+];
+const budgetBands: Choice[] = [
+  { value: "Under $500", ko: "$500 미만 (CAD)" },
+  { value: "$500–$1,500", ko: "$500–$1,500" },
+  { value: "$1,500–$3,000", ko: "$1,500–$3,000" },
+  { value: "$3,000+", ko: "$3,000 이상" },
+  { value: "Not sure yet", ko: "아직 모르겠어요" },
+];
+const skinTypes: Choice[] = [
+  { value: "Normal", ko: "중성" },
+  { value: "Dry", ko: "건성" },
+  { value: "Oily", ko: "지성" },
+  { value: "Combination", ko: "복합성" },
+  { value: "Sensitive", ko: "민감성" },
+  { value: "Not sure", ko: "잘 모르겠어요" },
+];
+const skinTones: Choice[] = [
+  { value: "Fair", ko: "아주 밝음" },
+  { value: "Light", ko: "밝음" },
+  { value: "Medium", ko: "중간" },
+  { value: "Olive", ko: "올리브" },
+  { value: "Brown", ko: "브라운" },
+  { value: "Deep", ko: "딥" },
+  { value: "Not sure", ko: "잘 모르겠어요" },
+];
+const heardFrom: Choice[] = [
+  { value: "Instagram", ko: "인스타그램" },
+  { value: "Google", ko: "구글" },
+  { value: "Naver", ko: "네이버" },
+  { value: "Friend referral", ko: "지인 추천" },
+  { value: "Other", ko: "기타" },
+];
+// KakaoTalk and Naver are offered on the Korean page only.
+const koOnly = new Set(["KakaoTalk", "Naver"]);
+const forLang = (list: Choice[], lang: Lang) => list.filter((c) => lang === "ko" || !koOnly.has(c.value));
+const label = (c: Choice, lang: Lang) => (lang === "ko" ? c.ko : c.value);
+
+const copy = {
+  en: {
+    receivedEyebrow: "Request received",
+    receivedTitle: "Thank you — your hour is in motion.",
+    receivedLede:
+      "Jenny replies personally within one business day to arrange your consultation. Keep an eye on your inbox.",
+    eyebrow: "Consultation",
+    title: (
+      <>
+        An hour that&apos;s entirely <em>yours</em>.
+      </>
+    ),
+    lede: "Thoughtful counsel and a plan composed for your skin alone.",
+    alt: "A quiet room in soft daylight: sheer linen curtains, a travertine side table, folded towels",
+    caption: "By appointment only, in quiet privacy. Simply bring your questions.",
+    formEyebrow: "The form",
+    formTitle: "Tell Jenny everything.",
+    formHint: "About five minutes. Fields marked * are required.",
+    g1: "About you",
+    name: "Full name *",
+    namePh: "Your name",
+    email: "Email *",
+    phone: "Phone",
+    method: "Preferred contact method",
+    time: "Best time to reach you",
+    timePh: "e.g. weekday afternoons",
+    g2: "Your skin",
+    concerns: "Skin concerns *",
+    concernsNote: "(choose all that apply)",
+    goals: "Goals & timeline",
+    goalsPh: "What would you love to change? Any event date you're working toward?",
+    skinType: "Skin type",
+    skinTone: "Skin tone",
+    skinToneNote: "(self-described)",
+    select: "Select…",
+    past: "Past treatments",
+    pastPh: "Anything you've tried before — injectables, lasers, facials — and when.",
+    g3: "Before you meet",
+    budget: "Budget band",
+    area: "Preferred area of Toronto",
+    areaPh: "e.g. Downtown, North York…",
+    health: "Health pre-screen",
+    healthNote: "(optional — pre-screen only, not medical advice)",
+    healthPh: "Medications, allergies, pregnancy or breastfeeding — anything a practitioner should know.",
+    heard: "How did you hear about Jenny?",
+    g4: "Consent",
+    consent:
+      "I agree to be contacted about my consultation and — only with my permission at the appointment — to have relevant details shared with a partner spa. I understand Jenny provides consultation and introductions only, and that any treatment is the responsibility of the provider who performs it. *",
+    sending: "Sending…",
+    submit: "Request my consultation",
+    needs: "Please choose at least one skin concern and accept the consent to continue.",
+    close:
+      "Jenny replies within one business day. Your details stay private and are shared with a partner spa only with your explicit consent. Jenny is an independent consultant, not a medical practitioner.",
+  },
+  ko: {
+    receivedEyebrow: "신청 완료",
+    receivedTitle: "감사합니다. 상담 준비를 시작합니다.",
+    receivedLede: "제니가 영업일 기준 하루 안에 직접 연락드려 상담 일정을 안내해 드립니다. 메일함을 확인해 주세요.",
+    eyebrow: "상담",
+    title: (
+      <>
+        온전히 <em>당신만을</em> 위한 한 시간.
+      </>
+    ),
+    lede: "사려 깊은 상담과, 오직 당신의 피부를 위해 짠 플랜.",
+    alt: "부드러운 햇살이 드는 조용한 방: 얇은 리넨 커튼, 트래버틴 사이드 테이블, 개어 둔 수건",
+    caption: "예약제로, 조용하고 프라이빗하게 진행됩니다. 궁금한 점만 가져오세요.",
+    formEyebrow: "상담 신청서",
+    formTitle: "제니에게 모두 들려주세요.",
+    formHint: "약 5분 정도 걸립니다. * 표시는 필수 항목입니다.",
+    g1: "기본 정보",
+    name: "성함 *",
+    namePh: "성함",
+    email: "이메일 *",
+    phone: "전화번호",
+    method: "선호하는 연락 방법",
+    time: "연락하기 편한 시간",
+    timePh: "예: 평일 오후 (토론토/한국 시간 표기)",
+    g2: "피부 정보",
+    concerns: "피부 고민 *",
+    concernsNote: "(해당하는 항목 모두 선택)",
+    goals: "원하는 변화와 일정",
+    goalsPh: "어떤 점이 달라지길 바라시나요? 준비 중인 행사나 날짜가 있나요?",
+    skinType: "피부 타입",
+    skinTone: "피부 톤",
+    skinToneNote: "(직접 판단)",
+    select: "선택…",
+    past: "이전 시술 경험",
+    pastPh: "주사, 레이저, 관리 등 받아 보신 시술과 시기를 알려 주세요.",
+    g3: "상담 전에",
+    budget: "예산 범위",
+    area: "선호 지역",
+    areaPh: "예: 토론토 다운타운, 노스욕 / 서울 방문 일정",
+    health: "건강 사전 확인",
+    healthNote: "(선택 — 사전 확인용이며 의학적 조언이 아닙니다)",
+    healthPh: "복용 중인 약, 알레르기, 임신·수유 여부 등 시술 전문가가 알아야 할 내용을 적어 주세요.",
+    heard: "제니를 어떻게 알게 되셨나요?",
+    g4: "동의",
+    consent:
+      "상담 관련 연락을 받는 것에 동의하며, 상담 시 제가 허락하는 경우에 한해 필요한 정보가 파트너 스파에 공유되는 것에 동의합니다. 제니는 상담과 연결만 제공하며, 모든 시술의 책임은 시술을 제공하는 업체에 있음을 이해합니다. *",
+    sending: "보내는 중…",
+    submit: "상담 신청하기",
+    needs: "피부 고민을 하나 이상 선택하고 동의에 체크해 주세요.",
+    close:
+      "제니가 영업일 기준 하루 안에 답장을 드립니다. 보내 주신 정보는 안전하게 보관되며, 명시적으로 동의하신 경우에만 파트너 스파에 공유됩니다. 제니는 의료인이 아닌 독립 뷰티 컨설턴트입니다.",
+  },
+};
 
 function prefersReduced(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -29,7 +177,8 @@ function GroupHead({ n, title }: { n: string; title: string }) {
   );
 }
 
-export default function Booking() {
+export default function Booking({ lang }: { lang: Lang }) {
+  const t = copy[lang];
   const [concerns, setConcerns] = useState<string[]>([]);
   const [contactMethod, setContactMethod] = useState("Email");
   const [budget, setBudget] = useState("");
@@ -61,6 +210,7 @@ export default function Booking() {
         {
           Name: get("name"),
           Email: email,
+          Language: lang === "ko" ? "Korean (한국어)" : "English",
           Phone: get("phone"),
           "Preferred contact": contactMethod,
           "Best time to reach": get("bestTime"),
@@ -94,50 +244,41 @@ export default function Booking() {
       <div className="wrap">
         {submitted ? (
           <div className="wrap-narrow center form-success" role="status">
-            <p className="eyebrow chrome">Request received</p>
+            <p className="eyebrow chrome">{t.receivedEyebrow}</p>
             <h2 id="consult-title" className="display-sm mt-2">
-              Thank you — your hour is in motion.
+              {t.receivedTitle}
             </h2>
             <span className="hairline-draw on-load section-rule" aria-hidden="true" />
-            <p className="lede mt-3">
-              Jenny replies personally within one business day to arrange your consultation.
-              Keep an eye on your inbox.
-            </p>
+            <p className="lede mt-3">{t.receivedLede}</p>
           </div>
         ) : (
           <>
             <SectionHead
               id="consult-title"
-              eyebrow="Consultation"
-              title={
-                <>
-                  An hour that&apos;s entirely <em>yours</em>.
-                </>
-              }
-              lede="Thoughtful counsel and a plan composed for your skin alone."
+              eyebrow={t.eyebrow}
+              title={t.title}
+              lede={t.lede}
             />
 
             <div className="booking-grid mt-4">
               <Reveal className="booking-media">
                 <Photo
                   src="/images/interior.jpg"
-                  alt="A quiet room in soft daylight: sheer linen curtains, a travertine side table, folded towels"
+                  alt={t.alt}
                   ratio="45"
                   sizes="(max-width: 960px) min(520px, 92vw), 38vw"
                   parallax={0.04}
                 />
-                <p className="booking-caption">
-                  By appointment only, in quiet privacy. Simply bring your questions.
-                </p>
+                <p className="booking-caption">{t.caption}</p>
               </Reveal>
 
               <div>
                 <Reveal>
-                  <p className="eyebrow chrome">The form</p>
+                  <p className="eyebrow chrome">{t.formEyebrow}</p>
                   <h3 className="display-sm mt-2" style={{ fontSize: "clamp(1.7rem, 3vw, 2.3rem)" }}>
-                    Tell Jenny everything.
+                    {t.formTitle}
                   </h3>
-                  <p className="form-hint">About five minutes. Fields marked * are required.</p>
+                  <p className="form-hint">{t.formHint}</p>
                 </Reveal>
 
                 <Reveal delay={100} className="mt-3">
@@ -151,53 +292,59 @@ export default function Booking() {
                       style={{ display: "none" }}
                     />
                     <fieldset className="form-group">
-                      <GroupHead n="I" title="About you" />
+                      <GroupHead n="I" title={t.g1} />
                       <div className="field">
-                        <label htmlFor="c-name">Full name *</label>
-                        <input id="c-name" name="name" type="text" required autoComplete="name" placeholder="Your name" />
+                        <label htmlFor="c-name">{t.name}</label>
+                        <input id="c-name" name="name" type="text" required autoComplete="name" placeholder={t.namePh} />
                       </div>
                       <div className="field-row">
                         <div className="field">
-                          <label htmlFor="c-email">Email *</label>
+                          <label htmlFor="c-email">{t.email}</label>
                           <input id="c-email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" />
                         </div>
                         <div className="field">
-                          <label htmlFor="c-phone">Phone</label>
-                          <input id="c-phone" name="phone" type="tel" autoComplete="tel" placeholder="+1 (___) ___-____" />
+                          <label htmlFor="c-phone">{t.phone}</label>
+                          <input
+                            id="c-phone"
+                            name="phone"
+                            type="tel"
+                            autoComplete="tel"
+                            placeholder={lang === "ko" ? "+82 / +1" : "+1 (___) ___-____"}
+                          />
                         </div>
                       </div>
                       <div className="field">
                         <span className="field-label" id="c-method-label">
-                          Preferred contact method
+                          {t.method}
                         </span>
                         <div className="chip-group" role="group" aria-labelledby="c-method-label">
-                          {contactMethods.map((m) => (
+                          {forLang(contactMethods, lang).map((m) => (
                             <button
-                              key={m}
+                              key={m.value}
                               type="button"
                               className="chip"
-                              aria-pressed={contactMethod === m}
-                              onClick={() => setContactMethod(m)}
+                              aria-pressed={contactMethod === m.value}
+                              onClick={() => setContactMethod(m.value)}
                             >
-                              {m}
+                              {label(m, lang)}
                             </button>
                           ))}
                         </div>
                       </div>
                       <div className="field">
-                        <label htmlFor="c-time">Best time to reach you</label>
-                        <input id="c-time" name="bestTime" type="text" placeholder="e.g. weekday afternoons" />
+                        <label htmlFor="c-time">{t.time}</label>
+                        <input id="c-time" name="bestTime" type="text" placeholder={t.timePh} />
                       </div>
                     </fieldset>
 
                     <fieldset className="form-group">
-                      <GroupHead n="II" title="Your skin" />
+                      <GroupHead n="II" title={t.g2} />
                       <div className="field">
                         <span className="field-label" id="c-concerns-label">
-                          Skin concerns * <span className="label-note">(choose all that apply)</span>
+                          {t.concerns} <span className="label-note">{t.concernsNote}</span>
                         </span>
                         <div className="chip-group" role="group" aria-labelledby="c-concerns-label">
-                          {conditions.map((c) => (
+                          {getConditions(lang).map((c) => (
                             <button
                               key={c.slug}
                               type="button"
@@ -211,99 +358,92 @@ export default function Booking() {
                         </div>
                       </div>
                       <div className="field">
-                        <label htmlFor="c-goals">Goals &amp; timeline</label>
-                        <textarea
-                          id="c-goals"
-                          name="goals"
-                          placeholder="What would you love to change? Any event date you're working toward?"
-                        />
+                        <label htmlFor="c-goals">{t.goals}</label>
+                        <textarea id="c-goals" name="goals" placeholder={t.goalsPh} />
                       </div>
                       <div className="field-row">
                         <div className="field">
-                          <label htmlFor="c-type">Skin type</label>
+                          <label htmlFor="c-type">{t.skinType}</label>
                           <select id="c-type" name="skinType" defaultValue="">
                             <option value="" disabled>
-                              Select…
+                              {t.select}
                             </option>
                             {skinTypes.map((o) => (
-                              <option key={o}>{o}</option>
+                              <option key={o.value} value={o.value}>
+                                {label(o, lang)}
+                              </option>
                             ))}
                           </select>
                         </div>
                         <div className="field">
                           <label htmlFor="c-tone">
-                            Skin tone <span className="label-note">(self-described)</span>
+                            {t.skinTone} <span className="label-note">{t.skinToneNote}</span>
                           </label>
                           <select id="c-tone" name="skinTone" defaultValue="">
                             <option value="" disabled>
-                              Select…
+                              {t.select}
                             </option>
                             {skinTones.map((o) => (
-                              <option key={o}>{o}</option>
+                              <option key={o.value} value={o.value}>
+                                {label(o, lang)}
+                              </option>
                             ))}
                           </select>
                         </div>
                       </div>
                       <div className="field">
-                        <label htmlFor="c-past">Past treatments</label>
-                        <textarea
-                          id="c-past"
-                          name="pastTreatments"
-                          placeholder="Anything you've tried before — injectables, lasers, facials — and when."
-                        />
+                        <label htmlFor="c-past">{t.past}</label>
+                        <textarea id="c-past" name="pastTreatments" placeholder={t.pastPh} />
                       </div>
                     </fieldset>
 
                     <fieldset className="form-group">
-                      <GroupHead n="III" title="Before you meet" />
+                      <GroupHead n="III" title={t.g3} />
                       <div className="field">
                         <span className="field-label" id="c-budget-label">
-                          Budget band
+                          {t.budget}
                         </span>
                         <div className="chip-group" role="group" aria-labelledby="c-budget-label">
                           {budgetBands.map((b) => (
                             <button
-                              key={b}
+                              key={b.value}
                               type="button"
                               className="chip"
-                              aria-pressed={budget === b}
-                              onClick={() => setBudget(b)}
+                              aria-pressed={budget === b.value}
+                              onClick={() => setBudget(b.value)}
                             >
-                              {b}
+                              {label(b, lang)}
                             </button>
                           ))}
                         </div>
                       </div>
                       <div className="field">
-                        <label htmlFor="c-area">Preferred area of Toronto</label>
-                        <input id="c-area" name="area" type="text" placeholder="e.g. Downtown, North York…" />
+                        <label htmlFor="c-area">{t.area}</label>
+                        <input id="c-area" name="area" type="text" placeholder={t.areaPh} />
                       </div>
                       <div className="field">
                         <label htmlFor="c-health">
-                          Health pre-screen{" "}
-                          <span className="label-note">(optional — pre-screen only, not medical advice)</span>
+                          {t.health} <span className="label-note">{t.healthNote}</span>
                         </label>
-                        <textarea
-                          id="c-health"
-                          name="healthPrescreen"
-                          placeholder="Medications, allergies, pregnancy or breastfeeding — anything a practitioner should know."
-                        />
+                        <textarea id="c-health" name="healthPrescreen" placeholder={t.healthPh} />
                       </div>
                       <div className="field">
-                        <label htmlFor="c-heard">How did you hear about Jenny?</label>
+                        <label htmlFor="c-heard">{t.heard}</label>
                         <select id="c-heard" name="heardFrom" defaultValue="">
                           <option value="" disabled>
-                            Select…
+                            {t.select}
                           </option>
-                          {heardFrom.map((o) => (
-                            <option key={o}>{o}</option>
+                          {forLang(heardFrom, lang).map((o) => (
+                            <option key={o.value} value={o.value}>
+                              {label(o, lang)}
+                            </option>
                           ))}
                         </select>
                       </div>
                     </fieldset>
 
                     <fieldset className="form-group">
-                      <GroupHead n="IV" title="Consent" />
+                      <GroupHead n="IV" title={t.g4} />
                       <label className="check-row">
                         <input
                           type="checkbox"
@@ -312,35 +452,22 @@ export default function Booking() {
                           checked={consent}
                           onChange={(e) => setConsent(e.target.checked)}
                         />
-                        <span>
-                          I agree to be contacted about my consultation and — only with my permission
-                          at the appointment — to have relevant details shared with a partner spa. I
-                          understand Jenny provides consultation and introductions only, and that any
-                          treatment is the responsibility of the provider who performs it. *
-                        </span>
+                        <span>{t.consent}</span>
                       </label>
                     </fieldset>
 
                     <div className="mt-3">
                       <button type="submit" className="btn-outline" disabled={!canSubmit || sending}>
-                        {sending ? "Sending…" : "Request my consultation"}
+                        {sending ? t.sending : t.submit}
                       </button>
-                      {error && <FormError reason={error} />}
-                      {!canSubmit && (
-                        <p className="form-hint">
-                          Please choose at least one skin concern and accept the consent to continue.
-                        </p>
-                      )}
+                      {error && <FormError reason={error} lang={lang} />}
+                      {!canSubmit && <p className="form-hint">{t.needs}</p>}
                     </div>
                   </form>
                 </Reveal>
 
                 <Reveal>
-                  <p className="form-close mt-4">
-                    Jenny replies within one business day. Your details stay private and are shared
-                    with a partner spa only with your explicit consent. Jenny is an independent
-                    consultant, not a medical practitioner.
-                  </p>
+                  <p className="form-close mt-4">{t.close}</p>
                 </Reveal>
               </div>
             </div>

@@ -22,6 +22,11 @@ Consultation booking form → About → Partner spas → FAQ (`lib/faqs.ts`) →
 
 Business details (domain, address, Instagram, nav) live in `lib/site.ts`.
 
+## Languages (EN | KO)
+
+English at `/`, Korean at `/ko` (every page, including guides, concerns and the shop). See
+`AGENTS.md` → "Two languages" for where each language's text lives.
+
 ## Search (SEO / AI answer engines)
 
 - `/guides` and `/guides/[slug]` — one indexable page per treatment, generated from `lib/treatments.ts`.

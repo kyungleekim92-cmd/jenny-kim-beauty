@@ -24,6 +24,7 @@ function body(): string {
 - Location: ${VENUE_LINE}, Ontario, Canada
 - Hours (by appointment only): ${site.hours.map((h) => `${h.label} ${h.display}`).join("; ")}
 - Book a consultation: ${abs("/#consult")}
+- Korean site (한국어): ${abs("/ko")}
 - Instagram: ${site.contact.instagram}
 
 ${DISCLAIMER}

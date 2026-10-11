@@ -3,19 +3,35 @@
 import { useState } from "react";
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
-import { faqs } from "@/lib/faqs";
+import type { Lang } from "@/lib/i18n";
+import { getFaqs } from "@/lib/i18n/content";
 
-export default function Faq() {
+const copy = {
+  en: {
+    eyebrow: "Questions",
+    title: "Asked often, answered plainly.",
+    lede: "The questions clients ask most, before their first visit.",
+  },
+  ko: {
+    eyebrow: "자주 묻는 질문",
+    title: "자주 듣는 질문, 담백한 답변.",
+    lede: "첫 상담 전에 고객들이 가장 많이 묻는 질문들입니다.",
+  },
+};
+
+export default function Faq({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState<number | null>(null);
+  const t = copy[lang];
+  const faqs = getFaqs(lang);
 
   return (
     <section id="faq" className="section band-cream2" aria-labelledby="faq-title">
       <div className="wrap-narrow">
         <SectionHead
           id="faq-title"
-          eyebrow="Questions"
-          title="Asked often, answered plainly."
-          lede="The questions clients ask most, before their first visit."
+          eyebrow={t.eyebrow}
+          title={t.title}
+          lede={t.lede}
         />
 
         <div className="acc-list mt-4">
