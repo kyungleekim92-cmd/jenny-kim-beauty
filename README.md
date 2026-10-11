@@ -47,8 +47,9 @@ message Jenny on Instagram instead of pretending the request went through.
 ## Shop (Amazon affiliate)
 
 `/shop` ("The Edit") lists products from `lib/shop.ts`. Each product can link to Olive Young Global
-(`oliveYoungUrl`, shown first with "5% off with Jenny's link"), Sephora (`sephoraUrl`) and Amazon.ca
-(`asin` + the Associates tracking ID in `amazon.tag`). A product shows once it has a `name`, a `note`
+(`oliveYoungUrl`, shown first with "5% off with Jenny's link"), Amazon.ca (`asin` + the Associates
+tracking ID in `amazon.tag`), Sephora (`sephoraUrl`) and, for clients in Korea, Olive Young Korea
+curator links (`oliveYoungKoreaUrl`). A product shows once it has a `name`, a `note`
 and at least one link; the page, nav link and sitemap entry stay hidden until one product is live.
 
 ## Still to do

@@ -46,7 +46,7 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
 | Structured data (JSON-LD), review date, author bio | `lib/seo.ts` |
 | Sitemap, robots, AI summary | `app/sitemap.ts`, `app/robots.ts`, `app/llms.txt/route.ts` |
 | Form delivery (Web3Forms, browser-side) | `lib/inquiry.ts`, `components/FormError.tsx` |
-| Shop products + affiliate links (Olive Young, Sephora, Amazon) → `/shop` | `lib/shop.ts` |
+| Shop products + affiliate links (Olive Young Global/Korea, Amazon.ca, Sephora) → `/shop` | `lib/shop.ts` |
 | Nav items (adds "Shop" once the shop is live) | `lib/nav.ts` |
 | Styles (no Tailwind) | `app/globals.css`, `app/animations.css` |
 

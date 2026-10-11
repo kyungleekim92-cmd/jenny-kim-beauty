@@ -1,5 +1,5 @@
-// The Edit (/shop): skincare Jenny recommends, with affiliate links to Olive Young Global,
-// Sephora and Amazon.ca.
+// The Edit (/shop): skincare Jenny recommends, with affiliate links for clients in Canada
+// (Olive Young Global, Amazon.ca, Sephora) and in Korea (Olive Young Korea curator links).
 //
 // A product appears once it has a name, a note and at least one store link; the shop (page,
 // nav link, sitemap entry) stays hidden until at least one product is ready.
@@ -20,6 +20,8 @@ export interface ShopProduct {
   note: string;
   /** Olive Young Global affiliate link from the "Creating Content" page (gives buyers 5% off). */
   oliveYoungUrl: string;
+  /** Olive Young Korea "쇼핑 큐레이터" link, for clients in Korea (Global does not deliver in Korea). */
+  oliveYoungKoreaUrl: string;
   /** Sephora affiliate link (Sephora Canada program, Rakuten, or a creator platform). */
   sephoraUrl: string;
   /** Amazon.ca product code (10 characters after /dp/ in the product URL). */
@@ -33,52 +35,58 @@ export const products: ShopProduct[] = [
     name: "Bio-Collagen Real Deep Mask",
     note: "Jenny's favourite. A hydrogel mask worn overnight that turns clear as it settles in, for skin that looks plump and dewy by morning.",
     oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
     sephoraUrl: "",
     asin: "B0B2RM68G2",
   },
   {
-    slug: "arocell",
+    slug: "arocell-super-collagen-overnight-mask",
     brand: "Arocell",
-    // Confirm the exact product with Jenny before publishing.
-    name: "",
-    note: "",
+    name: "Super Collagen Overnight Hydrogel Mask",
+    note: "An overnight hydrogel mask with collagen, chosen for deep hydration and skin that looks glowing by morning.",
     oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
     sephoraUrl: "",
-    asin: "",
+    asin: "B0D9LDNJ26",
   },
   {
-    slug: "rejuran",
+    slug: "rejuran-turnover-mask",
     brand: "Rejuran",
-    // Confirm the exact product with Jenny before publishing.
-    name: "",
-    note: "",
+    name: "Turnover Mask (c-PDRN)",
+    note: "A c-PDRN sheet mask for days when skin needs deep hydration and a fresh, glowing look.",
     oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
     sephoraUrl: "",
-    asin: "",
+    asin: "B0CYMZC3C6",
   },
 ];
 
-export type StoreName = "Olive Young" | "Sephora" | "Amazon";
+export type StoreName = "Olive Young" | "Amazon" | "Sephora" | "Olive Young Korea";
 
 export interface ShopLink {
   store: StoreName;
   href: string;
-  /** Short perk shown on the button, e.g. the Olive Young follower discount. */
-  perk?: string;
+  /** Short line under the button: who it is for, or the Olive Young follower discount. */
+  perk: string;
 }
 
-export const OLIVE_YOUNG_PERK = "5% off with Jenny's link";
+export const OLIVE_YOUNG_PERK = "5% off with Jenny's link · ships to Canada";
 
-// Store links for a product, in display order: Olive Young first (it carries the discount).
+// Store links for a product, in display order: Canada first (Olive Young Global carries the
+// discount), then Korea.
 export function productLinks(p: ShopProduct): ShopLink[] {
   const links: ShopLink[] = [];
   if (p.oliveYoungUrl) links.push({ store: "Olive Young", href: p.oliveYoungUrl, perk: OLIVE_YOUNG_PERK });
-  if (p.sephoraUrl) links.push({ store: "Sephora", href: p.sephoraUrl });
   if (p.asin && amazon.tag) {
     links.push({
       store: "Amazon",
       href: `${amazon.store}/dp/${p.asin}?tag=${encodeURIComponent(amazon.tag)}`,
+      perk: "Amazon.ca · fast delivery in Canada",
     });
+  }
+  if (p.sephoraUrl) links.push({ store: "Sephora", href: p.sephoraUrl, perk: "Sephora Canada" });
+  if (p.oliveYoungKoreaUrl) {
+    links.push({ store: "Olive Young Korea", href: p.oliveYoungKoreaUrl, perk: "For delivery in Korea · 국내 배송" });
   }
   return links;
 }
