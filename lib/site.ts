@@ -10,6 +10,12 @@ export const site = {
     blurb:
       "Private consultations by appointment.",
   },
+  // Consultation hours, by appointment only. `days` feeds structured data (schema.org day names);
+  // `opens`/`closes` are 24-hour times.
+  hours: [
+    { label: "Monday – Friday", days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "19:00", display: "10 am – 7 pm" },
+    { label: "Saturday – Sunday", days: ["Saturday", "Sunday"], opens: "11:00", closes: "16:00", display: "11 am – 4 pm" },
+  ],
   // Extensible category system: skincare now; hair, nail, fashion, travel later.
   categories: [
     { slug: "skincare", name: "Skin", active: true },

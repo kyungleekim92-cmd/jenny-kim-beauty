@@ -91,6 +91,12 @@ export function homeJsonLd() {
           "Independent skincare consultations in Toronto. Jenny Kim explains aesthetic treatments such as Botox, dermal fillers, lasers and facials, builds a personal plan, and refers clients to vetted medi spas. She does not perform treatments.",
         address,
         areaServed: { "@type": "City", name: "Toronto" },
+        openingHoursSpecification: site.hours.map((h) => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: h.days,
+          opens: h.opens,
+          closes: h.closes,
+        })),
         sameAs: [site.contact.instagram],
         founder: { "@id": ids.person },
         knowsAbout: sortedTreatments.map((t) => t.name),
