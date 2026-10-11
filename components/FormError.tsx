@@ -18,7 +18,7 @@ export default function FormError({ reason, lang }: { reason: Exclude<InquiryRes
   return (
     <p className="form-error" role="alert">
       {copy[lang][reason]}
-      <a href={site.contact.instagram} target="_blank" rel="noopener noreferrer">
+      <a href={site.contact.instagram} rel="noopener noreferrer">
         @{site.contact.instagramHandle}
       </a>
       .
