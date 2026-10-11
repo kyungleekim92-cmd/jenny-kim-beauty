@@ -17,7 +17,8 @@ Production check: `npm run build` and `npm run lint`.
 Hero → How it works → Treatment guides (`lib/treatments.ts`) → Skin quiz (`lib/conditions.ts`) →
 Consultation booking form → About → Partner spas → FAQ (`lib/faqs.ts`) → Contact → Footer.
 
-Business details (address, Instagram, nav) live in `lib/site.ts`.
+Business details (domain, address, Instagram, nav) live in `lib/site.ts`.
+Live at https://byjennykim.com (domain registered at GoDaddy, DNS pointed to Vercel).
 
 ## Forms → Jenny's inbox
 
@@ -32,10 +33,9 @@ message Jenny on Instagram instead of pretending the request went through.
 ## Still to do
 
 1. Web3Forms access key (above)
-2. Own domain — then set `metadataBase` in `app/layout.tsx`
-3. Partner spa profiles once agreements are signed (`components/Partners.tsx`)
-4. Legal review of the referral-fee disclosure wording (Ontario)
-5. Footer year is hardcoded (`components/Footer.tsx`) — bump in January
+2. Partner spa profiles once agreements are signed (`components/Partners.tsx`)
+3. Legal review of the referral-fee disclosure wording (Ontario)
+4. Footer year is hardcoded (`components/Footer.tsx`) — bump in January
 
 ## Notes
 

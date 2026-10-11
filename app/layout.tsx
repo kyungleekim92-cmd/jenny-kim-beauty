@@ -21,9 +21,8 @@ const title = `${site.brand}, ${site.brandLine} — Private Skincare Consultatio
 const description =
   "Jenny Kim is an independent beauty consultant in Toronto, offering private skincare consultations, considered treatment guidance, and introductions to trusted medi spas.";
 
-// No metadataBase yet: on Vercel, Next.js resolves the share image against the deployment URL.
-// Set it here once the site has its own domain.
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title,
   description,
   openGraph: {

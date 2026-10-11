@@ -2,6 +2,7 @@
 export const site = {
   brand: "Jenny Kim",
   brandLine: "Beauty Consultant",
+  url: "https://byjennykim.com",
   tagline: "Independent skincare guidance, privately given.",
   venue: {
     address: "311 Bay St., 32nd floor",
