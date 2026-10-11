@@ -48,7 +48,7 @@ export const products: ShopProduct[] = [
     brand: "Arocell",
     name: "Super Collagen Mask 2.0",
     note: "A two-piece hydrogel mask with collagen, chosen for deep hydration and skin that looks fresh and glowing afterwards.",
-    oliveYoungUrl: "https://global.oliveyoung.com/if/rd?su=YWG9M4FG",
+    oliveYoungUrl: "https://global.oliveyoung.com/product/detail?prdtNo=GA260439275&rwardCode=JENNYKIM10&utm_source=influencers&isAppsflyerDeepLinkParamsFeatureOn=false&isNewCategoryPageGateOn=false&isRecommendationSectionFeatureOn=true&isAndroidSdk36MetaFixGateOn=true&isWebShareApiTestFeatureOn=false&isOyLogNativeBridgeGateOn=true&isOyLogGateOn=true&isReactHomeSectionGateOn=false&isDisplayPriceRangeUiFeatureOn=true&isAmplitudeUtmImprovementFeatureOn=true&isCpnMaxDiscountValueGateOn=true&isLegacySearchRedirectGateOn=true&isAmplitudeForceReidentifyGateOn=true&isNewPdpFreeGiftsApiFeatureOn=false&isHeaderSearchRenewalGateOn=true&cornerOrderExperiment=%5B%22bestSeller%22%2C%22chosenForYou%22%2C%22featuredBrands%22%2C%22ourPicks%22%2C%22recommendationMD%22%2C%22brandVideo%22%2C%22kpop%22%5D&isAfPurchaseEventChangeFeatureOn=true&isForceUpdateAndroidGateOn=false&isGa4QuantityNumberTypeGateOn=true&searchCountryPath=ca",
     oliveYoungKoreaUrl: "",
     sephoraUrl: "",
     asin: "B0D9LDNJ26",
