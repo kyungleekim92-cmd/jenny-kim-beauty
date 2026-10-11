@@ -57,18 +57,18 @@ const label = (c: Choice, lang: Lang) => (lang === "ko" ? c.ko : c.value);
 const copy = {
   en: {
     receivedEyebrow: "Request received",
-    receivedTitle: "Thank you — your hour is in motion.",
+    receivedTitle: "Thank you — your consultation is in motion.",
     receivedLede:
       "Jenny replies personally within one business day to arrange your consultation. Keep an eye on your inbox.",
     eyebrow: "Consultation",
     title: (
       <>
-        An hour that&apos;s entirely <em>yours</em>.
+        Thirty minutes to an hour, entirely <em>yours</em>.
       </>
     ),
-    lede: "Thoughtful counsel and a plan composed for your skin alone.",
+    lede: "Tea or coffee near the office, thoughtful counsel, and a plan composed for your skin alone.",
     alt: "A quiet room in soft daylight: sheer linen curtains, a travertine side table, folded towels",
-    caption: "By appointment only, in quiet privacy. Simply bring your questions.",
+    caption: "By appointment at Bay & Adelaide, in quiet privacy. No clinic visit needed; simply bring your questions.",
     formEyebrow: "The form",
     formTitle: "Tell Jenny everything.",
     formHint: "About five minutes. Fields marked * are required.",
@@ -115,12 +115,12 @@ const copy = {
     eyebrow: "상담",
     title: (
       <>
-        한 시간 동안, 오롯이 <em>내 피부</em> 이야기.
+        30분에서 한 시간, 오롯이 <em>내 피부</em> 이야기.
       </>
     ),
-    lede: "충분히 이야기 나누고, 내 피부에 맞는 시술 계획을 함께 세워 드려요.",
+    lede: "회사 근처에서 차 한잔 나누며 충분히 이야기하고, 내 피부에 맞는 시술 계획을 함께 세워 드려요.",
     alt: "부드러운 햇살이 드는 조용한 방: 얇은 리넨 커튼, 트래버틴 사이드 테이블, 개어 둔 수건",
-    caption: "예약제로 조용하고 프라이빗하게 진행해요. 궁금한 점만 편하게 가져오세요.",
+    caption: "Bay & Adelaide에서 예약제로 조용하게 진행해요. 클리닉에 가실 필요 없이, 궁금한 점만 편하게 가져오세요.",
     formEyebrow: "상담 신청서",
     formTitle: "피부 이야기를 들려주세요.",
     formHint: "5분 정도 걸려요. * 표시는 필수 항목이에요.",

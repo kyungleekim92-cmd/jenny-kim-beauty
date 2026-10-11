@@ -9,7 +9,7 @@ export const pageCopy = {
     atAGlance: "At a glance",
     consideredFor: "Often considered for",
     questions: "Questions clients ask",
-    reserve: "Reserve your hour",
+    reserve: "Book a consultation",
     related: "Related guides",
     aboutAuthor: "About the author",
     moreAboutJenny: "More about Jenny",

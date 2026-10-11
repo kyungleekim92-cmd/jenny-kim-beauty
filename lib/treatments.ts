@@ -1,5 +1,5 @@
 export const DISCLAIMER =
-  "Jenny is an independent consultant, not a medical practitioner. Treatment details are educational; your plan is confirmed with a licensed practitioner at a partner spa. Individual results vary.";
+  "Jenny is an independent consultant, not a medical practitioner. Treatment details are educational, not medical advice; your plan is confirmed with a licensed practitioner at a partner spa. Individual results vary.";
 
 export interface Treatment {
   slug: string;

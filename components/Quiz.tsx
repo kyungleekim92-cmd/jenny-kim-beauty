@@ -57,7 +57,7 @@ const copy = {
     emailLabel: "Email address",
     sending: "Sending…",
     send: "Send my matches",
-    reserve: "Reserve your hour",
+    reserve: "Book a consultation",
     retake: "Retake the quiz",
     alt: "A single golden drop of serum falling from a glass dropper",
   },

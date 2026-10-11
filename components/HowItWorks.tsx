@@ -16,8 +16,8 @@ const copy = {
       },
       {
         n: "II",
-        title: "Then, a quiet hour",
-        body: "A private consultation where every option is laid out, and the ones not worth your time are gently set aside.",
+        title: "Then, tea and a conversation",
+        body: "Thirty minutes to an hour, close to the office. Every option is laid out, and the ones not worth your time are gently set aside.",
       },
       {
         n: "III",
@@ -37,8 +37,8 @@ const copy = {
       },
       {
         n: "II",
-        title: "그다음, 1:1 상담",
-        body: "한 시간 동안 가능한 시술을 하나씩 함께 살펴보고, 굳이 받지 않으셔도 되는 것은 미리 말씀드려요.",
+        title: "그다음, 차 한잔과 상담",
+        body: "회사 근처에서 30분에서 한 시간 정도 만나요. 가능한 시술을 하나씩 함께 살펴보고, 굳이 받지 않으셔도 되는 것은 미리 말씀드려요.",
       },
       {
         n: "III",

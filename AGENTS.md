@@ -82,12 +82,15 @@ owner's inbox), the Google/Bing verification codes and the IndexNow key.
 - **What Jenny offers is convenience, privacy and discretion.** Clients can learn about a
   treatment, ask questions and get a considered view without first going to a clinic. Some only
   want information, close by; that is a complete, valued visit on its own.
-- **The place is a key highlight:** in-person consultations at the St. Regis Toronto, Bay &
-  Adelaide, in the Financial District (`site.venue`). Easy to reach from Bay Street offices.
+- **The place is a key highlight:** in-person consultations at Bay & Adelaide, in the Financial
+  District, easy to reach from Bay Street offices. In copy say "Bay & Adelaide" (or 금융가 Bay &
+  Adelaide); do not name the hotel. The building name appears only in the address line
+  (`site.venue.building`). Never publish a floor or unit number: it is the owner's residence.
 - **Who it is for:** busy professional women working on and around Bay Street who value their
   time and privacy and have little room to visit clinics.
-- **The feeling:** a quick, private chat over tea or coffee, fitted around a workday, rather than
-  a clinic appointment.
+- **The feeling:** a private chat over tea or coffee, fitted around a workday, rather than a clinic
+  appointment. Consultations are flexible, **30 to 60 minutes**; buttons say "Book a
+  consultation" (상담 예약하기), not "Reserve your hour".
 - In copy, show this through place, ease and discretion. Never write about clients' income or
   wealth, never imply the hotel endorses Jenny, and keep the consultant-not-practitioner framing
   (treatments always happen later, with a licensed practitioner).

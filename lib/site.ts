@@ -5,7 +5,10 @@ export const site = {
   url: "https://www.byjennykim.com",
   tagline: "Independent skincare guidance, privately given.",
   venue: {
-    address: "311 Bay St., 32nd floor",
+    // Shown as the address line only; site copy says "Bay & Adelaide" rather than naming the building.
+    building: "St. Regis Hotel & Residences",
+    address: "311 Bay St.",
+    area: "Bay & Adelaide",
     city: "Toronto",
     blurb:
       "Private consultations by appointment.",
@@ -68,4 +71,4 @@ export const site = {
   indexNowKey: "96158b1402228e6704311920118d015b",
 };
 
-export const VENUE_LINE = `${site.venue.address}, ${site.venue.city}`;
+export const VENUE_LINE = `${site.venue.building}, ${site.venue.address}, ${site.venue.city}`;

@@ -35,12 +35,12 @@ const home = {
   en: {
     title: `${site.brand} — Independent Skincare & Aesthetics Consultant, Toronto`,
     description:
-      "Private skincare consultations in Toronto with Jenny Kim. Independent guidance on Botox, dermal fillers, lasers, Ultherapy, HydraFacial and more, with introductions to trusted medi spas.",
+      "Private skincare consultations at Bay & Adelaide, in Toronto's Financial District, with Jenny Kim. Independent guidance on Botox, dermal fillers, lasers, Ultherapy, HydraFacial and more, with introductions to trusted medi spas.",
   },
   ko: {
     title: "제니 킴 | 토론토 스킨케어·미용 시술 독립 컨설턴트",
     description:
-      "토론토에서 활동하는 독립 뷰티 컨설턴트 제니 킴이에요. 보톡스, 필러, 레이저, 울쎄라, 하이드라페이셜까지, 시술 전에 꼭 알아야 할 것들을 1:1 프라이빗 상담으로 안내하고 믿을 수 있는 메디 스파를 연결해 드려요.",
+      "토론토 금융가 Bay & Adelaide에서 상담하는 독립 뷰티 컨설턴트 제니 킴이에요. 보톡스, 필러, 레이저, 울쎄라, 하이드라페이셜까지, 시술 전에 꼭 알아야 할 것들을 1:1 프라이빗 상담으로 안내하고 믿을 수 있는 메디 스파를 연결해 드려요.",
   },
 };
 

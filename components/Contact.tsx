@@ -19,7 +19,7 @@ const copy = {
     consultations: "Consultations",
     requestOnline: "Request online",
     small: "By appointment only. Jenny replies within one business day.",
-    reserve: "Reserve your hour",
+    reserve: "Book a consultation",
   },
   ko: {
     eyebrow: "문의",
@@ -55,6 +55,8 @@ export default function Contact({ lang }: { lang: Lang }) {
             <div>
               <dt>{t.address}</dt>
               <dd>
+                {site.venue.building}
+                <br />
                 {site.venue.address}
                 <br />
                 {lang === "ko" ? "토론토" : site.venue.city}

@@ -16,11 +16,12 @@ const copy = {
       </>
     ),
     p1: "An independent beauty consultant in Toronto, Jenny begins where most advice ends: with time, attention, and a careful reading of your skin and the life around it.",
-    p2: "She performs no treatments and answers to no clinic. What she offers instead is perspective — the same counsel she would want for her own skin.",
+    p2: "She performs no treatments and answers to no clinic. What she offers instead is perspective — the same counsel she would want for her own skin, with no clinic visit until you are ready.",
     detail: "The consultation, in detail",
     includedLabel: "Included",
     included: [
-      "A private, one-on-one consultation in Toronto",
+      "A private, one-on-one consultation at Bay & Adelaide, over tea or coffee",
+      "Thirty minutes to an hour, fitted around your workday",
       "Clear guidance on each treatment option",
       "A considered view of what will suit your skin",
       "Introductions to trusted medi spas and practitioners",
@@ -40,11 +41,12 @@ const copy = {
       </>
     ),
     p1: "저는 토론토에서 독립 뷰티 컨설턴트로 일하는 제니예요. 상담에서는 피부 상태만 보지 않고, 생활 습관과 일정, 지금까지 받아 오신 관리까지 충분히 시간을 들여 함께 살펴봐요.",
-    p2: "저는 직접 시술하지 않고, 특정 클리닉에 소속되어 있지도 않아요. 그래서 제 피부라면 어떻게 할지, 그 기준 그대로 말씀드려요.",
+    p2: "저는 직접 시술하지 않고, 특정 클리닉에 소속되어 있지도 않아요. 그래서 제 피부라면 어떻게 할지, 그 기준 그대로 말씀드려요. 마음이 정해지기 전까지는 클리닉에 가실 필요도 없어요.",
     detail: "상담 안내",
     includedLabel: "상담 내용",
     included: [
-      "토론토에서 진행하는 1:1 프라이빗 상담",
+      "Bay & Adelaide에서 차 한잔과 함께하는 1:1 프라이빗 상담",
+      "하루 일정에 맞춰 30분에서 한 시간 정도",
       "시술마다 쉽고 정확한 설명",
       "내 피부에 어떤 시술이 맞을지 꼼꼼한 의견",
       "믿을 수 있는 메디 스파와 전문가 소개",

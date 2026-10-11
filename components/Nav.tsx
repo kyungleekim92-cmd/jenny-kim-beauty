@@ -10,7 +10,7 @@ import { useScrollProgress, useScrolledPast, useScrollSpy } from "@/components/m
 const spyIds = ["top", "how", "guides", "quiz", "consult", "about", "partners", "faq", "contact"] as const;
 
 const copy = {
-  en: { reserve: "Reserve your hour", open: "Open menu", close: "Close menu", language: "Language" },
+  en: { reserve: "Book a consultation", open: "Open menu", close: "Close menu", language: "Language" },
   ko: { reserve: "상담 예약", open: "메뉴 열기", close: "메뉴 닫기", language: "언어" },
 };
 

@@ -22,7 +22,7 @@ const copy = {
   ko: {
     tagline: "토론토 독립 스킨케어 컨설팅, 1:1 프라이빗 상담.",
     byAppointment: "예약제 운영 (토론토 시간)",
-    venue: "토론토 311 Bay St. 32층",
+    venue: `${site.venue.building}, ${site.venue.address}, 토론토`,
     legal:
       "저는 의료인이 아닌 독립 뷰티 컨설턴트예요. 이 사이트의 내용은 정보 제공을 위한 것이며, 의학적 조언을 대신하지 않아요.",
     rights: "All rights reserved.",

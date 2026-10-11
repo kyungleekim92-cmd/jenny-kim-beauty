@@ -17,8 +17,8 @@ const copy = {
         before you <em>treat</em> it.
       </>
     ),
-    lede: "Private skincare counsel, considered and discreet.",
-    cta: "Reserve your hour",
+    lede: "Discreet skincare counsel at Bay & Adelaide, over tea or coffee.",
+    cta: "Book a consultation",
     alt: "Portrait of Jenny Kim, independent beauty consultant",
   },
   ko: {
@@ -30,7 +30,7 @@ const copy = {
         내 피부를 <em>아는</em> 것.
       </>
     ),
-    lede: "토론토에서 1:1 프라이빗 스킨케어 상담을 해 드려요.",
+    lede: "토론토 금융가 Bay & Adelaide에서, 차 한잔 나누며 편하게 받는 1:1 스킨케어 상담.",
     cta: "상담 예약하기",
     alt: "독립 뷰티 컨설턴트 제니 킴의 인물 사진",
   },
