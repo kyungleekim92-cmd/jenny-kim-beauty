@@ -127,7 +127,7 @@ export default function Booking() {
                   parallax={0.04}
                 />
                 <p className="booking-caption">
-                  Private, unhurried, by appointment. Come as you are — bring your questions.
+                  By appointment only, in quiet privacy. Simply bring your questions.
                 </p>
               </Reveal>
 
