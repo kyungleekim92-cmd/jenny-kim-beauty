@@ -31,13 +31,6 @@ export const metadata: Metadata = {
     google: site.verification.google || undefined,
     other: site.verification.bing ? { "msvalidate.01": site.verification.bing } : undefined,
   },
-  openGraph: {
-    title,
-    description,
-    siteName: `${site.brand}, ${site.brandLine}`,
-    locale: "en_CA",
-    type: "website",
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

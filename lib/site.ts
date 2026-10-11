@@ -46,7 +46,7 @@ export const site = {
   // Search engine ownership checks. Paste the code from each console's "HTML tag" option
   // (just the content="…" value). Empty values are left out of the page.
   verification: {
-    google: "",
+    google: "L-Or8XREXo1I6P05Yf90VIbVe58xNo9YDOe2UxqcHiI",
     bing: "",
   },
   // IndexNow key (Bing, Yandex and others): served at /<key>.txt from public/.
