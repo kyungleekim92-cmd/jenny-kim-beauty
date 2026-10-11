@@ -18,7 +18,7 @@ Hero → How it works → Treatment guides (`lib/treatments.ts`) → Skin quiz (
 Consultation booking form → About → Partner spas → FAQ (`lib/faqs.ts`) → Contact → Footer.
 
 Business details (domain, address, Instagram, nav) live in `lib/site.ts`.
-Live at https://byjennykim.com (domain registered at GoDaddy, DNS pointed to Vercel).
+Live at https://www.byjennykim.com (bare domain redirects to www; registered at GoDaddy, nameservers on Vercel).
 
 ## Forms → Jenny's inbox
 
