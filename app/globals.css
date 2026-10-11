@@ -76,14 +76,21 @@ p { text-wrap: pretty; }
   color: var(--muted);
   font-weight: 500;
 }
-/* Accent eyebrow: muted text led by a short chrome rule (chrome alone is too light for 11px type). */
+/* Accent eyebrow: muted text led by a short chrome rule (chrome alone is too light for 11px type).
+   Flex so a wrapped second line hangs under the text, not under the rule. */
+.eyebrow.chrome { display: flex; align-items: flex-start; }
+.center .eyebrow.chrome { justify-content: center; }
 .eyebrow.chrome::before {
   content: "";
-  display: inline-block;
+  flex: none;
   width: 28px; height: 1px;
-  margin-right: 14px;
-  vertical-align: 0.3em;
+  margin: 0.8em 14px 0 0;
   background: var(--chrome);
+}
+/* " — Toronto" style suffix: inline on wide screens, its own line (no dash) on phones. */
+@media (max-width: 560px) {
+  .eyebrow-sep { display: none; }
+  .eyebrow-tail { display: block; }
 }
 .lede {
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
