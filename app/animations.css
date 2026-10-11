@@ -466,6 +466,8 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
   background-repeat: no-repeat;
 }
 .form-hint { font-size: 13px; color: var(--muted); margin-top: 14px; }
+.form-error { font-size: 14px; line-height: 1.6; margin-top: 14px; padding-left: 14px; border-left: 1px solid currentColor; }
+.form-error a { text-decoration: underline; text-underline-offset: 3px; }
 .form-close { font-size: 14px; color: var(--muted); max-width: 64ch; }
 .form-success { animation: fadeRise 0.9s var(--ease) both; }
 @media (max-width: 960px) {
@@ -476,20 +478,7 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
   .field-row { grid-template-columns: 1fr; }
 }
 
-/* ---------- editorial: wordmark statement, statement dividers, block spacing ---------- */
-/* Oversized, widely letterspaced serif name — the brand set as a statement.
-   Trailing letter-spacing is cancelled with an equal indent so it centres optically. */
-.wordmark-xl {
-  font-family: var(--font-serif), serif;
-  font-weight: 300;
-  font-size: clamp(2.3rem, 8vw, 7.25rem);
-  line-height: 1;
-  letter-spacing: 0.3em;
-  text-indent: 0.3em;
-  text-transform: uppercase;
-  color: var(--ink);
-  white-space: nowrap;
-}
+/* ---------- editorial: statement dividers, block spacing ---------- */
 .block-gap { margin-top: clamp(80px, 10vw, 152px); }
 
 .statement { padding: clamp(72px, 9vw, 136px) 0; }
@@ -517,29 +506,13 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 }
 
 /* ---------- about ---------- */
-.about-masthead .wordmark-xl { margin-top: clamp(20px, 2.5vw, 32px); }
 .about-feature {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: clamp(48px, 8vw, 128px);
   align-items: end;
-  margin-top: clamp(64px, 8vw, 120px);
 }
 .about-portrait .photo { box-shadow: 0 50px 80px -60px rgba(46, 42, 36, 0.35); }
-.about-caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  font-size: 11px;
-  letter-spacing: 0.19em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-}
 .about-copy { padding-bottom: clamp(0px, 3vw, 48px); }
 .about-belief {
   font-family: var(--font-serif), serif; font-style: italic; font-weight: 300;
@@ -558,7 +531,6 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
   .does { grid-template-columns: 1fr; }
   .about-feature { grid-template-columns: 1fr; }
   .about-figure { max-width: 560px; }
-  .wordmark-xl { letter-spacing: 0.2em; text-indent: 0.2em; }
 }
 
 /* ---------- partners ---------- */
@@ -590,7 +562,7 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .contact-block { margin-top: clamp(64px, 8vw, 112px); }
 .contact-facts {
   display: grid;
-  grid-template-columns: 1.4fr 1.2fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 32px;
   border-top: 1px solid var(--line);
   padding-top: 28px;

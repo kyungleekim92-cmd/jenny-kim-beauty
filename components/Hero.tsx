@@ -14,7 +14,11 @@ export default function Hero() {
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <p className="eyebrow chrome line-reveal" style={line(0)}>
-            Independent skincare guidance — Toronto
+            <span>
+              Independent skincare guidance
+              <span className="eyebrow-sep"> — </span>
+              <span className="eyebrow-tail">Toronto</span>
+            </span>
           </p>
           <h1 className="display">
             <span className="mask-line" style={line(1)}>
@@ -27,7 +31,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="lede line-reveal" style={line(3)}>
-            Honest, unhurried advice from someone with nothing to sell.
+            Private skincare counsel, considered and discreet.
           </p>
           <span className="line-reveal" style={line(4)}>
             <a href="#consult" className="quiet-link hero-cta">

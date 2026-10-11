@@ -15,7 +15,7 @@ export default function Faq() {
           id="faq-title"
           eyebrow="Questions"
           title="Asked often, answered plainly."
-          lede="The things you'd want to know before you book — no fine print."
+          lede="The questions clients ask most, before their first visit."
         />
 
         <div className="acc-list mt-4">

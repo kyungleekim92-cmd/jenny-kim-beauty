@@ -17,10 +17,22 @@ const sans = Inter({
   weight: ["400", "500", "600"],
 });
 
+const title = `${site.brand}, ${site.brandLine} — Private Skincare Consultations in Toronto`;
+const description =
+  "Jenny Kim is an independent beauty consultant in Toronto, offering private skincare consultations, considered treatment guidance, and introductions to trusted medi spas.";
+
+// No metadataBase yet: on Vercel, Next.js resolves the share image against the deployment URL.
+// Set it here once the site has its own domain.
 export const metadata: Metadata = {
-  title: `${site.brand}, ${site.brandLine} — Private Skincare Consultations in Toronto`,
-  description:
-    "Jenny Kim is an independent beauty consultant in Toronto. Private, unhurried skincare consultations, honest treatment guidance, and referrals to vetted medi spas.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: `${site.brand}, ${site.brandLine}`,
+    locale: "en_CA",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
