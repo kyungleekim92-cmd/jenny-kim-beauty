@@ -29,6 +29,11 @@ export default function Footer() {
           <div>
             <p className="eyebrow">By appointment</p>
             <p className="footer-address mt-1">{VENUE_LINE}</p>
+            {site.hours.map((h) => (
+              <p key={h.label} className="footer-address">
+                {h.label}, {h.display}
+              </p>
+            ))}
           </div>
         </div>
 

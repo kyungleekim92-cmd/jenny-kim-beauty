@@ -561,7 +561,7 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .contact-block { margin-top: clamp(64px, 8vw, 112px); }
 .contact-facts {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1.2fr 1fr 1fr;
   gap: 32px;
   border-top: 1px solid var(--line);
   padding-top: 28px;
@@ -569,6 +569,8 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .contact-facts dt { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 .contact-facts dd { margin-top: 12px; font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
 .contact-facts a { text-decoration: none; }
+.hours-line { display: block; }
+.hours-line + .hours-line { margin-top: 10px; }
 .contact-small { font-size: 13px; color: var(--muted); margin-top: 40px; }
 @media (max-width: 960px) { .contact-facts { grid-template-columns: 1fr 1fr; row-gap: 40px; } }
 @media (max-width: 560px) { .contact-facts { grid-template-columns: 1fr; row-gap: 28px; } }

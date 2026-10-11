@@ -30,6 +30,18 @@ export default function Contact() {
               </dd>
             </div>
             <div>
+              <dt>Hours</dt>
+              <dd>
+                {site.hours.map((h) => (
+                  <span key={h.label} className="hours-line">
+                    {h.label}
+                    <br />
+                    {h.display}
+                  </span>
+                ))}
+              </dd>
+            </div>
+            <div>
               <dt>Instagram</dt>
               <dd>
                 <a
@@ -52,7 +64,7 @@ export default function Contact() {
             </div>
           </dl>
           <p className="contact-small">
-            Consultations by appointment. Jenny replies within one business day.
+            By appointment only. Jenny replies within one business day.
           </p>
         </Reveal>
 
