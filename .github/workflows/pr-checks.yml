@@ -1,0 +1,31 @@
+name: PR safety checks
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx tsc --noEmit
+      - name: Lint with only the two documented exceptions
+        run: |
+          set +e
+          npm run lint -- --format json --output-file "$RUNNER_TEMP/lint.json"
+          lint_status=$?
+          set -e
+          if [ "$lint_status" -gt 1 ]; then
+            exit "$lint_status"
+          fi
+          node scripts/check-lint.mjs "$RUNNER_TEMP/lint.json"
