@@ -19,7 +19,7 @@ const sans = Inter({
 
 const title = `${site.brand}, ${site.brandLine} — Private Skincare Consultations in Toronto`;
 const description =
-  "Jenny Kim is an independent beauty consultant in Toronto. Private, unhurried skincare consultations, honest treatment guidance, and referrals to vetted medi spas.";
+  "Jenny Kim is an independent beauty consultant in Toronto, offering private skincare consultations, considered treatment guidance, and introductions to trusted medi spas.";
 
 // No metadataBase yet: on Vercel, Next.js resolves the share image against the deployment URL.
 // Set it here once the site has its own domain.

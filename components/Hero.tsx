@@ -27,7 +27,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="lede line-reveal" style={line(3)}>
-            Honest, unhurried advice from someone with nothing to sell.
+            Private skincare counsel, considered and discreet.
           </p>
           <span className="line-reveal" style={line(4)}>
             <a href="#consult" className="quiet-link hero-cta">

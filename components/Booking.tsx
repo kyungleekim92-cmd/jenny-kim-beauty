@@ -114,7 +114,7 @@ export default function Booking() {
                   An hour that&apos;s entirely <em>yours</em>.
                 </>
               }
-              lede="An honest plan for your skin. No treatments performed, nothing sold."
+              lede="Thoughtful counsel and a plan composed for your skin alone."
             />
 
             <div className="booking-grid mt-4">
