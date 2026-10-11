@@ -18,6 +18,7 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
 - `main` is production. Every push or merge to `main` is deployed by Vercel within ~2 minutes.
 - Always start from the latest `main` (`git pull origin main`) before changing anything.
 - Prefer a branch + pull request for anything larger than a one-line config change.
+- Current state of the site and the open to-do list: `HANDOFF.md`.
 
 ## Before every commit (required)
 

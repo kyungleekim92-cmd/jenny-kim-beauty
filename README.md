@@ -59,10 +59,11 @@ and at least one link; the page, nav link and sitemap entry stay hidden until on
 
 ## Still to do
 
-1. Web3Forms access key (above)
-2. Partner spa profiles once agreements are signed (`components/Partners.tsx`)
-3. Legal review of the liability fine print and partner-privileges wording (Ontario)
-4. Footer year is hardcoded (`components/Footer.tsx`) — bump in January
+See `HANDOFF.md` for the current state and the full list. In short:
+
+1. Partner spa profiles once agreements are signed (`components/Partners.tsx`)
+2. Legal review of the liability fine print and partner-privileges wording (Ontario)
+3. Footer year is hardcoded (`components/Footer.tsx`) — bump in January
 
 ## Notes
 
