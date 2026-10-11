@@ -635,4 +635,5 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .shop-item { padding: 32px 0; border-bottom: 1px solid var(--line); }
 .shop-name { font-family: var(--font-serif), serif; font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1.2; margin-top: 8px; }
 .shop-note { margin-top: 12px; color: var(--ink-soft); max-width: 60ch; }
-.shop-item .quiet-link { display: inline-block; margin-top: 18px; }
+.shop-links { display: flex; flex-wrap: wrap; gap: 14px 32px; margin-top: 18px; }
+.shop-perk { display: block; margin-top: 6px; font-size: 11px; letter-spacing: 0.08em; text-transform: none; color: var(--chrome-deep); font-weight: 400; }
