@@ -117,9 +117,6 @@ export default function Nav({ lang, path, home = true }: NavProps) {
         aria-hidden={!open}
         inert={!open}
       >
-        <p className="eyebrow" style={{ "--i": 0 } as CSSProperties}>
-          {site.brand} · {site.brandLine}
-        </p>
         {items.map((item, i) => (
           <a
             key={item.href}
