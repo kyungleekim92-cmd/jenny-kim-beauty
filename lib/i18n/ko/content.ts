@@ -144,12 +144,16 @@ export const koShopProducts: Record<string, { name: string; note: string }> = {
     name: "바이오 콜라겐 리얼 딥 마스크",
     note: "제가 가장 아끼는 마스크예요. 붙이고 자는 하이드로겔 마스크로, 피부에 스며들수록 점점 투명해져요. 아침에 피부가 탱탱하고 촉촉해 보이도록 도와줘요.",
   },
-  "arocell-super-collagen-overnight-mask": {
-    name: "슈퍼 콜라겐 오버나이트 하이드로겔 마스크",
-    note: "콜라겐이 들어간 오버나이트 하이드로겔 마스크예요. 자는 동안 촉촉하게 보습해 주고, 아침에 피부가 환해 보이도록 도와줘서 골랐어요.",
+  "arocell-super-collagen-mask": {
+    name: "슈퍼 콜라겐 마스크 2.0",
+    note: "콜라겐이 들어간 위아래 두 장짜리 하이드로겔 마스크예요. 촉촉하게 보습해 주고, 떼고 나면 피부가 한결 환해 보이도록 도와줘서 골랐어요.",
   },
   "rejuran-turnover-mask": {
     name: "턴오버 마스크 (c-PDRN)",
     note: "피부가 건조하고 생기 없어 보이는 날 꺼내 쓰기 좋은 c-PDRN 시트 마스크예요. 촉촉한 보습과 산뜻한 윤기를 더하는 데 도움이 돼요.",
+  },
+  "rejuran-dual-effect-ampoule-mask": {
+    name: "듀얼 이펙트 앰플 인 마스크",
+    note: "c-PDRN과 히알루론산, 나이아신아마이드가 담긴 앰플 시트 마스크예요. 피부가 처지고 칙칙해 보이는 날, 한결 탄탄하고 환해 보이도록 도와줘요.",
   },
 };
