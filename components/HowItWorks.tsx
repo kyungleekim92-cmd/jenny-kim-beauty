@@ -6,18 +6,18 @@ import SectionHead from "@/components/SectionHead";
 const steps = [
   {
     n: "I",
-    title: "You share",
-    body: "Your concerns, history, and goals — in the quiz, the form, or in person.",
+    title: "First, your story",
+    body: "Your concerns, your history, what you hope for — shared in the quiz, the form, or in person.",
   },
   {
     n: "II",
-    title: "Jenny advises",
-    body: "One private consultation. What suits your skin — and what to skip.",
+    title: "Then, a quiet hour",
+    body: "A private consultation where every option is laid out, and the ones not worth your time are gently set aside.",
   },
   {
     n: "III",
-    title: "You're matched",
-    body: "The right Toronto medi spa and practitioner for your plan.",
+    title: "Finally, the right hands",
+    body: "An introduction to the Toronto medi spa and practitioner best suited to your plan.",
   },
 ];
 
@@ -28,7 +28,7 @@ export default function HowItWorks() {
         <SectionHead
           id="how-title"
           eyebrow="How it works"
-          title="Guidance first. Everything else after."
+          title="Where every plan begins."
         />
         <ol className="grid-3 mt-4" style={{ listStyle: "none" }}>
           {steps.map((s, i) => (

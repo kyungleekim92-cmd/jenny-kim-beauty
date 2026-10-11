@@ -14,7 +14,6 @@ const does = [
 const doesnt = [
   "Perform treatments, inject, or operate devices",
   "Prescribe or diagnose any medical condition",
-  "Push packages, upsells, or treatments you don't need",
 ];
 
 export default function About() {
@@ -54,16 +53,20 @@ export default function About() {
           <div className="about-copy">
             <Reveal as="h2" className="display-sm">
               <span id="about-title">
-                Compassion, candour, and nothing to <em>sell</em>.
+                On skin, and the art of choosing <em>well</em>.
               </span>
             </Reveal>
             <Reveal delay={120}>
               <span className="hairline-draw section-rule" aria-hidden="true" />
             </Reveal>
             <Reveal as="p" delay={240} className="lede mt-3">
-              Jenny Kim is an independent beauty consultant in Toronto. She doesn&apos;t perform
-              treatments and doesn&apos;t represent any clinic — she recommends only what
-              she&apos;d choose for her own skin.
+              Jenny Kim is an independent beauty consultant in Toronto. Her work begins where most
+              advice ends: with time, attention, and a careful reading of your skin and the life
+              around it.
+            </Reveal>
+            <Reveal as="p" delay={300} className="lede mt-2">
+              She performs no treatments and answers to no clinic. What she offers instead is
+              perspective — the same counsel she would want for her own skin.
             </Reveal>
 
             <Reveal delay={340} className="mt-4">

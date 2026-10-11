@@ -39,10 +39,10 @@ export default function Partners() {
           eyebrow="Partner spas"
           title={
             <>
-              Trusted referrals, not <em>listings</em>.
+              A small circle, chosen with <em>care</em>.
             </>
           }
-          lede="A short, curated circle of Toronto medi spas — each vetted personally."
+          lede="A handful of Toronto medi spas, each one vetted by Jenny personally."
         />
 
         <Reveal as="p" className="disclosure mt-4">
