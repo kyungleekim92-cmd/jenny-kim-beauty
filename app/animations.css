@@ -185,7 +185,7 @@
 .mobile-menu a:not(.mobile-cta) { color: var(--ink-soft); }
 .mobile-menu a.is-active { color: var(--ink); font-style: italic; }
 .mobile-menu .mobile-cta { font-family: var(--font-sans), sans-serif; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid var(--chrome); padding: 14px 28px; margin-top: 28px; }
-@media (min-width: 1081px) {
+@media (min-width: 1280px) {
   .mobile-menu { display: none; }
 }
 
@@ -645,12 +645,12 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .shop-perk { display: block; margin-top: 6px; font-size: 11px; letter-spacing: 0.08em; text-transform: none; color: var(--chrome-deep); font-weight: 400; }
 
 /* ---------- language toggle (EN | KO) ---------- */
-.lang-toggle { display: flex; align-items: center; gap: 8px; margin-left: clamp(18px, 2vw, 28px); font-size: 10.5px; letter-spacing: 0.16em; font-weight: 500; color: var(--muted); }
+.lang-toggle { display: flex; white-space: nowrap; align-items: center; gap: 8px; margin-left: clamp(18px, 2vw, 28px); font-size: 10.5px; letter-spacing: 0.16em; font-weight: 500; color: var(--muted); }
 .lang-toggle a { text-decoration: none; color: var(--muted); transition: color 0.4s var(--ease); }
 .lang-toggle a:hover, .lang-toggle a:focus-visible { color: var(--ink); }
 .lang-toggle .is-current { color: var(--ink); }
 .lang-sep { margin-right: 8px; color: var(--chrome); }
-@media (max-width: 1080px) {
+@media (max-width: 1279px) {
   .lang-toggle { margin-left: auto; margin-right: 14px; }
 }
 .nav.menu-open .lang-toggle { visibility: hidden; }

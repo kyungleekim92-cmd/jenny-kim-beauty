@@ -80,7 +80,6 @@ export default function Contact({ lang }: { lang: Lang }) {
                 <a
                   href={site.contact.instagram}
                   className="underline-draw"
-                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   @{site.contact.instagramHandle}

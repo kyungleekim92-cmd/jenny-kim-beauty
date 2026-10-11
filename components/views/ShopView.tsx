@@ -94,7 +94,6 @@ export default function ShopView({ lang }: { lang: Lang }) {
                             key={l.store}
                             href={l.href}
                             className="quiet-link"
-                            target="_blank"
                             rel="sponsored noopener noreferrer"
                           >
                             {t.shopAt(storeNames[l.store][lang])} <span aria-hidden="true">→</span>
