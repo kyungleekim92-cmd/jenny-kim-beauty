@@ -57,14 +57,14 @@ function firstSentence(text: string): string {
 export function guideDescription(t: Treatment, lang: Lang = "en"): string {
   const lead = firstSentence(t.explainer[0]);
   return lang === "ko"
-    ? `${lead} 토론토의 독립 뷰티 컨설턴트 제니가 정리한 ${t.name} 가이드: 회복 기간, 시술 횟수, 상담 때 물어볼 질문.`
+    ? `${lead} 토론토의 독립 뷰티 컨설턴트 제니가 직접 정리한 ${t.name} 가이드예요. 회복 기간, 시술 횟수, 상담 때 물어볼 질문까지 담았어요.`
     : `${lead} An independent Toronto guide to ${t.name}: downtime, sessions and the questions to ask.`;
 }
 
 export function concernDescription(c: Condition, lang: Lang = "en"): string {
   const lead = firstSentence(c.overview[0]);
   return lang === "ko"
-    ? `${lead} 토론토에서 선택할 수 있는 시술을 제니가 독립적으로 안내합니다.`
+    ? `${lead} 토론토에서 선택할 수 있는 시술을 제가 독립적으로 안내해 드려요.`
     : `${lead} Treatment options in Toronto, explained independently by Jenny Kim.`;
 }
 
