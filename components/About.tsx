@@ -4,16 +4,17 @@ import { useState } from "react";
 import { Reveal } from "@/components/motion";
 import Photo from "@/components/Photo";
 
-const does = [
-  "One-on-one private consultations in Toronto",
-  "Plain-language education on every treatment option",
-  "Honest assessment of what suits your skin — and what to skip",
-  "Referrals to vetted Toronto medi spas and the right practitioner",
+const included = [
+  "A private, one-on-one consultation in Toronto",
+  "Clear guidance on each treatment option",
+  "A considered view of what will suit your skin",
+  "Introductions to trusted medi spas and practitioners",
 ];
 
-const doesnt = [
-  "Perform treatments, inject, or operate devices",
-  "Prescribe or diagnose any medical condition",
+// Scope wording matters for compliance: Jenny is a consultant, not a practitioner.
+const scope = [
+  "Treatments, injections and device procedures are left to licensed practitioners",
+  "Medical diagnosis and prescriptions remain with your physician",
 ];
 
 export default function About() {
@@ -64,7 +65,7 @@ export default function About() {
                     aria-controls="about-more-panel"
                     onClick={() => setOpen(!open)}
                   >
-                    <span>What Jenny does — and doesn&apos;t</span>
+                    <span>The consultation, in detail</span>
                     <span className="acc-icon" aria-hidden="true" />
                   </button>
                 </h3>
@@ -76,18 +77,22 @@ export default function About() {
                 >
                   <div className="acc-inner">
                     <div className="does">
-                      <p className="eyebrow chrome">She does</p>
-                      <ul className="mt-2">
-                        {does.map((d) => (
-                          <li key={d}>{d}</li>
-                        ))}
-                      </ul>
-                      <p className="eyebrow mt-3">She doesn&apos;t</p>
-                      <ul className="mt-2">
-                        {doesnt.map((d) => (
-                          <li key={d}>{d}</li>
-                        ))}
-                      </ul>
+                      <div>
+                        <p className="eyebrow chrome">Included</p>
+                        <ul className="mt-2">
+                          {included.map((d) => (
+                            <li key={d}>{d}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="doesnt">
+                        <p className="eyebrow chrome">A note on scope</p>
+                        <ul className="mt-2">
+                          {scope.map((d) => (
+                            <li key={d}>{d}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
