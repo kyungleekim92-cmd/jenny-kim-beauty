@@ -17,7 +17,7 @@ const downtimeIds: Downtime[] = ["none", "minimal", "moderate", "significant"];
 
 const copy = {
   en: {
-    section: "Skin quiz",
+    section: "Where to begin",
     downtime: {
       none: "None — I need zero recovery",
       minimal: "Minimal — a day or two",
@@ -31,18 +31,18 @@ const copy = {
     ),
     introLede: "A few questions. Get the guides worth reading first — matched to you.",
     begin: "Begin",
-    q1Eyebrow: "Skin quiz — question 1 of 2",
+    q1Eyebrow: "Where to begin — question 1 of 2",
     q1: "What concerns you most?",
     q1Aside: "Choose all that apply.",
     q1Group: "Skin concerns",
     continue: "Continue",
     back: "← Back",
-    q2Eyebrow: "Skin quiz — question 2 of 2",
+    q2Eyebrow: "Where to begin — question 2 of 2",
     q2: "How much downtime can you accept?",
     q2Aside: "Be honest — the right plan respects your real life.",
     q2Group: "Acceptable downtime",
     seeMatches: "See my matches",
-    resultsEyebrow: "Skin quiz — your reading list",
+    resultsEyebrow: "Where to begin — your reading list",
     results: "Your matches.",
     moleNote:
       "A note on moles: anything changing, dark, or unusual needs a physician's assessment first. Jenny works on aesthetic concerns only and will redirect you when that's the right call.",
@@ -62,7 +62,7 @@ const copy = {
     alt: "A single golden drop of serum falling from a glass dropper",
   },
   ko: {
-    section: "스킨 퀴즈",
+    section: "나에게 맞는 시술",
     downtime: {
       none: "없어야 해요 (바로 일상 복귀)",
       minimal: "하루 이틀 정도는 괜찮아요",
@@ -76,18 +76,18 @@ const copy = {
     ),
     introLede: "몇 가지 질문에 답해 주시면, 먼저 읽어 보시면 좋은 가이드를 추천해 드려요.",
     begin: "시작하기",
-    q1Eyebrow: "스킨 퀴즈 — 질문 1/2",
+    q1Eyebrow: "나에게 맞는 시술 — 질문 1/2",
     q1: "요즘 가장 신경 쓰이는 피부 고민은 뭐예요?",
     q1Aside: "해당하는 것을 모두 골라 주세요.",
     q1Group: "피부 고민",
     continue: "다음",
     back: "← 이전",
-    q2Eyebrow: "스킨 퀴즈 — 질문 2/2",
+    q2Eyebrow: "나에게 맞는 시술 — 질문 2/2",
     q2: "회복 기간은 어느 정도까지 괜찮으세요?",
     q2Aside: "편하게 골라 주세요. 시술 계획은 일상에 맞아야 오래 갈 수 있어요.",
     q2Group: "가능한 회복 기간",
     seeMatches: "결과 보기",
-    resultsEyebrow: "스킨 퀴즈 — 추천 가이드",
+    resultsEyebrow: "나에게 맞는 시술 — 추천 가이드",
     results: "추천 가이드예요.",
     moleNote:
       "점은 꼭 확인해 주세요. 모양이나 색이 변했거나 평소와 달라 보이는 점은 먼저 병원에서 진료를 받으셔야 해요. 저는 미용 고민만 상담하고, 진료가 필요해 보이면 병원부터 권해 드려요.",

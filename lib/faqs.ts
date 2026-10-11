@@ -30,7 +30,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "I don't know which treatment I need. Where do I start?",
-    a: "Start with the Skin Quiz — it takes two minutes and maps your concerns to the right treatment guides. Then book a consultation and Jenny will refine the plan with you in person.",
+    a: "Start with Where to Begin, a few questions that take about two minutes and point you to the treatment guides that match your concerns. Then book a consultation and Jenny will refine the plan with you in person.",
   },
   {
     q: "Do you treat medical skin conditions?",

@@ -45,7 +45,7 @@ export const site = {
   nav: [
     { href: "#how", label: "Approach" },
     { href: "#guides", label: "Guides" },
-    { href: "#quiz", label: "Skin Quiz" },
+    { href: "#quiz", label: "Where to Begin" },
     { href: "#about", label: "About" },
     { href: "#partners", label: "Partners" },
     { href: "#faq", label: "FAQ" },
