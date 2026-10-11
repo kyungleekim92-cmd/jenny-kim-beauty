@@ -42,7 +42,7 @@ export const site = {
   // it was created with. Get one free at https://web3forms.com (no account needed).
   // It is public by design (it can only send to that inbox), so it lives here, not in env.
   // While empty, forms tell visitors to message Jenny on Instagram instead.
-  formsAccessKey: "",
+  formsAccessKey: "414979c7-3ac0-41d1-992b-9841245a058f",
   // Search engine ownership checks. Paste the code from each console's "HTML tag" option
   // (just the content="…" value). Empty values are left out of the page.
   verification: {
