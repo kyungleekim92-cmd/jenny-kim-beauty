@@ -46,7 +46,7 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
 | Structured data (JSON-LD), review date, author bio | `lib/seo.ts` |
 | Sitemap, robots, AI summary | `app/sitemap.ts`, `app/robots.ts`, `app/llms.txt/route.ts` |
 | Form delivery (Web3Forms, browser-side) | `lib/inquiry.ts`, `components/FormError.tsx` |
-| Amazon shop products + Associates tag → `/shop` | `lib/shop.ts` |
+| Shop products + affiliate links (Olive Young, Sephora, Amazon) → `/shop` | `lib/shop.ts` |
 | Nav items (adds "Shop" once the shop is live) | `lib/nav.ts` |
 | Styles (no Tailwind) | `app/globals.css`, `app/animations.css` |
 
@@ -70,9 +70,10 @@ owner's inbox), the Google/Bing verification codes and the IndexNow key.
   practitioner is responsible for treatments and outcomes) and the consent line in the booking
   form.
 - Hours: Mon–Fri 10 am – 7 pm, Sat–Sun 11 am – 4 pm, by appointment only (`site.hours`).
-- Shop (Amazon Associates, amazon.ca): keep `SHOP_DISCLOSURE` on `/shop` (Amazon requires it),
-  keep `rel="sponsored"` on links, never show Amazon prices or copy Amazon product photos, and
-  only list products the owner has chosen. Product notes follow the same measured voice.
+- Shop (Olive Young Global, Sephora, Amazon.ca affiliate links): keep `SHOP_DISCLOSURE` on
+  `/shop` (Amazon requires its line), keep `rel="sponsored"` on links, never show store prices or
+  copy store product photos, and only list products the owner has chosen. Affiliate accounts
+  must be in the owner's own name and country. Product notes follow the same measured voice.
 
 ## Design
 
