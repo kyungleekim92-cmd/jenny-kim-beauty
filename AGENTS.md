@@ -77,6 +77,21 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
 Public-by-design values that are fine to commit: `formsAccessKey` (Web3Forms only sends to the
 owner's inbox), the Google/Bing verification codes and the IndexNow key.
 
+## Positioning (owner's brief — guides all marketing, ads and site copy)
+
+- **What Jenny offers is convenience, privacy and discretion.** Clients can learn about a
+  treatment, ask questions and get a considered view without first going to a clinic. Some only
+  want information, close by; that is a complete, valued visit on its own.
+- **The place is a key highlight:** in-person consultations at the St. Regis Toronto, Bay &
+  Adelaide, in the Financial District (`site.venue`). Easy to reach from Bay Street offices.
+- **Who it is for:** busy professional women working on and around Bay Street who value their
+  time and privacy and have little room to visit clinics.
+- **The feeling:** a quick, private chat over tea or coffee, fitted around a workday, rather than
+  a clinic appointment.
+- In copy, show this through place, ease and discretion. Never write about clients' income or
+  wealth, never imply the hotel endorses Jenny, and keep the consultant-not-practitioner framing
+  (treatments always happen later, with a licensed practitioner).
+
 ## Content and voice
 
 - Tone: elegant, calm, editorial prose. Not salesy or defensive. Avoid lines like "nothing to
