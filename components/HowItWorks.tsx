@@ -16,8 +16,8 @@ const copy = {
       },
       {
         n: "II",
-        title: "Then, a quiet hour",
-        body: "A private consultation where every option is laid out, and the ones not worth your time are gently set aside.",
+        title: "Then, tea and a conversation",
+        body: "Thirty minutes to an hour, close to the office. Every option is laid out, and the ones not worth your time are gently set aside.",
       },
       {
         n: "III",
@@ -28,22 +28,22 @@ const copy = {
   },
   ko: {
     eyebrow: "상담 과정",
-    title: "모든 플랜은 여기서 시작해요.",
+    title: "상담은 이렇게 진행돼요.",
     steps: [
       {
         n: "I",
-        title: "먼저, 당신의 이야기",
-        body: "고민과 지금까지의 경험, 바라는 모습을 들려주세요. 스킨 퀴즈나 상담 신청서로, 혹은 직접 만나서 편하게 이야기해 주셔도 돼요.",
+        title: "먼저, 이야기를 들어요",
+        body: "피부 고민과 지금까지 받아 보신 관리, 원하시는 모습을 들려주세요. 스킨 퀴즈나 상담 신청서로 보내 주셔도 되고, 만나서 편하게 말씀하셔도 돼요.",
       },
       {
         n: "II",
-        title: "그다음, 조용한 한 시간",
-        body: "프라이빗한 상담에서 모든 선택지를 하나씩 살펴보고, 굳이 하지 않으셔도 될 것들은 제가 솔직하게 덜어 드려요.",
+        title: "그다음, 차 한잔과 상담",
+        body: "회사 근처에서 30분에서 한 시간 정도 만나요. 가능한 시술을 하나씩 함께 살펴보고, 굳이 받지 않으셔도 되는 것은 미리 말씀드려요.",
       },
       {
         n: "III",
-        title: "마지막으로, 믿을 수 있는 손",
-        body: "플랜에 가장 잘 맞는 토론토의 메디 스파와 전문가를 제가 직접 연결해 드려요.",
+        title: "마지막으로, 나에게 맞는 전문가",
+        body: "시술 계획에 가장 잘 맞는 토론토의 메디 스파와 전문가를 제가 직접 연결해 드려요.",
       },
     ],
   },

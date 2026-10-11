@@ -118,7 +118,7 @@ export const SHOP_DISCLOSURE = {
   en: ["Jenny may earn a commission on purchases made through links on this page, at no extra cost to you.", amazonLine]
     .filter(Boolean)
     .join(" "),
-  ko: ["이 페이지의 링크로 구매하시면 제가 수수료를 받을 수 있어요. 추가 비용은 없어요.", amazonLine]
+  ko: ["이 페이지의 링크로 구매하시면 제가 수수료를 받을 수 있어요. 고객님이 추가로 내시는 비용은 없어요.", amazonLine]
     .filter(Boolean)
     .join(" "),
 };

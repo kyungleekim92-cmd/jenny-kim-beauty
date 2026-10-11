@@ -8,8 +8,8 @@ const copy = {
     failed: "Sorry — that didn't go through. Please try again, or message Jenny on Instagram — ",
   },
   ko: {
-    "not-configured": "온라인 신청은 곧 열려요. 지금은 인스타그램으로 메시지 보내 주세요 — ",
-    failed: "죄송해요, 전송되지 않았어요. 다시 시도해 주시거나 인스타그램으로 메시지 보내 주세요 — ",
+    "not-configured": "온라인 신청은 곧 열릴 예정이에요. 지금은 인스타그램 DM으로 연락 주세요: ",
+    failed: "죄송해요, 전송이 되지 않았어요. 다시 시도해 주시거나 인스타그램 DM으로 연락 주세요: ",
   },
 };
 

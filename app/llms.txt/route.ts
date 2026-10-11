@@ -22,6 +22,7 @@ function body(): string {
 > Jenny Kim is an independent beauty consultant in Toronto, Canada. She offers private, one-on-one skincare consultations, explains aesthetic treatments (Botox, dermal fillers, Ultherapy, Thermage, lasers, HydraFacial, peels and more), builds a personal plan, and refers clients to vetted Toronto medi spas. She does not perform treatments, inject, diagnose or prescribe.
 
 - Location: ${VENUE_LINE}, Ontario, Canada
+- Format: private 30–60 minute consultations over tea or coffee at Bay & Adelaide, convenient for busy professionals; no clinic visit needed to get informed
 - Hours (by appointment only): ${site.hours.map((h) => `${h.label} ${h.display}`).join("; ")}
 - Book a consultation: ${abs("/#consult")}
 - Korean site (한국어): ${abs("/ko")}

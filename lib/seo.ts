@@ -64,7 +64,7 @@ export function guideDescription(t: Treatment, lang: Lang = "en"): string {
 export function concernDescription(c: Condition, lang: Lang = "en"): string {
   const lead = firstSentence(c.overview[0]);
   return lang === "ko"
-    ? `${lead} 토론토에서 선택할 수 있는 시술을 제가 독립적으로 안내해 드려요.`
+    ? `${lead} 토론토에서 받을 수 있는 시술을 제가 특정 업체에 치우치지 않고 안내해 드려요.`
     : `${lead} Treatment options in Toronto, explained independently by Jenny Kim.`;
 }
 
@@ -74,8 +74,8 @@ const labels = {
 };
 
 const businessDescription: Record<Lang, string> = {
-  en: "Independent skincare consultations in Toronto. Jenny Kim explains aesthetic treatments such as Botox, dermal fillers, lasers and facials, builds a personal plan, and refers clients to vetted medi spas. She does not perform treatments.",
-  ko: "토론토의 독립 스킨케어 상담. 제니 킴은 보톡스, 필러, 레이저, 피부 관리 등 미용 시술을 설명하고 개인 맞춤 플랜을 세워, 검증된 메디 스파를 연결해 드립니다. 직접 시술은 하지 않습니다.",
+  en: "Independent skincare consultations at Bay & Adelaide in Toronto's Financial District. Jenny Kim explains aesthetic treatments such as Botox, dermal fillers, lasers and facials, builds a personal plan, and refers clients to vetted medi spas. She does not perform treatments.",
+  ko: "토론토 금융가 Bay & Adelaide의 독립 스킨케어 상담. 제니 킴은 보톡스, 필러, 레이저, 피부 관리 등 미용 시술을 설명하고 개인 맞춤 시술 계획을 세워, 검증된 메디 스파를 연결해 드립니다. 직접 시술은 하지 않습니다.",
 };
 
 const address = {

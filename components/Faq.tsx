@@ -13,9 +13,9 @@ const copy = {
     lede: "The questions clients ask most, before their first visit.",
   },
   ko: {
-    eyebrow: "자주 묻는 질문",
-    title: "자주 받는 질문, 담백한 답변.",
-    lede: "첫 상담 전에 가장 많이 받는 질문들이에요.",
+    eyebrow: "FAQ",
+    title: "자주 묻는 질문",
+    lede: "첫 상담 전에 많이 물어보시는 것들을 모았어요.",
   },
 };
 

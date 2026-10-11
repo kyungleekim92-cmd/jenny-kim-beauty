@@ -19,16 +19,16 @@ const copy = {
     consultations: "Consultations",
     requestOnline: "Request online",
     small: "By appointment only. Jenny replies within one business day.",
-    reserve: "Reserve your hour",
+    reserve: "Book a consultation",
   },
   ko: {
     eyebrow: "문의",
     title: (
       <>
-        <em>대화</em>로 시작해요.
+        편하게 <em>연락</em> 주세요.
       </>
     ),
-    lede: "예약 전에 궁금한 점이 있으시거나, 그냥 인사만 건네셔도 좋아요. 모든 메시지에 제가 직접 답해요.",
+    lede: "예약 전에 궁금한 점이 있으시면 언제든 물어보세요. 메시지는 모두 제가 직접 읽고 답장 드려요.",
     address: "주소",
     hours: "운영 시간 (토론토 시간)",
     consultations: "상담",
@@ -55,6 +55,8 @@ export default function Contact({ lang }: { lang: Lang }) {
             <div>
               <dt>{t.address}</dt>
               <dd>
+                {site.venue.building}
+                <br />
                 {site.venue.address}
                 <br />
                 {lang === "ko" ? "토론토" : site.venue.city}

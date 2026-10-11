@@ -35,12 +35,12 @@ const home = {
   en: {
     title: `${site.brand} — Independent Skincare & Aesthetics Consultant, Toronto`,
     description:
-      "Private skincare consultations in Toronto with Jenny Kim. Independent guidance on Botox, dermal fillers, lasers, Ultherapy, HydraFacial and more, with introductions to trusted medi spas.",
+      "Private skincare consultations at Bay & Adelaide, in Toronto's Financial District, with Jenny Kim. Independent guidance on Botox, dermal fillers, lasers, Ultherapy, HydraFacial and more, with introductions to trusted medi spas.",
   },
   ko: {
     title: "제니 킴 | 토론토 스킨케어·미용 시술 독립 컨설턴트",
     description:
-      "토론토에서 활동하는 독립 뷰티 컨설턴트 제니 킴이에요. 보톡스, 필러, 레이저, 울쎄라, 하이드라페이셜까지, 시술 전에 꼭 알아야 할 것들을 1:1 프라이빗 상담으로 안내하고 믿을 수 있는 메디 스파를 연결해 드려요.",
+      "토론토 금융가 Bay & Adelaide에서 상담하는 독립 뷰티 컨설턴트 제니 킴이에요. 보톡스, 필러, 레이저, 울쎄라, 하이드라페이셜까지, 시술 전에 꼭 알아야 할 것들을 1:1 프라이빗 상담으로 안내하고 믿을 수 있는 메디 스파를 연결해 드려요.",
   },
 };
 
@@ -64,13 +64,13 @@ export const guidesIndexMetadata = (lang: Lang) =>
   pageMetadata(lang, "/guides", guidesIndex[lang].title, guidesIndex[lang].description);
 
 export const guideTitle = (t: Treatment, lang: Lang) =>
-  lang === "ko" ? `${t.name} 토론토 가이드 — 독립 컨설턴트의 안내` : `${t.name} in Toronto — An Independent Guide`;
+  lang === "ko" ? `토론토 ${t.name} 가이드: 시술 전에 알아 둘 것` : `${t.name} in Toronto — An Independent Guide`;
 
 export const guideMetadata = (t: Treatment, lang: Lang) =>
   pageMetadata(lang, guidePath(t), guideTitle(t, lang), guideDescription(t, lang), "article");
 
 export const concernTitle = (c: Condition, lang: Lang) =>
-  lang === "ko" ? `${c.name}: 토론토 시술 선택지` : `${c.name}: Treatment Options in Toronto`;
+  lang === "ko" ? `${c.name}: 토론토에서 받을 수 있는 시술` : `${c.name}: Treatment Options in Toronto`;
 
 export const concernMetadata = (c: Condition, lang: Lang) =>
   pageMetadata(lang, concernPath(c), concernTitle(c, lang), concernDescription(c, lang), "article");
@@ -82,8 +82,8 @@ const shop = {
       "A short edit of K-beauty skincare Toronto beauty consultant Jenny Kim recommends, from Biodance and more, with 5% off through her Olive Young links.",
   },
   ko: {
-    title: "디 에디트 — 제니가 추천하는 스킨케어",
-    description: "토론토 뷰티 컨설턴트 제니 킴이 추천하는 K-뷰티 스킨케어예요. 제 올리브영 링크로 5% 할인돼요.",
+    title: "제니의 추천 스킨케어",
+    description: "토론토 뷰티 컨설턴트 제니 킴이 직접 써 보고 추천하는 K-뷰티 스킨케어예요. 제 올리브영 링크로 구매하시면 5% 할인돼요.",
   },
 };
 

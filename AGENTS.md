@@ -51,6 +51,9 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
   Same compliance rules: Jenny is an independent consultant, not a medical practitioner;
   캐나다 보건부(Health Canada), never the FDA. On this site "PRF" means
   pulsed radiofrequency (펄스 고주파), not platelet-rich fibrin.
+- Korean must read as native Korean, never as a translation. Follow
+  `.claude/skills/korean-voice/SKILL.md` for any Korean text (examples of what to avoid and the
+  words Korean clinics actually use).
 - Form emails stay in English for the owner and include `Language: Korean (한국어)` for Korean
   submissions.
 
@@ -73,6 +76,24 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
 
 Public-by-design values that are fine to commit: `formsAccessKey` (Web3Forms only sends to the
 owner's inbox), the Google/Bing verification codes and the IndexNow key.
+
+## Positioning (owner's brief — guides all marketing, ads and site copy)
+
+- **What Jenny offers is convenience, privacy and discretion.** Clients can learn about a
+  treatment, ask questions and get a considered view without first going to a clinic. Some only
+  want information, close by; that is a complete, valued visit on its own.
+- **The place is a key highlight:** in-person consultations at Bay & Adelaide, in the Financial
+  District, easy to reach from Bay Street offices. In copy say "Bay & Adelaide" (or 금융가 Bay &
+  Adelaide); do not name the hotel. The building name appears only in the address line
+  (`site.venue.building`). Never publish a floor or unit number: it is the owner's residence.
+- **Who it is for:** busy professional women working on and around Bay Street who value their
+  time and privacy and have little room to visit clinics.
+- **The feeling:** a private chat over tea or coffee, fitted around a workday, rather than a clinic
+  appointment. Consultations are flexible, **30 to 60 minutes**; buttons say "Book a
+  consultation" (상담 예약하기), not "Reserve your hour".
+- In copy, show this through place, ease and discretion. Never write about clients' income or
+  wealth, never imply the hotel endorses Jenny, and keep the consultant-not-practitioner framing
+  (treatments always happen later, with a licensed practitioner).
 
 ## Content and voice
 
