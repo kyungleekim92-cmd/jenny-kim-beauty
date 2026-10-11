@@ -24,7 +24,7 @@ const copy = {
     byAppointment: "예약제 운영 (토론토 시간)",
     venue: "토론토 311 Bay St. 32층",
     legal:
-      "제니 킴은 의료인이 아닌 독립 뷰티 컨설턴트입니다. 이 사이트의 내용은 교육 목적이며 의학적 조언이 아닙니다.",
+      "저는 의료인이 아닌 독립 뷰티 컨설턴트예요. 이 사이트의 내용은 교육 목적이며 의학적 조언이 아니에요.",
     rights: "All rights reserved.",
     backToTop: "맨 위로",
     finePrint:

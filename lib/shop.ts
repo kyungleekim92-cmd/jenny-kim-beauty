@@ -79,7 +79,7 @@ export const storeNames: Record<StoreName, { en: string; ko: string }> = {
 
 export const OLIVE_YOUNG_PERK = {
   en: "5% off with Jenny's link · ships to Canada",
-  ko: "제니 링크로 5% 할인 · 캐나다 배송",
+  ko: "제 링크로 5% 할인 · 캐나다 배송",
 };
 
 // Store links for a product, in display order: Canada first (Olive Young Global carries the
@@ -118,7 +118,7 @@ export const SHOP_DISCLOSURE = {
   en: ["Jenny may earn a commission on purchases made through links on this page, at no extra cost to you.", amazonLine]
     .filter(Boolean)
     .join(" "),
-  ko: ["이 페이지의 링크를 통해 구매하시면 제니가 수수료를 받을 수 있으며, 추가 비용은 없습니다.", amazonLine]
+  ko: ["이 페이지의 링크로 구매하시면 제가 수수료를 받을 수 있어요. 추가 비용은 없어요.", amazonLine]
     .filter(Boolean)
     .join(" "),
 };
