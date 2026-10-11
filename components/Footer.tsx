@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site, VENUE_LINE } from "@/lib/site";
+import { navHref, navItems } from "@/lib/nav";
 
 // Hardcoded on purpose: calling new Date() during render breaks Next 16 prerendering.
 // Bump each January.
@@ -19,8 +20,8 @@ export default function Footer() {
           </div>
 
           <nav className="footer-nav" aria-label="Footer">
-            {site.nav.map((item) => (
-              <a key={item.href} href={`/${item.href}`} className="underline-draw">
+            {navItems.map((item) => (
+              <a key={item.href} href={navHref(item.href, false)} className="underline-draw">
                 {item.label}
               </a>
             ))}
