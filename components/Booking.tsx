@@ -4,7 +4,9 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import Photo from "@/components/Photo";
+import FormError from "@/components/FormError";
 import { conditions } from "@/lib/conditions";
+import { sendInquiry, type InquiryResult } from "@/lib/inquiry";
 
 const contactMethods = ["Email", "Phone", "Text"];
 const budgetBands = ["Under $500", "$500–$1,500", "$1,500–$3,000", "$3,000+", "Not sure yet"];
@@ -33,20 +35,56 @@ export default function Booking() {
   const [budget, setBudget] = useState("");
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<Exclude<InquiryResult, "sent"> | null>(null);
 
   const canSubmit = concerns.length > 0 && consent;
 
   const toggleConcern = (slug: string) =>
     setConcerns((s) => (s.includes(slug) ? s.filter((x) => x !== slug) : [...s, slug]));
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!canSubmit) return;
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    const payload = { ...data, contactMethod, concerns, budget, consent };
-    // BACKEND: POST `payload` as JSON to /api/consultations (or a Formspree / CRM webhook).
-    // Wire Jenny's email notification + lead capture there before launch.
-    void payload;
+    if (!canSubmit || sending) return;
+    const form = new FormData(e.currentTarget);
+    const get = (k: string) => String(form.get(k) ?? "").trim();
+    const email = get("email");
+
+    // Honeypot: only bots fill the hidden field. Show success without sending anything.
+    let result: InquiryResult = "sent";
+    if (!get("website")) {
+      setSending(true);
+      setError(null);
+      // Labels are what Jenny sees in the email, in this order.
+      result = await sendInquiry(
+        `Consultation request — ${get("name")}`,
+        {
+          Name: get("name"),
+          Email: email,
+          Phone: get("phone"),
+          "Preferred contact": contactMethod,
+          "Best time to reach": get("bestTime"),
+          "Skin concerns": concerns
+            .map((slug) => conditions.find((c) => c.slug === slug)?.name ?? slug)
+            .join(", "),
+          "Goals & timeline": get("goals"),
+          "Skin type": get("skinType"),
+          "Skin tone": get("skinTone"),
+          "Past treatments": get("pastTreatments"),
+          Budget: budget,
+          "Preferred area": get("area"),
+          "Health pre-screen": get("healthPrescreen"),
+          "Heard about Jenny from": get("heardFrom"),
+          Consent: "Agreed",
+        },
+        email,
+      );
+      setSending(false);
+    }
+    if (result !== "sent") {
+      setError(result);
+      return;
+    }
     setSubmitted(true);
     document.getElementById("consult")?.scrollIntoView({ behavior: prefersReduced() ? "auto" : "smooth" });
   };
@@ -104,6 +142,14 @@ export default function Booking() {
 
                 <Reveal delay={100} className="mt-3">
                   <form onSubmit={onSubmit}>
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      style={{ display: "none" }}
+                    />
                     <fieldset className="form-group">
                       <GroupHead n="I" title="About you" />
                       <div className="field">
@@ -274,9 +320,10 @@ export default function Booking() {
                     </fieldset>
 
                     <div className="mt-3">
-                      <button type="submit" className="btn-outline" disabled={!canSubmit}>
-                        Request my consultation
+                      <button type="submit" className="btn-outline" disabled={!canSubmit || sending}>
+                        {sending ? "Sending…" : "Request my consultation"}
                       </button>
+                      {error && <FormError reason={error} />}
                       {!canSubmit && (
                         <p className="form-hint">
                           Please choose at least one skin concern and accept the consent to continue.

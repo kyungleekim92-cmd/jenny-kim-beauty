@@ -4,7 +4,9 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Reveal } from "@/components/motion";
 import Photo from "@/components/Photo";
 import type { OpenChapterDetail } from "@/components/Chapters";
+import FormError from "@/components/FormError";
 import { conditions } from "@/lib/conditions";
+import { sendInquiry, type InquiryResult } from "@/lib/inquiry";
 import { treatments, type Treatment } from "@/lib/treatments";
 
 type Step = 0 | 1 | 2 | 3;
@@ -57,6 +59,8 @@ export default function Quiz() {
   const [downtime, setDowntime] = useState<Downtime | null>(null);
   const [email, setEmail] = useState("");
   const [emailDone, setEmailDone] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<Exclude<InquiryResult, "sent"> | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -82,18 +86,34 @@ export default function Quiz() {
     setDowntime(null);
     setEmail("");
     setEmailDone(false);
+    setError(null);
     setStep(0);
   };
 
   const { results, filteredCo2 } = matchTreatments(selected, downtime);
   const showMoleNote = selected.includes("mole-removal");
 
-  const onEmail = (e: FormEvent<HTMLFormElement>) => {
+  // Sends the visitor's matches to Jenny, who follows up personally from her own inbox.
+  const onEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email.includes("@")) return;
-    // BACKEND: POST { email, matches: results.map((t) => t.slug), concerns: selected, downtime }
-    // to /api/quiz-matches (or the email provider's list endpoint) and send the matches by email.
-    setEmailDone(true);
+    if (!email.includes("@") || sending) return;
+    setSending(true);
+    setError(null);
+    const result = await sendInquiry(
+      `Skin quiz matches — ${email}`,
+      {
+        Email: email,
+        Concerns: selected
+          .map((slug) => conditions.find((c) => c.slug === slug)?.name ?? slug)
+          .join(", "),
+        "Downtime OK": downtimeOptions.find((o) => o.id === downtime)?.label ?? "",
+        Matches: results.map((t) => t.name).join(", ") || "None — wants to talk options through",
+      },
+      email,
+    );
+    setSending(false);
+    if (result === "sent") setEmailDone(true);
+    else setError(result);
   };
 
   const progress = (
@@ -254,7 +274,9 @@ export default function Quiz() {
                 <Reveal delay={200} className="quiz-capture mt-4">
                   <p className="eyebrow">Keep your matches</p>
                   {emailDone ? (
-                    <p className="mt-2">Thank you — your matches are on their way to {email}.</p>
+                    <p className="mt-2">
+                      Thank you — Jenny will send your matches, with a personal note, to {email}.
+                    </p>
                   ) : (
                     <form className="mt-2" onSubmit={onEmail}>
                       <div className="field">
@@ -269,9 +291,10 @@ export default function Quiz() {
                           placeholder="you@example.com"
                         />
                       </div>
-                      <button type="submit" className="btn-outline">
-                        Send my matches
+                      <button type="submit" className="btn-outline" disabled={sending}>
+                        {sending ? "Sending…" : "Send my matches"}
                       </button>
+                      {error && <FormError reason={error} />}
                     </form>
                   )}
                 </Reveal>

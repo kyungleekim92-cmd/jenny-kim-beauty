@@ -28,11 +28,14 @@ export const site = {
     { href: "#contact", label: "Contact" },
   ],
   contact: {
-    // PLACEHOLDERS — replace with real details before launch
-    email: "hello@jennykimbeauty.example",
-    phone: "+1 (416) 555-0132",
-    instagram: "https://instagram.com/",
+    instagramHandle: "kyunglxx",
+    instagram: "https://www.instagram.com/kyunglxx/",
   },
+  // Web3Forms access key — booking requests and quiz emails are delivered to the inbox
+  // it was created with. Get one free at https://web3forms.com (no account needed).
+  // It is public by design (it can only send to that inbox), so it lives here, not in env.
+  // While empty, forms tell visitors to message Jenny on Instagram instead.
+  formsAccessKey: "",
 };
 
 export const VENUE_LINE = `${site.venue.address}, ${site.venue.city}`;

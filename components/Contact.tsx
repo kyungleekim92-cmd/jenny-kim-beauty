@@ -4,9 +4,6 @@ import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import { site } from "@/lib/site";
 
-// PLACEHOLDERS — site.contact values are not final; replace in lib/site.ts before launch.
-const tel = `tel:${site.contact.phone.replace(/[^\d+]/g, "")}`;
-
 export default function Contact() {
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
@@ -33,22 +30,6 @@ export default function Contact() {
               </dd>
             </div>
             <div>
-              <dt>Email</dt>
-              <dd>
-                <a href={`mailto:${site.contact.email}`} className="underline-draw">
-                  {site.contact.email}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt>Phone</dt>
-              <dd>
-                <a href={tel} className="underline-draw">
-                  {site.contact.phone}
-                </a>
-              </dd>
-            </div>
-            <div>
               <dt>Instagram</dt>
               <dd>
                 <a
@@ -57,14 +38,21 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Follow on Instagram
+                  @{site.contact.instagramHandle}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>Consultations</dt>
+              <dd>
+                <a href="#consult" className="underline-draw">
+                  Request online
                 </a>
               </dd>
             </div>
           </dl>
           <p className="contact-small">
-            Placeholder details — to be confirmed before launch. Consultations by appointment.
-            Jenny replies within one business day.
+            Consultations by appointment. Jenny replies within one business day.
           </p>
         </Reveal>
 

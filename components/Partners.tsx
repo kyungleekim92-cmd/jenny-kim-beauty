@@ -59,10 +59,11 @@ export default function Partners() {
             parallax={0.03}
           />
           <div>
-            <p className="eyebrow">Founding partner — in discussion</p>
-            <h3 className="display-sm mt-2">Skinlab Medispa</h3>
+            <p className="eyebrow">Founding partners</p>
+            <h3 className="display-sm mt-2">Introduced in person.</h3>
             <p className="lede mt-2">
-              North York, Toronto. Full profile on partnership signing.
+              Partner profiles are published here once each spa signs. Until then, Jenny shares her
+              recommendations at your consultation.
             </p>
           </div>
         </Reveal>

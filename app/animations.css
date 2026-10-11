@@ -466,6 +466,8 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
   background-repeat: no-repeat;
 }
 .form-hint { font-size: 13px; color: var(--muted); margin-top: 14px; }
+.form-error { font-size: 14px; line-height: 1.6; margin-top: 14px; padding-left: 14px; border-left: 1px solid currentColor; }
+.form-error a { text-decoration: underline; text-underline-offset: 3px; }
 .form-close { font-size: 14px; color: var(--muted); max-width: 64ch; }
 .form-success { animation: fadeRise 0.9s var(--ease) both; }
 @media (max-width: 960px) {
@@ -590,7 +592,7 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .contact-block { margin-top: clamp(64px, 8vw, 112px); }
 .contact-facts {
   display: grid;
-  grid-template-columns: 1.4fr 1.2fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 32px;
   border-top: 1px solid var(--line);
   padding-top: 28px;
