@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 import { site } from "@/lib/site";
+import { navHref, navItems } from "@/lib/nav";
 import { useScrollProgress, useScrolledPast, useScrollSpy } from "@/components/motion";
 
 // Every section the nav can point at, in page order (#consult is the CTA).
@@ -10,7 +11,7 @@ const spyIds = ["top", "how", "guides", "quiz", "consult", "about", "partners", 
 // Off the home page (e.g. a guide), section links point back to the home page.
 export default function Nav({ home = true }: { home?: boolean }) {
   const [open, setOpen] = useState(false);
-  const to = (hash: string) => (home ? hash : `/${hash}`);
+  const to = (href: string) => navHref(href, home);
   const scrolled = useScrolledPast(40);
   const progress = useScrollProgress();
   const active = useScrollSpy(spyIds);
@@ -45,7 +46,7 @@ export default function Nav({ home = true }: { home?: boolean }) {
             <small>{site.brandLine}</small>
           </a>
           <nav className="nav-links" aria-label="Primary">
-            {site.nav.map((item) => (
+            {navItems.map((item) => (
               <a key={item.href} href={to(item.href)} {...activeProps(item.href)}>
                 {item.label}
               </a>
@@ -81,7 +82,7 @@ export default function Nav({ home = true }: { home?: boolean }) {
         <p className="eyebrow" style={{ "--i": 0 } as CSSProperties}>
           {site.brand} · {site.brandLine}
         </p>
-        {site.nav.map((item, i) => (
+        {navItems.map((item, i) => (
           <a
             key={item.href}
             href={to(item.href)}
@@ -96,7 +97,7 @@ export default function Nav({ home = true }: { home?: boolean }) {
           href={to("#consult")}
           className="mobile-cta"
           onClick={close}
-          style={{ "--i": site.nav.length + 1 } as CSSProperties}
+          style={{ "--i": navItems.length + 1 } as CSSProperties}
         >
           Reserve your hour
         </a>

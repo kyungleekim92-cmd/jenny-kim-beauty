@@ -44,6 +44,12 @@ visitor's email as reply-to, so Jenny can answer with a plain "Reply".
 you, and paste it into `formsAccessKey` in `lib/site.ts`. Until then, both forms tell visitors to
 message Jenny on Instagram instead of pretending the request went through.
 
+## Shop (Amazon affiliate)
+
+`/shop` ("The Edit") lists products from `lib/shop.ts`, each linked to Amazon.ca with the Associates
+tracking ID in `amazon.tag`. A product shows only once it has an `asin`, `name` and `note`, and the
+page, nav link and sitemap entry stay hidden until at least one product is live.
+
 ## Still to do
 
 1. Web3Forms access key (above)
