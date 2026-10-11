@@ -310,7 +310,7 @@ p { text-wrap: pretty; }
 .nav.menu-open .nav-burger span:last-child { transform: translateY(-4.25px) rotate(-45deg); }
 .mobile-menu a { font-family: var(--font-serif), serif; font-size: clamp(1.3rem, 4.5vw, 1.6rem); line-height: 1.2; min-height: 44px; text-decoration: none; padding: 6px 10px; display: flex; align-items: center; justify-content: center; }
 .mobile-menu > * { flex-shrink: 0; }
-.mobile-menu > a:first-child { margin-top: auto; }
+.mobile-menu > a:first-child { margin-top: 0; }
 .mobile-menu .menu-wordmark { display: block; font-size: 1.65rem; letter-spacing: 0.04em; text-align: center; margin-bottom: 16px; color: var(--ink); }
 .menu-wordmark small { display: block; margin-top: 4px; font-family: var(--font-sans); font-size: 9px; line-height: 1.6; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted); }
 .mobile-menu .mobile-cta { margin-bottom: auto; }
