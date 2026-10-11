@@ -18,6 +18,13 @@ Hero → How it works → Treatment guides (`lib/treatments.ts`) → Skin quiz (
 Consultation booking form → About → Partner spas → FAQ (`lib/faqs.ts`) → Contact → Footer.
 
 Business details (domain, address, Instagram, nav) live in `lib/site.ts`.
+
+## Search (SEO / AI answer engines)
+
+- `/guides` and `/guides/[slug]` — one indexable page per treatment, generated from `lib/treatments.ts`.
+- `lib/seo.ts` — schema.org JSON-LD (business, Jenny, FAQs, guide pages) and shared helpers.
+- `app/sitemap.ts`, `app/robots.ts`, and `app/llms.txt/route.ts` (plain-language summary for AI assistants).
+- Bump `UPDATED` in `app/sitemap.ts` when guide content changes.
 Live at https://www.byjennykim.com (bare domain redirects to www; registered at GoDaddy, nameservers on Vercel).
 
 ## Forms → Jenny's inbox

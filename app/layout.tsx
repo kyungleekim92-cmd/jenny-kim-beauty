@@ -17,14 +17,16 @@ const sans = Inter({
   weight: ["400", "500", "600"],
 });
 
-const title = `${site.brand}, ${site.brandLine} — Private Skincare Consultations in Toronto`;
+const title = `${site.brand} — Independent Skincare & Aesthetics Consultant, Toronto`;
 const description =
-  "Jenny Kim is an independent beauty consultant in Toronto, offering private skincare consultations, considered treatment guidance, and introductions to trusted medi spas.";
+  "Private skincare consultations in Toronto with Jenny Kim. Independent guidance on Botox, dermal fillers, lasers, Ultherapy, HydraFacial and more, with introductions to trusted medi spas.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title,
+  // Other pages set their own title; the brand is appended to each.
+  title: { default: title, template: `%s | ${site.brand}` },
   description,
+  alternates: { canonical: "/" },
   openGraph: {
     title,
     description,

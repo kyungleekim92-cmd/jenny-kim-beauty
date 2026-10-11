@@ -11,10 +11,13 @@ import Partners from "@/components/Partners";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { homeJsonLd } from "@/lib/seo";
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={homeJsonLd()} />
       <Nav />
       <main>
         <Hero />

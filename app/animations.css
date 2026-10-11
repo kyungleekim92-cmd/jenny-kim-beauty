@@ -602,3 +602,21 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
   .acc-icon::after { transition: none; }
   .back-to-top span { transition: none; }
 }
+
+/* ---------- guide pages (/guides, /guides/[slug]) ---------- */
+.guide .section { padding-top: clamp(120px, 14vw, 180px); }
+.breadcrumb { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; letter-spacing: 0.08em; color: var(--muted); }
+.breadcrumb a { text-decoration: none; }
+.breadcrumb a:hover { color: var(--ink); }
+.guide-byline { font-size: 14px; color: var(--muted); }
+.guide-block { margin-top: clamp(48px, 6vw, 72px); }
+.guide h2.eyebrow { font-family: var(--font-sans), sans-serif; }
+.guide-list { list-style: none; border-top: 1px solid var(--line); }
+.guide-list li { border-bottom: 1px solid var(--line); }
+.guide-list a { display: grid; grid-template-columns: auto 1fr; column-gap: 20px; row-gap: 4px; padding: 18px 0; text-decoration: none; }
+.guide-list-num { grid-row: span 2; font-family: var(--font-serif), serif; color: var(--chrome-deep); font-size: 1.1rem; min-width: 2ch; }
+.guide-list-name { font-family: var(--font-serif), serif; font-size: 1.35rem; line-height: 1.25; }
+.guide-list-tag { grid-column: 2; font-size: 14px; color: var(--muted); }
+.guide-list a:not(:has(.guide-list-num)) { grid-template-columns: 1fr; }
+.guide-list a:not(:has(.guide-list-num)) .guide-list-tag { grid-column: 1; }
+.guide-list a:hover .guide-list-name { color: var(--chrome-deep); }
