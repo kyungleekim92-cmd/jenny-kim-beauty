@@ -113,8 +113,10 @@ owner's inbox), the Google/Bing verification codes and the IndexNow key.
   form.
 - Hours: Mon–Fri 10 am – 7 pm, Sat–Sun 11 am – 4 pm, by appointment only (`site.hours`).
 - Shop (Olive Young Global, Sephora, Amazon.ca affiliate links): keep `SHOP_DISCLOSURE` on
-  `/shop` (Amazon requires its line), keep `rel="sponsored"` on links, never show store prices or
-  copy store product photos, and only list products the owner has chosen. Affiliate accounts
+  `/shop` (Amazon requires its line), keep `rel="sponsored"` on links, never show store prices,
+  and only list products the owner has chosen. Product images are brand-approved packshots (the
+  owner has each brand's permission) re-toned onto the site's beige ground, 1200×1500, in
+  `public/images/shop/<slug>.jpg`; new ones should match that look. Affiliate accounts
   must be in the owner's own name and country. Product notes follow the same measured voice.
 
 ## Design

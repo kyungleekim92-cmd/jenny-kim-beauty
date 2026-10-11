@@ -4,7 +4,8 @@
 // A product appears once it has a name, a note and at least one store link; the shop (page,
 // nav link, sitemap entry) stays hidden until at least one product is ready.
 // Store rules: keep the disclosure on /shop, keep rel="sponsored" on links, never show store
-// prices or copy store product photos.
+// prices or copy photos from store listings. Product images are brand-approved packshots
+// (the owner has each brand's permission), re-toned onto the site's beige ground.
 
 export const amazon = {
   store: "https://www.amazon.ca",
@@ -26,6 +27,8 @@ export interface ShopProduct {
   sephoraUrl: string;
   /** Amazon.ca product code (10 characters after /dp/ in the product URL). */
   asin: string;
+  /** Brand-approved packshot on the site's beige ground, 1200×1500 (4:5), in public/images/shop. */
+  image: string;
 }
 
 export const products: ShopProduct[] = [
@@ -38,6 +41,7 @@ export const products: ShopProduct[] = [
     oliveYoungKoreaUrl: "",
     sephoraUrl: "",
     asin: "B0B2RM68G2",
+    image: "/images/shop/biodance-real-deep-mask.jpg",
   },
   {
     slug: "arocell-super-collagen-mask",
@@ -48,6 +52,7 @@ export const products: ShopProduct[] = [
     oliveYoungKoreaUrl: "",
     sephoraUrl: "",
     asin: "B0D9LDNJ26",
+    image: "/images/shop/arocell-super-collagen-mask.jpg",
   },
   {
     slug: "rejuran-turnover-mask",
@@ -58,6 +63,7 @@ export const products: ShopProduct[] = [
     oliveYoungKoreaUrl: "",
     sephoraUrl: "",
     asin: "B0CYMZC3C6",
+    image: "/images/shop/rejuran-turnover-mask.jpg",
   },
   {
     slug: "rejuran-dual-effect-ampoule-mask",
@@ -68,6 +74,7 @@ export const products: ShopProduct[] = [
     oliveYoungKoreaUrl: "",
     sephoraUrl: "",
     asin: "",
+    image: "/images/shop/rejuran-dual-effect-ampoule-mask.jpg",
   },
 ];
 

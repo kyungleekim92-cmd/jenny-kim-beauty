@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Photo from "@/components/Photo";
 import LangRoot from "@/components/views/LangRoot";
 import { pageCopy } from "@/components/views/copy";
 import { localePath, type Lang } from "@/lib/i18n";
@@ -73,23 +74,34 @@ export default function ShopView({ lang }: { lang: Lang }) {
               {liveProducts.map((product) => {
                 const local = shopCopy[lang][product.slug];
                 return (
-                  <li key={product.slug} className="shop-item">
-                    <p className="eyebrow">{product.brand}</p>
-                    <h2 className="shop-name">{local?.name ?? product.name}</h2>
-                    <p className="shop-note">{local?.note ?? product.note}</p>
-                    <div className="shop-links">
-                      {productLinks(product).map((l) => (
-                        <a
-                          key={l.store}
-                          href={l.href}
-                          className="quiet-link"
-                          target="_blank"
-                          rel="sponsored noopener noreferrer"
-                        >
-                          {t.shopAt(storeNames[l.store][lang])} <span aria-hidden="true">→</span>
-                          <span className="shop-perk">{l.perk[lang]}</span>
-                        </a>
-                      ))}
+                  <li key={product.slug} className={`shop-item${product.image ? " has-photo" : ""}`}>
+                    {product.image && (
+                      <Photo
+                        src={product.image}
+                        alt={`${product.brand} ${local?.name ?? product.name}`}
+                        ratio="45"
+                        sizes="(max-width: 560px) 70vw, 240px"
+                        className="shop-photo"
+                      />
+                    )}
+                    <div className="shop-body">
+                      <p className="eyebrow">{product.brand}</p>
+                      <h2 className="shop-name">{local?.name ?? product.name}</h2>
+                      <p className="shop-note">{local?.note ?? product.note}</p>
+                      <div className="shop-links">
+                        {productLinks(product).map((l) => (
+                          <a
+                            key={l.store}
+                            href={l.href}
+                            className="quiet-link"
+                            target="_blank"
+                            rel="sponsored noopener noreferrer"
+                          >
+                            {t.shopAt(storeNames[l.store][lang])} <span aria-hidden="true">→</span>
+                            <span className="shop-perk">{l.perk[lang]}</span>
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </li>
                 );
