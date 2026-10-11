@@ -51,6 +51,12 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 
 /* ---------- type ---------- */
+/* Latin font first, Korean fallback for Hangul (see app/layout.tsx). */
+html {
+  --font-serif: var(--font-cormorant), var(--font-serif-kr);
+  --font-sans: var(--font-inter), var(--font-sans-kr);
+}
+
 .font-serif, .display, .display-sm {
   font-family: var(--font-serif), "Times New Roman", serif;
   font-kerning: normal;

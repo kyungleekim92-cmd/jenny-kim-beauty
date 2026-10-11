@@ -637,3 +637,24 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .shop-note { margin-top: 12px; color: var(--ink-soft); max-width: 60ch; }
 .shop-links { display: flex; flex-wrap: wrap; gap: 14px 32px; margin-top: 18px; }
 .shop-perk { display: block; margin-top: 6px; font-size: 11px; letter-spacing: 0.08em; text-transform: none; color: var(--chrome-deep); font-weight: 400; }
+
+/* ---------- language toggle (EN | KO) ---------- */
+.lang-toggle { display: flex; align-items: center; gap: 8px; margin-left: clamp(18px, 2vw, 28px); font-size: 10.5px; letter-spacing: 0.16em; font-weight: 500; color: var(--muted); }
+.lang-toggle a { text-decoration: none; color: var(--muted); transition: color 0.4s var(--ease); }
+.lang-toggle a:hover, .lang-toggle a:focus-visible { color: var(--ink); }
+.lang-toggle .is-current { color: var(--ink); }
+.lang-sep { margin-right: 8px; color: var(--chrome); }
+@media (max-width: 1080px) {
+  .lang-toggle { margin-left: auto; margin-right: 14px; }
+}
+.nav.menu-open .lang-toggle { visibility: hidden; }
+
+/* ---------- Korean typography ---------- */
+[lang="ko"] { word-break: keep-all; overflow-wrap: anywhere; }
+[lang="ko"] .eyebrow, [lang="ko"] .nav-links a, [lang="ko"] .quiet-link, [lang="ko"] .btn-outline,
+[lang="ko"] .fact dt, [lang="ko"] .contact-facts dt, [lang="ko"] .back-to-top { letter-spacing: 0.06em; }
+[lang="ko"] .display { line-height: 1.25; letter-spacing: -0.01em; font-size: clamp(2.3rem, 5.2vw, 4rem); }
+[lang="ko"] .display-sm { line-height: 1.32; letter-spacing: -0.01em; font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+/* Hangul has no true italic (browsers fake a slant); keep the accent colour without slanting.
+   !important beats the many section-specific italic rules above. */
+[lang="ko"] :is(em, .chapter-lead, .chapter-cta, .privileges) { font-style: normal !important; }

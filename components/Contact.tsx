@@ -3,40 +3,71 @@
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import { site } from "@/lib/site";
+import type { Lang } from "@/lib/i18n";
 
-export default function Contact() {
+const copy = {
+  en: {
+    eyebrow: "Contact",
+    title: (
+      <>
+        Begin with a <em>conversation</em>.
+      </>
+    ),
+    lede: "A question before you book, or simply hello. Jenny answers every message herself.",
+    address: "Address",
+    hours: "Hours",
+    consultations: "Consultations",
+    requestOnline: "Request online",
+    small: "By appointment only. Jenny replies within one business day.",
+    reserve: "Reserve your hour",
+  },
+  ko: {
+    eyebrow: "문의",
+    title: (
+      <>
+        <em>대화</em>로 시작하세요.
+      </>
+    ),
+    lede: "예약 전 궁금한 점이 있으시거나, 그저 인사를 건네셔도 좋습니다. 모든 메시지에 제니가 직접 답합니다.",
+    address: "주소",
+    hours: "운영 시간 (토론토 시간)",
+    consultations: "상담",
+    requestOnline: "온라인 신청",
+    small: "예약제로만 운영됩니다. 영업일 기준 하루 안에 답장을 드립니다.",
+    reserve: "상담 예약하기",
+  },
+};
+
+export default function Contact({ lang }: { lang: Lang }) {
+  const t = copy[lang];
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
       <div className="wrap">
         <SectionHead
           id="contact-title"
-          eyebrow="Contact"
-          title={
-            <>
-              Begin with a <em>conversation</em>.
-            </>
-          }
-          lede="A question before you book, or simply hello. Jenny answers every message herself."
+          eyebrow={t.eyebrow}
+          title={t.title}
+          lede={t.lede}
         />
 
         <Reveal delay={200} className="contact-block">
           <dl className="contact-facts">
             <div>
-              <dt>Address</dt>
+              <dt>{t.address}</dt>
               <dd>
                 {site.venue.address}
                 <br />
-                {site.venue.city}
+                {lang === "ko" ? "토론토" : site.venue.city}
               </dd>
             </div>
             <div>
-              <dt>Hours</dt>
+              <dt>{t.hours}</dt>
               <dd>
                 {site.hours.map((h) => (
                   <span key={h.label} className="hours-line">
-                    {h.label}
+                    {lang === "ko" ? h.ko.label : h.label}
                     <br />
-                    {h.display}
+                    {lang === "ko" ? h.ko.display : h.display}
                   </span>
                 ))}
               </dd>
@@ -55,22 +86,20 @@ export default function Contact() {
               </dd>
             </div>
             <div>
-              <dt>Consultations</dt>
+              <dt>{t.consultations}</dt>
               <dd>
                 <a href="#consult" className="underline-draw">
-                  Request online
+                  {t.requestOnline}
                 </a>
               </dd>
             </div>
           </dl>
-          <p className="contact-small">
-            By appointment only. Jenny replies within one business day.
-          </p>
+          <p className="contact-small">{t.small}</p>
         </Reveal>
 
         <Reveal delay={300} className="mt-4">
           <a href="#consult" className="quiet-link">
-            Reserve your hour
+            {t.reserve}
           </a>
         </Reveal>
       </div>

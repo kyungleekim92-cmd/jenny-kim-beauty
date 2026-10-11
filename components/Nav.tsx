@@ -3,15 +3,52 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { site } from "@/lib/site";
 import { navHref, navItems } from "@/lib/nav";
+import { langLabels, langNames, langs, localePath, type Lang } from "@/lib/i18n";
 import { useScrollProgress, useScrolledPast, useScrollSpy } from "@/components/motion";
 
 // Every section the nav can point at, in page order (#consult is the CTA).
 const spyIds = ["top", "how", "guides", "quiz", "consult", "about", "partners", "faq", "contact"] as const;
 
-// Off the home page (e.g. a guide), section links point back to the home page.
-export default function Nav({ home = true }: { home?: boolean }) {
+const copy = {
+  en: { reserve: "Reserve your hour", open: "Open menu", close: "Close menu", language: "Language" },
+  ko: { reserve: "상담 예약", open: "메뉴 열기", close: "메뉴 닫기", language: "언어" },
+};
+
+type NavProps = {
+  lang: Lang;
+  /** The current page's language-neutral path ("/", "/guides/botox"), for the EN | KO switch. */
+  path: string;
+  /** Off the home page (e.g. a guide), section links point back to the home page. */
+  home?: boolean;
+};
+
+// Discreet EN | KO switch: links to the same page in the other language.
+function LangToggle({ lang, path }: { lang: Lang; path: string }) {
+  return (
+    <div className="lang-toggle" role="group" aria-label={copy[lang].language}>
+      {langs.map((l, i) => (
+        <span key={l}>
+          {i > 0 && <span className="lang-sep" aria-hidden="true">|</span>}
+          {l === lang ? (
+            <span className="is-current" aria-current="true" title={langNames[l]}>
+              {langLabels[l]}
+            </span>
+          ) : (
+            <a href={localePath(l, path)} hrefLang={l} lang={l} title={langNames[l]}>
+              {langLabels[l]}
+            </a>
+          )}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export default function Nav({ lang, path, home = true }: NavProps) {
   const [open, setOpen] = useState(false);
-  const to = (href: string) => navHref(href, home);
+  const t = copy[lang];
+  const items = navItems(lang);
+  const to = (href: string) => navHref(href, home, lang);
   const scrolled = useScrolledPast(40);
   const progress = useScrollProgress();
   const active = useScrollSpy(spyIds);
@@ -41,12 +78,12 @@ export default function Nav({ home = true }: { home?: boolean }) {
       <header className={`nav${scrolled ? " scrolled" : ""}${open ? " menu-open" : ""}`}>
         <span className="nav-progress" aria-hidden="true" style={{ transform: `scaleX(${progress})` }} />
         <div className="nav-inner">
-          <a href={home ? "#top" : "/"} className="nav-wordmark" onClick={close}>
+          <a href={home ? "#top" : localePath(lang, "/")} className="nav-wordmark" onClick={close}>
             {site.brand}
             <small>{site.brandLine}</small>
           </a>
           <nav className="nav-links" aria-label="Primary">
-            {navItems.map((item) => (
+            {items.map((item) => (
               <a key={item.href} href={to(item.href)} {...activeProps(item.href)}>
                 {item.label}
               </a>
@@ -56,13 +93,14 @@ export default function Nav({ home = true }: { home?: boolean }) {
               className={`nav-cta${isActive("#consult") ? " is-active" : ""}`}
               aria-current={isActive("#consult") ? "true" : undefined}
             >
-              Reserve your hour
+              {t.reserve}
             </a>
           </nav>
+          <LangToggle lang={lang} path={path} />
           <button
             type="button"
             className="nav-burger"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t.close : t.open}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((o) => !o)}
@@ -82,7 +120,7 @@ export default function Nav({ home = true }: { home?: boolean }) {
         <p className="eyebrow" style={{ "--i": 0 } as CSSProperties}>
           {site.brand} · {site.brandLine}
         </p>
-        {navItems.map((item, i) => (
+        {items.map((item, i) => (
           <a
             key={item.href}
             href={to(item.href)}
@@ -97,9 +135,9 @@ export default function Nav({ home = true }: { home?: boolean }) {
           href={to("#consult")}
           className="mobile-cta"
           onClick={close}
-          style={{ "--i": navItems.length + 1 } as CSSProperties}
+          style={{ "--i": items.length + 1 } as CSSProperties}
         >
-          Reserve your hour
+          {t.reserve}
         </a>
       </div>
     </>

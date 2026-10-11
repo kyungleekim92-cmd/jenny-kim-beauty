@@ -35,6 +35,22 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
 - Bump `REVIEWED` / `REVIEWED_LABEL` in `lib/seo.ts` if guide or concern content changed.
 - After it is live, run `node scripts/indexnow.mjs` to notify Bing (expects HTTP 200 or 202).
 
+## Two languages: English and Korean
+
+- English lives at the root (`/`, `/guides/botox`); Korean under `/ko` (`/ko`, `/ko/guides/botox`).
+  The EN | KO switch in the nav links each page to its twin.
+- **Every copy change must be made in both languages.** UI text sits in each component as a
+  `copy = { en, ko }` object; guide/concern/FAQ/shop text is translated in `lib/i18n/ko/*.ts`
+  (keyed by slug) and merged by `lib/i18n/content.ts`. New treatments or concerns need a Korean
+  entry too.
+- Pages are shared views in `components/views/*` rendered by `app/**` (English) and `app/ko/**`
+  (Korean) route files; metadata and hreflang come from `lib/i18n/meta.ts`.
+- Korean voice: formal 합니다체, same compliance rules (제니 is an independent consultant, not a
+  medical practitioner; 캐나다 보건부(Health Canada), never the FDA). On this site "PRF" means
+  pulsed radiofrequency (펄스 고주파), not platelet-rich fibrin.
+- Form emails stay in English for the owner and include `Language: Korean (한국어)` for Korean
+  submissions.
+
 ## Where things live
 
 | What | File |
@@ -48,6 +64,8 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
 | Form delivery (Web3Forms, browser-side) | `lib/inquiry.ts`, `components/FormError.tsx` |
 | Shop products + affiliate links (Olive Young Global/Korea, Amazon.ca, Sephora) → `/shop` | `lib/shop.ts` |
 | Nav items (adds "Shop" once the shop is live) | `lib/nav.ts` |
+| Korean translations of content | `lib/i18n/ko/` (merged in `lib/i18n/content.ts`) |
+| Language helpers, page metadata/hreflang | `lib/i18n/index.ts`, `lib/i18n/meta.ts` |
 | Styles (no Tailwind) | `app/globals.css`, `app/animations.css` |
 
 Public-by-design values that are fine to commit: `formsAccessKey` (Web3Forms only sends to the

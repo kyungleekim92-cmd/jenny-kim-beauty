@@ -5,7 +5,9 @@ import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties 
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import Photo from "@/components/Photo";
-import { DISCLAIMER, treatments } from "@/lib/treatments";
+import { localePath, type Lang } from "@/lib/i18n";
+import { disclaimer, getTreatments } from "@/lib/i18n/content";
+import { treatments } from "@/lib/treatments";
 
 // Other sections open a guide with:
 //   window.dispatchEvent(new CustomEvent("open-chapter", { detail: { slug }, cancelable: true }))
@@ -13,7 +15,28 @@ import { DISCLAIMER, treatments } from "@/lib/treatments";
 export type OpenChapterDetail = { slug: string };
 
 const NAV_OFFSET = 96;
-const ordered = [...treatments].sort((a, b) => a.number.localeCompare(b.number));
+const slugs = new Set(treatments.map((t) => t.slug));
+
+const copy = {
+  en: {
+    eyebrow: "Treatment guides",
+    title: "Understanding is the first treatment.",
+    lede: "Twenty short essays on the treatments you've heard of — and what each one is really for.",
+    alt: "Close-up of a soft, swirled cream in warm ivory tones",
+    faqs: "Questions clients ask",
+    readGuide: (name: string) => `Read the full ${name} guide`,
+    viewAll: "View all guides",
+  },
+  ko: {
+    eyebrow: "시술 가이드",
+    title: "이해가 첫 번째 시술입니다.",
+    lede: "한 번쯤 들어 본 시술들에 대한 스무 편의 짧은 에세이, 그리고 각 시술이 정말 무엇을 위한 것인지.",
+    alt: "따뜻한 아이보리 톤으로 부드럽게 소용돌이치는 크림 클로즈업",
+    faqs: "고객들이 자주 묻는 질문",
+    readGuide: (name: string) => `${name} 가이드 전체 보기`,
+    viewAll: "모든 가이드 보기",
+  },
+};
 const stagger = (i: number) => ({ "--i": i }) as CSSProperties;
 
 function prefersReduced(): boolean {
@@ -39,7 +62,9 @@ function collapseShiftAbove(prev: string | null, slug: string): number {
   return prevEl.querySelector(".acc-panel")?.getBoundingClientRect().height ?? 0;
 }
 
-export default function Chapters() {
+export default function Chapters({ lang }: { lang: Lang }) {
+  const ordered = getTreatments(lang);
+  const c = copy[lang];
   const [open, setOpen] = useState<string | null>(null);
   const openRef = useRef<string | null>(null);
 
@@ -69,7 +94,7 @@ export default function Chapters() {
   useEffect(() => {
     const onOpen = (e: Event) => {
       const detail = (e as CustomEvent<OpenChapterDetail>).detail;
-      if (!detail || !ordered.some((t) => t.slug === detail.slug)) return;
+      if (!detail || !slugs.has(detail.slug)) return;
       e.preventDefault();
       openAndScroll(detail.slug);
     };
@@ -79,7 +104,7 @@ export default function Chapters() {
     const hash = window.location.hash;
     const slug = hash.startsWith("#chapter-") ? hash.slice("#chapter-".length) : "";
     let frame = 0;
-    if (ordered.some((t) => t.slug === slug)) frame = requestAnimationFrame(() => openAndScroll(slug));
+    if (slugs.has(slug)) frame = requestAnimationFrame(() => openAndScroll(slug));
 
     return () => {
       window.removeEventListener("open-chapter", onOpen);
@@ -92,15 +117,15 @@ export default function Chapters() {
       <div className="wrap">
         <SectionHead
           id="guides-title"
-          eyebrow="Treatment guides"
-          title="Understanding is the first treatment."
-          lede="Twenty short essays on the treatments you've heard of — and what each one is really for."
+          eyebrow={c.eyebrow}
+          title={c.title}
+          lede={c.lede}
         />
 
         <Reveal delay={150} className="guides-strip">
           <Photo
             src="/images/texture.jpg"
-            alt="Close-up of a soft, swirled cream in warm ivory tones"
+            alt={c.alt}
             ratio="169"
             sizes="(max-width: 1200px) 92vw, 1200px"
             parallax={0.03}
@@ -168,7 +193,7 @@ export default function Chapters() {
                         </dl>
 
                         <div style={stagger(3)}>
-                          <p className="eyebrow chrome">Questions clients ask</p>
+                          <p className="eyebrow chrome">{c.faqs}</p>
                           <dl className="chapter-faqs mt-2">
                             {t.faqs.map((f) => (
                               <Fragment key={f.q}>
@@ -184,13 +209,13 @@ export default function Chapters() {
                         </p>
 
                         <p style={stagger(4)}>
-                          <Link href={`/guides/${t.slug}`} className="quiet-link">
-                            Read the full {t.name} guide
+                          <Link href={localePath(lang, `/guides/${t.slug}`)} className="quiet-link">
+                            {c.readGuide(t.name)}
                           </Link>
                         </p>
 
                         <p className="disclaimer" style={stagger(5)}>
-                          {DISCLAIMER}
+                          {disclaimer[lang]}
                         </p>
                       </div>
                     </div>
@@ -202,8 +227,8 @@ export default function Chapters() {
         </div>
 
         <Reveal className="mt-4">
-          <Link href="/guides" className="quiet-link">
-            View all guides
+          <Link href={localePath(lang, "/guides")} className="quiet-link">
+            {c.viewAll}
           </Link>
         </Reveal>
       </div>
