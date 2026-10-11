@@ -7,8 +7,10 @@ import { useScrollProgress, useScrolledPast, useScrollSpy } from "@/components/m
 // Every section the nav can point at, in page order (#consult is the CTA).
 const spyIds = ["top", "how", "guides", "quiz", "consult", "about", "partners", "faq", "contact"] as const;
 
-export default function Nav() {
+// Off the home page (e.g. a guide), section links point back to the home page.
+export default function Nav({ home = true }: { home?: boolean }) {
   const [open, setOpen] = useState(false);
+  const to = (hash: string) => (home ? hash : `/${hash}`);
   const scrolled = useScrolledPast(40);
   const progress = useScrollProgress();
   const active = useScrollSpy(spyIds);
@@ -38,18 +40,18 @@ export default function Nav() {
       <header className={`nav${scrolled ? " scrolled" : ""}${open ? " menu-open" : ""}`}>
         <span className="nav-progress" aria-hidden="true" style={{ transform: `scaleX(${progress})` }} />
         <div className="nav-inner">
-          <a href="#top" className="nav-wordmark" onClick={close}>
+          <a href={home ? "#top" : "/"} className="nav-wordmark" onClick={close}>
             {site.brand}
             <small>{site.brandLine}</small>
           </a>
           <nav className="nav-links" aria-label="Primary">
             {site.nav.map((item) => (
-              <a key={item.href} href={item.href} {...activeProps(item.href)}>
+              <a key={item.href} href={to(item.href)} {...activeProps(item.href)}>
                 {item.label}
               </a>
             ))}
             <a
-              href="#consult"
+              href={to("#consult")}
               className={`nav-cta${isActive("#consult") ? " is-active" : ""}`}
               aria-current={isActive("#consult") ? "true" : undefined}
             >
@@ -82,7 +84,7 @@ export default function Nav() {
         {site.nav.map((item, i) => (
           <a
             key={item.href}
-            href={item.href}
+            href={to(item.href)}
             onClick={close}
             style={{ "--i": i + 1 } as CSSProperties}
             {...activeProps(item.href)}
@@ -91,7 +93,7 @@ export default function Nav() {
           </a>
         ))}
         <a
-          href="#consult"
+          href={to("#consult")}
           className="mobile-cta"
           onClick={close}
           style={{ "--i": site.nav.length + 1 } as CSSProperties}

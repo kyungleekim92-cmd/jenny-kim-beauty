@@ -2,6 +2,7 @@
 export const site = {
   brand: "Jenny Kim",
   brandLine: "Beauty Consultant",
+  url: "https://www.byjennykim.com",
   tagline: "Independent skincare guidance, privately given.",
   venue: {
     address: "311 Bay St., 32nd floor",
@@ -36,6 +37,15 @@ export const site = {
   // It is public by design (it can only send to that inbox), so it lives here, not in env.
   // While empty, forms tell visitors to message Jenny on Instagram instead.
   formsAccessKey: "",
+  // Search engine ownership checks. Paste the code from each console's "HTML tag" option
+  // (just the content="…" value). Empty values are left out of the page.
+  verification: {
+    google: "",
+    bing: "",
+  },
+  // IndexNow key (Bing, Yandex and others): served at /<key>.txt from public/.
+  // scripts/indexnow.mjs submits every sitemap URL so new pages are crawled within hours.
+  indexNowKey: "96158b1402228e6704311920118d015b",
 };
 
 export const VENUE_LINE = `${site.venue.address}, ${site.venue.city}`;

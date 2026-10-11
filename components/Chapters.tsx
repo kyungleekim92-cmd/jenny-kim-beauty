@@ -1,13 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import Photo from "@/components/Photo";
-import { treatments } from "@/lib/treatments";
-
-export const DISCLAIMER =
-  "Jenny is an independent consultant, not a medical practitioner. Treatment details are educational; your plan is confirmed with a licensed practitioner at a partner spa. Individual results vary.";
+import { DISCLAIMER, treatments } from "@/lib/treatments";
 
 // Other sections open a guide with:
 //   window.dispatchEvent(new CustomEvent("open-chapter", { detail: { slug }, cancelable: true }))
@@ -185,6 +183,12 @@ export default function Chapters() {
                           {t.cta}
                         </p>
 
+                        <p style={stagger(4)}>
+                          <Link href={`/guides/${t.slug}`} className="quiet-link">
+                            Read the full {t.name} guide
+                          </Link>
+                        </p>
+
                         <p className="disclaimer" style={stagger(5)}>
                           {DISCLAIMER}
                         </p>
@@ -196,6 +200,12 @@ export default function Chapters() {
             );
           })}
         </div>
+
+        <Reveal className="mt-4">
+          <Link href="/guides" className="quiet-link">
+            View all guides
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site, VENUE_LINE } from "@/lib/site";
 
 // Hardcoded on purpose: calling new Date() during render breaks Next 16 prerendering.
@@ -10,16 +11,16 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <a href="#top" className="footer-wordmark">
+            <Link href="/" className="footer-wordmark">
               {site.brand}
               <small>{site.brandLine}</small>
-            </a>
+            </Link>
             <p className="footer-address mt-2">{site.tagline}</p>
           </div>
 
           <nav className="footer-nav" aria-label="Footer">
             {site.nav.map((item) => (
-              <a key={item.href} href={item.href} className="underline-draw">
+              <a key={item.href} href={`/${item.href}`} className="underline-draw">
                 {item.label}
               </a>
             ))}
@@ -43,6 +44,14 @@ export default function Footer() {
             Back to top<span aria-hidden="true">↑</span>
           </a>
         </div>
+
+        <p className="fine-print">
+          Jenny Kim provides independent consultation and introductions only, and does not perform,
+          supervise or guarantee any treatment. Treatments are provided by independent licensed
+          practitioners, who are solely responsible for assessment, care and outcomes. Jenny Kim
+          accepts no liability for any treatment or its results. Partner privileges vary and are
+          subject to each provider&apos;s terms.
+        </p>
       </div>
     </footer>
   );
