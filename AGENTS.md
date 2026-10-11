@@ -45,8 +45,11 @@ Codex, Muse and humans all work from it, so everyone follows the same rules belo
   entry too.
 - Pages are shared views in `components/views/*` rendered by `app/**` (English) and `app/ko/**`
   (Korean) route files; metadata and hreflang come from `lib/i18n/meta.ts`.
-- Korean voice: formal 합니다체, same compliance rules (제니 is an independent consultant, not a
-  medical practitioner; 캐나다 보건부(Health Canada), never the FDA). On this site "PRF" means
+- Korean voice (owner's choice): warm, professional 해요체 in Jenny's own first person
+  ("저는 제니예요", 제가/저는 — not 제니는), natural spoken Korean, no slang, emojis or
+  exclamation marks. Legal lines (footer fine print, booking consent) stay formal 합니다체.
+  Same compliance rules: Jenny is an independent consultant, not a medical practitioner;
+  캐나다 보건부(Health Canada), never the FDA. On this site "PRF" means
   pulsed radiofrequency (펄스 고주파), not platelet-rich fibrin.
 - Form emails stay in English for the owner and include `Language: Korean (한국어)` for Korean
   submissions.
