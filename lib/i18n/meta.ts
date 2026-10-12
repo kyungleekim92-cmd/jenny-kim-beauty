@@ -54,7 +54,7 @@ const guidesIndex = {
       "Twenty independent guides to aesthetic treatments available in Toronto, from Botox and dermal fillers to Ultherapy, lasers and HydraFacial: what each does, downtime, sessions and questions to ask.",
   },
   ko: {
-    title: "미용 시술 가이드 — 보톡스, 필러, 레이저 외",
+    title: "미용 시술 가이드: 보톡스, 필러, 레이저 외",
     description:
       "토론토에서 받을 수 있는 미용 시술 20가지를 제가 직접 정리했어요. 보톡스와 필러부터 울쎄라, 레이저, 하이드라페이셜까지 효과와 회복 기간, 시술 횟수, 상담 때 물어볼 질문을 담았어요.",
   },
