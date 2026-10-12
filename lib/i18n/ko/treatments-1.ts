@@ -199,7 +199,7 @@ export const koTreatments1: Record<string, KoTreatment> = {
     cta: "몇 번의 IPL로 피부 톤을 고르게 가꾸는 방법, 편하게 물어보세요"
   },
   "laser-genesis": {
-    name: "레이저 제네시스(Laser Genesis)",
+    name: "레이저 제네시스 (Laser Genesis)",
     tagline: "부드러운 온기로 광채가 차곡차곡 쌓여요.",
     explainer: [
       "레이저 제네시스는 피부를 따뜻하게 데워 콜라겐 생성과 미세 순환을 돕는 순한 비박피 레이저예요. 피부 표면에 상처를 내지 않기 때문에 변화가 은은한 편이고, 여러 번 받으면서 조금씩 쌓여요.",
