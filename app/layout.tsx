@@ -57,6 +57,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable} ${serifKo.variable} ${sansKo.variable}`}>
+      <head>
+        {/* Impact requires a `value` attribute (not `content`) on this verification tag. */}
+        {/* @ts-expect-error React's meta types omit `value`; it renders fine in the DOM. */}
+        <meta name="impact-site-verification" value={site.verification.impact} />
+      </head>
       <body>
         <a href="#top" className="skip-link">
           Skip to content

@@ -65,6 +65,7 @@ export const site = {
   verification: {
     google: "L-Or8XREXo1I6P05Yf90VIbVe58xNo9YDOe2UxqcHiI",
     bing: "",
+    impact: "5ae123b9-2be0-422c-9ba7-69207ed3bba0",
   },
   // IndexNow key (Bing, Yandex and others): served at /<key>.txt from public/.
   // scripts/indexnow.mjs submits every sitemap URL so new pages are crawled within hours.
