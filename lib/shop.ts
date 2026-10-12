@@ -9,7 +9,7 @@
 
 export const amazon = {
   store: "https://www.amazon.ca",
-  // Amazon Associates tracking ID (Store ID), e.g. "byjennykim-20". Amazon links need it.
+  // Jenny's Amazon Associates tracking ID (Store ID). Amazon links need it.
   tag: "byjennykim-20",
 };
 
@@ -75,6 +75,28 @@ export const products: ShopProduct[] = [
     sephoraUrl: "",
     asin: "",
     image: "/images/shop/rejuran-dual-effect-ampoule-mask.jpg",
+  },
+  {
+    slug: "kerastase-genesis-bain-hydra-fortifiant",
+    brand: "Kérastase",
+    name: "Genesis Bain Hydra-Fortifiant",
+    note: "The pink bottle in Jenny's shower. A fortifying shampoo for weakened hair prone to falling from breakage, with ginger root and edelweiss — for hair that looks and feels stronger.",
+    oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
+    sephoraUrl: "",
+    asin: "B0DQTZ2PDD",
+    image: "",
+  },
+  {
+    slug: "kerastase-gloss-absolu-glaze-milk",
+    brand: "Kérastase",
+    name: "Gloss Absolu Anti-Frizz Glaze Milk",
+    note: "An all-in-one smoothing spray for long hair prone to frizz. Hyaluronic acid, glycolic acid and wild rose in oil, in a leave-in formula — for hair that looks glossy and feels soft.",
+    oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
+    sephoraUrl: "",
+    asin: "B0DQTXH4S8",
+    image: "",
   },
 ];
 

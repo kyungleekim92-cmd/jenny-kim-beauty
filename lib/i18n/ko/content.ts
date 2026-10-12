@@ -156,4 +156,12 @@ export const koShopProducts: Record<string, { name: string; note: string }> = {
     name: "듀얼 이펙트 앰플 인 마스크",
     note: "c-PDRN과 히알루론산, 나이아신아마이드가 담긴 앰플 시트 마스크예요. 피부가 처지고 칙칙해 보이는 날, 한결 탄탄하고 환해 보이도록 도와줘요.",
   },
+  "kerastase-genesis-bain-hydra-fortifiant": {
+    name: "제네시스 뱅 하이드라-포르티피앙",
+    note: "제가 쓰는 샴푸예요. 끊어지며 빠지기 쉬운 약해진 모발을 위한 포티파잉 샴푸로, 진저 루트와 에델바이스 성분이 담겨 있어요. 모발이 한결 탄탄해 보이도록 도와줘요.",
+  },
+  "kerastase-gloss-absolu-glaze-milk": {
+    name: "글로스 압솔뤼 안티-프리즈 글레이즈 밀크",
+    note: "부스스하기 쉬운 긴 머리를 위한 올인원 스무딩 스프레이예요. 히알루론산과 글리콜산, 와일드 로즈 오일이 담긴 리브인 제형으로, 머릿결이 윤기 있고 부드러워 보이도록 도와줘요.",
+  },
 };
