@@ -9,7 +9,7 @@ import { getConditions, getFaqs, getTreatments } from "@/lib/i18n/content";
 
 // Content review date shown on guides and used in the sitemap. Bump when content changes.
 // A fixed value: new Date() during prerender is disallowed with cacheComponents.
-export const REVIEWED = "2026-10-11";
+export const REVIEWED = "2026-10-13";
 export const REVIEWED_LABEL: Record<Lang, string> = { en: "October 2026", ko: "2026년 10월" };
 
 export const abs = (path = "/") => new URL(path, site.url).toString();
