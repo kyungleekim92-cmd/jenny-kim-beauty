@@ -20,11 +20,11 @@ const copy = {
       "Jenny Kim provides independent consultation and introductions only, and does not perform, supervise or guarantee any treatment. Treatments are provided by independent licensed practitioners, who are solely responsible for assessment, care and outcomes. Jenny Kim accepts no liability for any treatment or its results. Partner privileges vary and are subject to each provider's terms.",
   },
   ko: {
-    tagline: "토론토에서 독립적으로 스킨케어를 상담해 드려요. 1:1 프라이빗 상담이에요.",
+    tagline: "토론토의 독립 스킨케어 상담. 당신만을 위한 1:1 프라이빗 상담.",
     byAppointment: "예약제 운영 (토론토 시간)",
     venue: `${site.venue.building}, ${site.venue.address}, 토론토`,
     legal:
-      "저는 의료인이 아닌 독립 뷰티 컨설턴트예요. 이 사이트의 내용은 정보 제공을 위한 것이며, 의학적 조언을 대신하지 않아요.",
+      "제니는 의료인이 아닌 독립 뷰티 컨설턴트예요. 이 사이트의 내용은 정보 제공을 위한 것이며, 의학적 조언을 대신하지 않아요.",
     rights: "All rights reserved.",
     backToTop: "맨 위로",
     finePrint:

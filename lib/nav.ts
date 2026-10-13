@@ -5,7 +5,7 @@ import { localePath, type Lang } from "@/lib/i18n";
 const koLabels: Record<string, string> = {
   "#how": "상담 과정",
   "#guides": "가이드",
-  "#quiz": "나에게 맞는 시술",
+  "#quiz": "당신에게 맞는 시술",
   "#about": "소개",
   "#partners": "파트너",
   "#faq": "FAQ",
