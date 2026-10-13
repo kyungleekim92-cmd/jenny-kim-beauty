@@ -28,7 +28,7 @@ export const pageCopy = {
     concernEyebrow: "피부 고민 · 토론토",
     byline: "토론토 독립 뷰티 컨설턴트 제니 킴이 직접 썼어요 · 검토",
     atAGlance: "한눈에 보기",
-    consideredFor: "이런 고민에 많이 받아요",
+    consideredFor: "이런 고민이 있을 때 많이 찾아요",
     questions: "자주 받는 질문",
     reserve: "상담 예약하기",
     related: "관련 가이드",

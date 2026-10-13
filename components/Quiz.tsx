@@ -64,10 +64,10 @@ const copy = {
   ko: {
     section: "나에게 맞는 시술",
     downtime: {
-      none: "없어야 해요 (바로 일상 복귀)",
+      none: "회복 기간 없이 바로 일상으로 돌아가야 해요",
       minimal: "하루 이틀 정도는 괜찮아요",
       moderate: "일주일 이내면 괜찮아요",
-      significant: "일정을 맞춰서 충분히 쉴 수 있어요",
+      significant: "일정을 조정해서 충분히 쉴 수 있어요",
     },
     introTitle: (
       <>
@@ -88,7 +88,7 @@ const copy = {
     q2Group: "가능한 회복 기간",
     seeMatches: "결과 보기",
     resultsEyebrow: "나에게 맞는 시술 · 추천 가이드",
-    results: "추천 가이드예요.",
+    results: "이런 가이드를 추천해요.",
     moleNote:
       "점은 꼭 확인해 주세요. 모양이나 색이 변했거나 평소와 달라 보이는 점은 먼저 병원에서 진료를 받으셔야 해요. 저는 미용 고민만 상담하고, 진료가 필요해 보이면 병원부터 권해 드려요.",
     co2Note:
