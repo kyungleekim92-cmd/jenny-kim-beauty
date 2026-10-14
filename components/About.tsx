@@ -71,7 +71,7 @@ export default function About({ lang }: { lang: Lang }) {
               <div className="photo ratio-45">
                 <video
                   className="photo-img"
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectPosition: "85% 50%" }}
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectPosition: "91% 50%" }}
                   src="/videos/about-interior.mp4"
                   autoPlay
                   muted
