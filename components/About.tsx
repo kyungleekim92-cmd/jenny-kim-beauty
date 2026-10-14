@@ -68,11 +68,11 @@ export default function About({ lang }: { lang: Lang }) {
         <div className="about-feature">
           <Reveal className="about-figure">
             <div className="about-portrait">
-              <div className="photo ratio-45">
+              <div className="photo" style={{ aspectRatio: "3 / 2" }}>
                 <video
                   className="photo-img"
                   style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-                  src="/videos/about-interior.mp4"
+                  src="/videos/about-interior-wide.mp4"
                   autoPlay
                   muted
                   loop
