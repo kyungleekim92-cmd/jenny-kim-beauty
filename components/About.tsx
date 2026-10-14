@@ -72,7 +72,7 @@ export default function About({ lang }: { lang: Lang }) {
                 <video
                   className="photo-img"
                   style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-                  src="/videos/interior-portrait.mp4"
+                  src="/videos/about-ritual.mp4"
                   autoPlay
                   muted
                   loop
