@@ -17,7 +17,7 @@ const copy = {
     rights: "All rights reserved.",
     backToTop: "Back to top",
     finePrint:
-      "Jenny Kim provides independent consultation and introductions only, and does not perform, supervise or guarantee any treatment. Treatments are provided by independent licensed practitioners, who are solely responsible for assessment, care and outcomes. Jenny Kim accepts no liability for any treatment or its results. Partner privileges vary and are subject to each provider's terms.",
+      "Jenny Kim is an independent beauty consultant, not a medical practitioner. Content on this site is educational, not medical advice. She provides consultations and introductions only — all treatments are performed by independent licensed practitioners, who are solely responsible for assessment, care, and outcomes. Partner privileges vary by provider and are subject to their terms.",
   },
   ko: {
     tagline: "토론토의 독립 스킨케어 상담. 당신만을 위한 1:1 프라이빗 상담.",
@@ -28,7 +28,7 @@ const copy = {
     rights: "All rights reserved.",
     backToTop: "맨 위로",
     finePrint:
-      "제니 킴은 독립적인 상담과 소개만을 제공하며, 어떠한 시술도 직접 시행·감독·보증하지 않습니다. 시술은 독립적인 면허 보유 전문가가 제공하며, 진단·관리 및 결과에 대한 책임은 전적으로 해당 전문가에게 있습니다. 제니 킴은 시술 및 그 결과에 대해 어떠한 책임도 지지 않습니다. 파트너 혜택은 업체마다 다르며 각 업체의 약관을 따릅니다.",
+      "제니 킴은 독립적인 상담과 소개만을 제공하며, 어떠한 시술도 직접 시행·감독·보증하지 않습니다. 시술은 면허 보유 전문가가 직접 시행하며, 진단·관리 및 결과에 대한 책임은 해당 전문가에게 있습니다. 파트너 혜택은 업체마다 다르며 각 업체의 약관을 따릅니다.",
   },
 };
 

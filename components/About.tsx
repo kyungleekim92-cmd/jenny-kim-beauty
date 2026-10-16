@@ -8,7 +8,7 @@ import type { Lang } from "@/lib/i18n";
 // Scope wording matters for compliance: Jenny is a consultant, not a practitioner.
 const copy = {
   en: {
-    alt: "Portrait of Jenny Kim in a black turtleneck against a soft grey backdrop",
+    alt: "Stone basin with eucalyptus in a softly lit beige corner",
     eyebrow: "About",
     title: (
       <>
@@ -33,7 +33,7 @@ const copy = {
     ],
   },
   ko: {
-    alt: "부드러운 회색 배경 앞, 검은 터틀넥을 입은 제니 킴의 인물 사진",
+    alt: "부드러운 빛이 드는 베이지색 모서리의 스톤 세면대와 유칼립투스",
     eyebrow: "소개",
     title: (
       <>
@@ -69,7 +69,7 @@ export default function About({ lang }: { lang: Lang }) {
         <div className="about-feature">
           <Reveal className="about-figure">
             <Photo
-              src="/images/jenny-portrait.jpg"
+              src="/images/about-basin.jpg"
               alt={t.alt}
               ratio="45"
               sizes="(max-width: 860px) min(560px, 92vw), 50vw"

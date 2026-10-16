@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
-import Photo from "@/components/Photo";
 import FormError from "@/components/FormError";
 import { conditions } from "@/lib/conditions";
 import { sendInquiry, type InquiryResult } from "@/lib/inquiry";
@@ -262,13 +261,19 @@ export default function Booking({ lang }: { lang: Lang }) {
 
             <div className="booking-grid mt-4">
               <Reveal className="booking-media">
-                <Photo
-                  src="/images/interior.jpg"
-                  alt={t.alt}
-                  ratio="45"
-                  sizes="(max-width: 960px) min(520px, 92vw), 38vw"
-                  parallax={0.04}
-                />
+                <div className="photo ratio-45">
+                  <video
+                    className="photo-img"
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+                    src="/videos/interior-portrait.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    aria-label={t.alt}
+                  />
+                </div>
                 <p className="booking-caption">{t.caption}</p>
               </Reveal>
 
