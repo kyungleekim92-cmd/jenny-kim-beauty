@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { Reveal } from "@/components/motion";
+import Photo from "@/components/Photo";
 import type { Lang } from "@/lib/i18n";
 
 // Scope wording matters for compliance: Jenny is a consultant, not a practitioner.
 const copy = {
   en: {
-    alt: "Calm beige interior with sheer curtains in soft daylight",
+    alt: "Stone basin with eucalyptus in a softly lit beige corner",
     eyebrow: "About",
     title: (
       <>
@@ -32,7 +33,7 @@ const copy = {
     ],
   },
   ko: {
-    alt: "부드러운 햇살이 드는 베이지색 실내와 쉬폰 커튼",
+    alt: "부드러운 빛이 드는 베이지색 모서리의 스톤 세면대와 유칼립투스",
     eyebrow: "소개",
     title: (
       <>
@@ -67,21 +68,13 @@ export default function About({ lang }: { lang: Lang }) {
       <div className="wrap">
         <div className="about-feature">
           <Reveal className="about-figure">
-            <div className="about-portrait">
-              <div className="photo ratio-45">
-                <video
-                  className="photo-img"
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-                  src="/videos/about-ritual.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  aria-label={t.alt}
-                />
-              </div>
-            </div>
+            <Photo
+              src="/images/about-basin.jpg"
+              alt={t.alt}
+              ratio="45"
+              sizes="(max-width: 860px) min(560px, 92vw), 50vw"
+              className="about-portrait"
+            />
           </Reveal>
 
           <div className="about-copy">
