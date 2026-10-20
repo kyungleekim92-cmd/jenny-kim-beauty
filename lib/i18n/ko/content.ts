@@ -164,4 +164,8 @@ export const koShopProducts: Record<string, { name: string; note: string }> = {
     name: "글로스 압솔뤼 안티-프리즈 글레이즈 밀크",
     note: "부스스하기 쉬운 긴 머리를 위한 올인원 스무딩 스프레이예요. 히알루론산과 글리콜산, 와일드 로즈 오일이 담긴 리브인 제형으로, 머릿결이 윤기 있고 부드러워 보이도록 도와줘요.",
   },
+  "ulike-reglow-led-mask": {
+    name: "ReGlow LED 라이트 테라피 마스크",
+    note: "레드와 적외선, 옐로우, 블루까지 네 가지 빛 모드를 하나에 담은 LED 마스크예요. 집에서 LED 케어를 시작하려는 분들께 제가 권하는 제품이에요.",
+  },
 };

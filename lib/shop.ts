@@ -25,6 +25,8 @@ export interface ShopProduct {
   oliveYoungKoreaUrl: string;
   /** Sephora affiliate link (Sephora Canada program, Rakuten, or a creator platform). */
   sephoraUrl: string;
+  /** Ulike official-store affiliate link (Awin deep link). */
+  ulikeUrl?: string;
   /** Amazon.ca product code (10 characters after /dp/ in the product URL). */
   asin: string;
   /** Brand-approved packshot on the site's beige ground, 1200×1500 (4:5), in public/images/shop. */
@@ -98,9 +100,21 @@ export const products: ShopProduct[] = [
     asin: "B0DQTXH4S8",
     image: "",
   },
+  {
+    slug: "ulike-reglow-led-mask",
+    brand: "Ulike",
+    name: "ReGlow LED Light Therapy Mask",
+    note: "Four light modes in one mask — red and infrared for firmness, yellow to calm, blue for breakouts. The one Jenny recommends for starting LED therapy at home: full-featured, at a gentler price.",
+    oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
+    sephoraUrl: "",
+    asin: "",
+    ulikeUrl: "https://www.awin1.com/cread.php?awinmid=33267&awinaffid=3121335&ued=https%3A%2F%2Fwww.ulike.com%2Fproducts%2Fulike-reglow-led-light-therapy-mask",
+    image: "/images/shop/ulike-reglow-led-mask.jpg",
+  },
 ];
 
-export type StoreName = "Olive Young" | "Amazon" | "Sephora" | "Olive Young Korea";
+export type StoreName = "Olive Young" | "Amazon" | "Sephora" | "Ulike" | "Olive Young Korea";
 
 export interface ShopLink {
   store: StoreName;
@@ -113,6 +127,7 @@ export const storeNames: Record<StoreName, { en: string; ko: string }> = {
   "Olive Young": { en: "Olive Young", ko: "올리브영 글로벌" },
   Amazon: { en: "Amazon", ko: "아마존" },
   Sephora: { en: "Sephora", ko: "세포라" },
+  Ulike: { en: "Ulike", ko: "Ulike" },
   "Olive Young Korea": { en: "Olive Young Korea", ko: "올리브영" },
 };
 
@@ -134,6 +149,7 @@ export function productLinks(p: ShopProduct): ShopLink[] {
     });
   }
   if (p.sephoraUrl) links.push({ store: "Sephora", href: p.sephoraUrl, perk: { en: "Sephora Canada", ko: "세포라 캐나다" } });
+  if (p.ulikeUrl) links.push({ store: "Ulike", href: p.ulikeUrl, perk: { en: "Ulike's official store", ko: "Ulike 공식 스토어" } });
   if (p.oliveYoungKoreaUrl) {
     links.push({
       store: "Olive Young Korea",
