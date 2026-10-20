@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import { site } from "@/lib/site";
-import type { Lang } from "@/lib/i18n";
+import { localePath, type Lang } from "@/lib/i18n";
 
 const copy = {
   en: {
@@ -89,9 +90,9 @@ export default function Contact({ lang }: { lang: Lang }) {
             <div>
               <dt>{t.consultations}</dt>
               <dd>
-                <a href="#consult" className="underline-draw">
+                <Link href={localePath(lang, "/book")} className="underline-draw">
                   {t.requestOnline}
-                </a>
+                </Link>
               </dd>
             </div>
           </dl>
@@ -99,9 +100,9 @@ export default function Contact({ lang }: { lang: Lang }) {
         </Reveal>
 
         <Reveal delay={300} className="mt-4">
-          <a href="#consult" className="quiet-link">
+          <Link href={localePath(lang, "/book")} className="quiet-link">
             {t.reserve}
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

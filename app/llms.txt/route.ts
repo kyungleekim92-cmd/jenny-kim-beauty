@@ -24,7 +24,7 @@ function body(): string {
 - Location: ${VENUE_LINE}, Ontario, Canada
 - Format: private 30–60 minute consultations over tea or coffee at Bay & Adelaide, convenient for busy professionals; no clinic visit needed to get informed
 - Hours (by appointment only): ${site.hours.map((h) => `${h.label} ${h.display}`).join("; ")}
-- Book a consultation: ${abs("/#consult")}
+- Book a consultation: ${abs("/book")}
 - Korean site (한국어): ${abs("/ko")}
 - Instagram: ${site.contact.instagram}
 

@@ -27,7 +27,7 @@ export default function NotFound() {
               {"  ·  "}
               <Link href="/guides" className="quiet-link">Treatment guides</Link>
               {"  ·  "}
-              <Link href="/#consult" className="quiet-link">Book a consultation</Link>
+              <Link href="/book" className="quiet-link">Book a consultation</Link>
             </p>
 
             <div lang="ko" className="mt-4">
@@ -37,7 +37,7 @@ export default function NotFound() {
                 {"  ·  "}
                 <Link href="/ko/guides" className="quiet-link">시술 가이드</Link>
                 {"  ·  "}
-                <Link href="/ko#consult" className="quiet-link">상담 예약하기</Link>
+                <Link href="/ko/book" className="quiet-link">상담 예약하기</Link>
               </p>
             </div>
           </div>

@@ -1,15 +1,10 @@
-// Jenny Kim, Beauty Consultant — the one-page home, in either language.
-// Sections are composed top to bottom; each owns its own anchor id.
+// Jenny Kim, Beauty Consultant — the short home, in either language: hero, a book-style table
+// of contents linking to the chapter pages, and a slim booking call-to-action.
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import Chapters from "@/components/Chapters";
-import Quiz from "@/components/Quiz";
-import Booking from "@/components/Booking";
-import About from "@/components/About";
-import Partners from "@/components/Partners";
-import Faq from "@/components/Faq";
-import Contact from "@/components/Contact";
+import Statement from "@/components/Statement";
+import Contents from "@/components/Contents";
+import BookCta from "@/components/BookCta";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import LangRoot from "@/components/views/LangRoot";
@@ -23,14 +18,13 @@ export default function HomeView({ lang }: { lang: Lang }) {
       <Nav lang={lang} path="/" />
       <main>
         <Hero lang={lang} />
-        <HowItWorks lang={lang} />
-        <Chapters lang={lang} />
-        <Quiz lang={lang} />
-        <Booking lang={lang} />
-        <About lang={lang} />
-        <Partners lang={lang} />
-        <Faq lang={lang} />
-        <Contact lang={lang} />
+        <Statement>
+          {lang === "ko"
+            ? "피부는 매일의 연습이에요. 집에서는 꾸준하게, 시술이 필요할 땐 제대로 안내받으면서요. 이 페이지들은 그런 마음으로 만들었어요."
+            : "Skin is a daily practice. Kept at home, guided well when a treatment is right — that is the idea behind everything here."}
+        </Statement>
+        <Contents lang={lang} />
+        <BookCta lang={lang} />
       </main>
       <Footer lang={lang} />
     </LangRoot>

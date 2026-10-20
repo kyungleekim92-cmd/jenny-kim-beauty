@@ -4,10 +4,9 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { site } from "@/lib/site";
 import { navHref, navItems } from "@/lib/nav";
 import { langLabels, langNames, langs, localePath, type Lang } from "@/lib/i18n";
-import { useScrollProgress, useScrolledPast, useScrollSpy } from "@/components/motion";
+import { useScrollProgress, useScrolledPast } from "@/components/motion";
 
-// Every section the nav can point at, in page order (#consult is the CTA).
-const spyIds = ["top", "how", "guides", "quiz", "consult", "about", "partners", "faq", "contact"] as const;
+const BOOK = "/book";
 
 const copy = {
   en: { reserve: "Book a consultation", open: "Open menu", close: "Close menu", language: "Language" },
@@ -47,11 +46,11 @@ function LangToggle({ lang, path }: { lang: Lang; path: string }) {
 export default function Nav({ lang, path, home = true }: NavProps) {
   const [open, setOpen] = useState(false);
   const t = copy[lang];
-  const items = navItems(lang);
+  // Book is the top-bar button (and the last menu button), so it is not repeated as a link.
+  const items = navItems(lang).filter((i) => i.href !== BOOK);
   const to = (href: string) => navHref(href, home, lang);
   const scrolled = useScrolledPast(40);
   const progress = useScrollProgress();
-  const active = useScrollSpy(spyIds);
 
   // Lock page scroll and allow Escape while the mobile menu is open.
   useEffect(() => {
@@ -69,7 +68,8 @@ export default function Nav({ lang, path, home = true }: NavProps) {
   }, [open]);
 
   const close = () => setOpen(false);
-  const isActive = (href: string) => active !== null && href === `#${active}`;
+  // The current page (or a page inside it, e.g. a guide under /guides) is the active link.
+  const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
   const activeProps = (href: string) =>
     isActive(href) ? { className: "is-active", "aria-current": "true" as const } : {};
 
@@ -89,9 +89,9 @@ export default function Nav({ lang, path, home = true }: NavProps) {
               </a>
             ))}
             <a
-              href={to("#consult")}
-              className={`nav-cta${isActive("#consult") ? " is-active" : ""}`}
-              aria-current={isActive("#consult") ? "true" : undefined}
+              href={to(BOOK)}
+              className={`nav-cta${isActive(BOOK) ? " is-active" : ""}`}
+              aria-current={isActive(BOOK) ? "true" : undefined}
             >
               {t.reserve}
             </a>
@@ -138,7 +138,7 @@ export default function Nav({ lang, path, home = true }: NavProps) {
           </a>
         ))}
         <a
-          href={to("#consult")}
+          href={to(BOOK)}
           className="mobile-cta"
           onClick={close}
           style={{ "--i": items.length + 1 } as CSSProperties}

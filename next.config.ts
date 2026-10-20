@@ -1,27 +1,25 @@
 import type { NextConfig } from "next";
 
-// Addresses people commonly type or link to (e.g. /contact, /book) point to the matching part
-// of the site instead of a 404. Temporary (307) so a real page can take the address later.
+// Addresses people commonly type or link to (e.g. /contact, /booking) point to the matching
+// page instead of a 404. Real pages (/about, /faq, /book, /guides, /begin, /shop) are not
+// listed. Temporary (307) so a real page can take the address later.
 const sectionAliases: Record<string, string> = {
-  contact: "/#contact",
-  "contact-us": "/#contact",
-  about: "/#about",
-  "about-me": "/#about",
-  "about-jenny": "/#about",
-  book: "/#consult",
-  booking: "/#consult",
-  consult: "/#consult",
-  consultation: "/#consult",
-  consultations: "/#consult",
-  appointment: "/#consult",
-  reserve: "/#consult",
-  faq: "/#faq",
-  faqs: "/#faq",
-  quiz: "/#quiz",
-  "skin-quiz": "/#quiz",
-  partners: "/#partners",
-  "how-it-works": "/#how",
-  approach: "/#how",
+  contact: "/faq",
+  "contact-us": "/faq",
+  "about-me": "/about",
+  "about-jenny": "/about",
+  booking: "/book",
+  consult: "/book",
+  consultation: "/book",
+  consultations: "/book",
+  appointment: "/book",
+  reserve: "/book",
+  faqs: "/faq",
+  quiz: "/begin",
+  "skin-quiz": "/begin",
+  partners: "/about",
+  "how-it-works": "/book",
+  approach: "/book",
   services: "/guides",
   treatments: "/guides",
   guide: "/guides",

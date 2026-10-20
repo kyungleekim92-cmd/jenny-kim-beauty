@@ -9,6 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: { path: string; priority: number }[] = [
     { path: "/", priority: 1 },
     { path: "/guides", priority: 0.8 },
+    { path: "/begin", priority: 0.7 },
+    { path: "/book", priority: 0.7 },
+    { path: "/about", priority: 0.7 },
+    { path: "/faq", priority: 0.7 },
     ...(shopIsLive ? [{ path: "/shop", priority: 0.6 }] : []),
     ...sortedTreatments.map((t) => ({ path: guidePath(t), priority: 0.7 })),
     ...conditions.map((c) => ({ path: concernPath(c), priority: 0.7 })),

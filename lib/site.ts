@@ -41,15 +41,13 @@ export const site = {
     { slug: "fashion", name: "Style", active: false },
     { slug: "travel", name: "Travel", active: false },
   ],
-  // Section anchors, in page order. #top (wordmark) and #consult (CTA) are linked separately.
+  // Chapter pages, in book order. The wordmark links home; the last item (Book) is also the CTA.
   nav: [
-    { href: "#how", label: "Approach" },
-    { href: "#guides", label: "Guides" },
-    { href: "#quiz", label: "Where to Begin" },
-    { href: "#about", label: "About" },
-    { href: "#partners", label: "Partners" },
-    { href: "#faq", label: "FAQ" },
-    { href: "#contact", label: "Contact" },
+    { href: "/guides", label: "Guides" },
+    { href: "/begin", label: "Where to Begin" },
+    { href: "/about", label: "About" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/book", label: "Book" },
   ],
   contact: {
     instagramHandle: "kyunglxx",
