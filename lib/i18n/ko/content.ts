@@ -168,4 +168,8 @@ export const koShopProducts: Record<string, { name: string; note: string }> = {
     name: "ReGlow LED 라이트 테라피 마스크",
     note: "레드와 적외선, 옐로우, 블루까지 네 가지 빛 모드를 하나에 담은 LED 마스크예요. 집에서 LED 케어를 시작하려는 분들께 제가 권하는 제품이에요.",
   },
+  "ulike-air-10-ipl": {
+    name: "Air 10 IPL 제모기",
+    note: "제가 직접 쓰는 IPL 제모기예요. 듀얼 라이트로 한 번에 넓게 닿고, 사파이어 창이 닿는 순간 차갑게 식혀 줘서 전신 케어가 10분이면 충분해요.",
+  },
 };
