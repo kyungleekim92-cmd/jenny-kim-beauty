@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { site, VENUE_LINE } from "@/lib/site";
-import { navHref, navItems } from "@/lib/nav";
-import { localePath, type Lang } from "@/lib/i18n";
+import type { Lang } from "@/lib/i18n";
 
 // Hardcoded on purpose: calling new Date() during render breaks Next 16 prerendering.
 // Bump each January.
@@ -9,7 +7,6 @@ const YEAR = 2026;
 
 const copy = {
   en: {
-    tagline: site.tagline,
     byAppointment: "By appointment",
     venue: VENUE_LINE,
     legal:
@@ -20,7 +17,6 @@ const copy = {
       "Jenny Kim provides independent consultation and introductions only, and does not perform, supervise or guarantee any treatment. Treatments are provided by independent licensed practitioners, who are solely responsible for assessment, care and outcomes. Jenny Kim accepts no liability for any treatment or its results. Partner privileges vary and are subject to each provider's terms.",
   },
   ko: {
-    tagline: "토론토의 독립 스킨케어 상담. 당신만을 위한 1:1 프라이빗 상담.",
     byAppointment: "예약제 운영 (토론토 시간)",
     venue: `${site.venue.building}, ${site.venue.address}, 토론토`,
     legal:
@@ -38,22 +34,6 @@ export default function Footer({ lang }: { lang: Lang }) {
     <footer className="band-cream2 hairline-top footer">
       <div className="wrap">
         <div className="footer-grid">
-          <div>
-            <Link href={localePath(lang, "/")} className="footer-wordmark">
-              {site.brand}
-              <small>{site.brandLine}</small>
-            </Link>
-            <p className="footer-address mt-2">{t.tagline}</p>
-          </div>
-
-          <nav className="footer-nav" aria-label="Footer">
-            {navItems(lang).map((item) => (
-              <a key={item.href} href={navHref(item.href, false, lang)} className="underline-draw">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
           <div>
             <p className="eyebrow">{t.byAppointment}</p>
             <p className="footer-address mt-1">{t.venue}</p>
