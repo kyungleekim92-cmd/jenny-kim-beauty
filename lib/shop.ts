@@ -110,7 +110,7 @@ export const products: ShopProduct[] = [
     sephoraUrl: "",
     asin: "",
     ulikeUrl: "https://www.awin1.com/cread.php?awinmid=33267&awinaffid=3121335&ued=https%3A%2F%2Fwww.ulike.com%2Fproducts%2Fulike-reglow-led-light-therapy-mask",
-    image: "",
+    image: "/images/shop/ulike-reglow-led-mask.jpg",
   },
 ];
 
