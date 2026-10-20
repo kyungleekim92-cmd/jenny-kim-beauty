@@ -112,6 +112,18 @@ export const products: ShopProduct[] = [
     ulikeUrl: "https://www.awin1.com/cread.php?awinmid=33267&awinaffid=3121335&ued=https%3A%2F%2Fwww.ulike.com%2Fproducts%2Fulike-reglow-led-light-therapy-mask",
     image: "/images/shop/ulike-reglow-led-mask.jpg",
   },
+  {
+    slug: "ulike-air-10-ipl",
+    brand: "Ulike",
+    name: "Air 10 IPL Hair Removal Device",
+    note: "The IPL device Jenny uses herself. Dual lights cover more skin with each flash, the sapphire window stays ice-cool against the skin, and a full-body session takes about ten minutes — no clinic appointments to keep.",
+    oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
+    sephoraUrl: "",
+    asin: "",
+    ulikeUrl: "https://www.awin1.com/cread.php?awinmid=33267&awinaffid=3121335&ued=https%3A%2F%2Fwww.ulike.com%2Fproducts%2Fsapphire-air-10-ipl-hair-removal",
+    image: "/images/shop/ulike-air-10-ipl.jpg",
+  },
 ];
 
 export type StoreName = "Olive Young" | "Amazon" | "Sephora" | "Ulike" | "Olive Young Korea";
