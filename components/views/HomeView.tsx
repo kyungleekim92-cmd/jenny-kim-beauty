@@ -1,15 +1,9 @@
-// Jenny Kim, Beauty Consultant — the one-page home, in either language.
-// Sections are composed top to bottom; each owns its own anchor id.
+// Jenny Kim, Beauty Consultant — the short home, in either language: hero, a book-style table
+// of contents linking to the chapter pages, and a slim booking call-to-action.
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import Chapters from "@/components/Chapters";
-import Quiz from "@/components/Quiz";
-import Booking from "@/components/Booking";
-import About from "@/components/About";
-import Partners from "@/components/Partners";
-import Faq from "@/components/Faq";
-import Contact from "@/components/Contact";
+import Contents from "@/components/Contents";
+import BookCta from "@/components/BookCta";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import LangRoot from "@/components/views/LangRoot";
@@ -23,14 +17,8 @@ export default function HomeView({ lang }: { lang: Lang }) {
       <Nav lang={lang} path="/" />
       <main>
         <Hero lang={lang} />
-        <HowItWorks lang={lang} />
-        <Chapters lang={lang} />
-        <Quiz lang={lang} />
-        <Booking lang={lang} />
-        <About lang={lang} />
-        <Partners lang={lang} />
-        <Faq lang={lang} />
-        <Contact lang={lang} />
+        <Contents lang={lang} />
+        <BookCta lang={lang} />
       </main>
       <Footer lang={lang} />
     </LangRoot>

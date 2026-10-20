@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Reveal } from "@/components/motion";
 import SectionHead from "@/components/SectionHead";
 import Photo from "@/components/Photo";
-import type { Lang } from "@/lib/i18n";
+import { localePath, type Lang } from "@/lib/i18n";
 
 const copy = {
   en: {
@@ -154,9 +155,9 @@ export default function Partners({ lang }: { lang: Lang }) {
         </Reveal>
 
         <Reveal className="mt-4">
-          <a href="#consult" className="quiet-link">
+          <Link href={localePath(lang, "/book")} className="quiet-link">
             {t.cta}
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

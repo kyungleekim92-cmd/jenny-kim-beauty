@@ -141,8 +141,15 @@ export function homeJsonLd(lang: Lang = "en") {
         knowsLanguage: ["en", "ko"],
         knowsAbout: [lang === "ko" ? "스킨케어" : "Skincare", ...treatmentNames],
       },
-      faqPage(abs(`${localePath(lang, "/")}#faq`), getFaqs(lang)),
     ],
+  };
+}
+
+// The home FAQs now live on their own page (/faq), so the FAQPage markup moved with them.
+export function faqJsonLd(lang: Lang = "en") {
+  return {
+    "@context": "https://schema.org",
+    ...faqPage(abs(`${localePath(lang, "/faq")}#faq`), getFaqs(lang)),
   };
 }
 

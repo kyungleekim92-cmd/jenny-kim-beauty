@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { type CSSProperties } from "react";
 import { useScrolledPast } from "@/components/motion";
 import Photo from "@/components/Photo";
-import type { Lang } from "@/lib/i18n";
+import { localePath, type Lang } from "@/lib/i18n";
 
 const line = (i: number) => ({ "--i": i }) as CSSProperties;
 
@@ -63,12 +64,12 @@ export default function Hero({ lang }: { lang: Lang }) {
             {t.lede}
           </p>
           <span className="line-reveal" style={line(4)}>
-            <a href="#consult" className="quiet-link hero-cta">
+            <Link href={localePath(lang, "/book")} className="quiet-link hero-cta">
               {t.cta}{" "}
               <span aria-hidden="true" className="cta-arrow">
                 →
               </span>
-            </a>
+            </Link>
           </span>
         </div>
 

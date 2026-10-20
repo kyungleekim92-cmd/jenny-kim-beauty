@@ -103,7 +103,7 @@ export default function GuideView({ t, lang, title }: { t: Treatment; lang: Lang
             <section className="guide-block">
               <p className="chapter-cta">{t.cta}</p>
               <p className="mt-3">
-                <Link href={to("/#consult")} className="quiet-link">
+                <Link href={to("/book")} className="quiet-link">
                   {c.reserve}
                 </Link>
               </p>
@@ -130,7 +130,7 @@ export default function GuideView({ t, lang, title }: { t: Treatment; lang: Lang
             <aside className="author-box guide-block" aria-label={c.aboutAuthor}>
               <p className="eyebrow">{c.aboutAuthor}</p>
               <p className="mt-2">{authorBio[lang]}</p>
-              <Link href={to("/#about")} className="quiet-link mt-2">
+              <Link href={to("/about")} className="quiet-link mt-2">
                 {c.moreAboutJenny}
               </Link>
             </aside>

@@ -1,14 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Reveal } from "@/components/motion";
 import Photo from "@/components/Photo";
-import type { OpenChapterDetail } from "@/components/Chapters";
 import FormError from "@/components/FormError";
 import { conditions } from "@/lib/conditions";
 import { sendInquiry, type InquiryResult } from "@/lib/inquiry";
+import { guidePath } from "@/lib/seo";
 import { treatments, type Treatment } from "@/lib/treatments";
-import type { Lang } from "@/lib/i18n";
+import { localePath, type Lang } from "@/lib/i18n";
 import { getConditions, getTreatments } from "@/lib/i18n/content";
 
 type Step = 0 | 1 | 2 | 3;
@@ -127,18 +128,6 @@ function matchTreatments(selected: string[], downtime: Downtime | null, list: Tr
 
 function prefersReduced(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-function readGuide(slug: string) {
-  const event = new CustomEvent<OpenChapterDetail>("open-chapter", {
-    detail: { slug },
-    cancelable: true,
-  });
-  const handled = !window.dispatchEvent(event);
-  // Chapters scrolls to the exact guide when it handles the event; otherwise land on the section.
-  if (!handled) {
-    document.getElementById("guides")?.scrollIntoView({ behavior: prefersReduced() ? "auto" : "smooth" });
-  }
 }
 
 export default function Quiz({ lang }: { lang: Lang }) {
@@ -336,16 +325,9 @@ export default function Quiz({ lang }: { lang: Lang }) {
                         <p className="numeral">{r.number}</p>
                         <h3>{r.name}</h3>
                         <p>{r.tagline}</p>
-                        <a
-                          href={`#chapter-${r.slug}`}
-                          className="quiet-link"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            readGuide(r.slug);
-                          }}
-                        >
+                        <Link href={localePath(lang, guidePath(r))} className="quiet-link">
                           {t.readGuide}
-                        </a>
+                        </Link>
                       </Reveal>
                     ))}
                   </ul>
@@ -380,9 +362,9 @@ export default function Quiz({ lang }: { lang: Lang }) {
                 </Reveal>
 
                 <div className="quiz-actions">
-                  <a href="#consult" className="quiet-link">
+                  <Link href={localePath(lang, "/book")} className="quiet-link">
                     {t.reserve}
-                  </a>
+                  </Link>
                   <button type="button" className="text-btn back-btn" onClick={reset}>
                     {t.retake}
                   </button>

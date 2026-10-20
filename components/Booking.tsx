@@ -161,6 +161,9 @@ const copy = {
   },
 };
 
+// Shared with the home page's slim booking call-to-action (components/BookCta.tsx).
+export const bookingCopy = copy;
+
 function prefersReduced(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }

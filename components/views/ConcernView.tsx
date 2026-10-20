@@ -64,7 +64,7 @@ export default function ConcernView({ c, lang, title }: { c: Condition; lang: La
             <section className="guide-block">
               <p className="chapter-cta">{p.notSure}</p>
               <p className="mt-3">
-                <Link href={to("/#consult")} className="quiet-link">
+                <Link href={to("/book")} className="quiet-link">
                   {p.reserve}
                 </Link>
               </p>
@@ -73,7 +73,7 @@ export default function ConcernView({ c, lang, title }: { c: Condition; lang: La
             <aside className="author-box guide-block" aria-label={p.aboutAuthor}>
               <p className="eyebrow">{p.aboutAuthor}</p>
               <p className="mt-2">{authorBio[lang]}</p>
-              <Link href={to("/#about")} className="quiet-link mt-2">
+              <Link href={to("/about")} className="quiet-link mt-2">
                 {p.moreAboutJenny}
               </Link>
             </aside>
