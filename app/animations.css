@@ -644,8 +644,9 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 /* ---------- home contents + chapter pages ---------- */
 .contents-list { list-style: none; border-top: 1px solid var(--line); }
 .contents-list li { border-bottom: 1px solid var(--line); }
-.contents-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: baseline; column-gap: clamp(18px, 4vw, 40px); padding: clamp(24px, 3.4vw, 40px) 0; text-decoration: none; }
+.contents-row { display: grid; grid-template-columns: auto clamp(84px, 13vw, 168px) minmax(0, 1fr) auto; align-items: center; column-gap: clamp(18px, 4vw, 40px); padding: clamp(24px, 3.4vw, 40px) 0; text-decoration: none; }
 .contents-num { font-family: var(--font-serif), serif; font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--chrome-deep); min-width: 2ch; }
+.contents-photo { display: block; width: 100%; }
 .contents-body { display: block; min-width: 0; }
 .contents-title { display: block; font-family: var(--font-serif), serif; font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; transition: color 0.5s var(--ease); }
 .contents-line { display: block; margin-top: 10px; max-width: 52ch; color: var(--muted); line-height: 1.6; }

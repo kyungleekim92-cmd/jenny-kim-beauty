@@ -2,6 +2,7 @@
 // of contents linking to the chapter pages, and a slim booking call-to-action.
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Statement from "@/components/Statement";
 import Contents from "@/components/Contents";
 import BookCta from "@/components/BookCta";
 import Footer from "@/components/Footer";
@@ -17,6 +18,11 @@ export default function HomeView({ lang }: { lang: Lang }) {
       <Nav lang={lang} path="/" />
       <main>
         <Hero lang={lang} />
+        <Statement>
+          {lang === "ko"
+            ? "피부는 매일의 연습이에요. 집에서는 꾸준하게, 시술이 필요할 땐 제대로 안내받으면서요. 이 페이지들은 그런 마음으로 만들었어요."
+            : "Skin is a daily practice. Kept at home, guided well when a treatment is right — that is the idea behind everything here."}
+        </Statement>
         <Contents lang={lang} />
         <BookCta lang={lang} />
       </main>
