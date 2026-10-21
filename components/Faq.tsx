@@ -19,7 +19,7 @@ const copy = {
   },
 };
 
-export default function Faq({ lang }: { lang: Lang }) {
+export default function Faq({ lang, titleAs }: { lang: Lang; titleAs?: "h1" | "h2" }) {
   const [open, setOpen] = useState<number | null>(null);
   const t = copy[lang];
   const faqs = getFaqs(lang);
@@ -32,6 +32,7 @@ export default function Faq({ lang }: { lang: Lang }) {
           eyebrow={t.eyebrow}
           title={t.title}
           lede={t.lede}
+          titleAs={titleAs}
         />
 
         <div className="acc-list mt-4">

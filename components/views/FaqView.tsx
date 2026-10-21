@@ -10,7 +10,7 @@ const crumb = { en: "FAQ", ko: "FAQ" };
 export default function FaqView({ lang }: { lang: Lang }) {
   return (
     <ChapterView lang={lang} path="/faq" crumb={crumb[lang]} jsonLd={faqJsonLd(lang)}>
-      <Faq lang={lang} />
+      <Faq lang={lang} titleAs="h1" />
       <Contact lang={lang} />
     </ChapterView>
   );

@@ -2,6 +2,8 @@
 import { faqs } from "@/lib/faqs";
 import { conditions } from "@/lib/conditions";
 import { abs, concernNames, concernPath, guidePath, sortedTreatments, treatmentsFor } from "@/lib/seo";
+import { shopCopy } from "@/lib/i18n/content";
+import { liveProducts } from "@/lib/shop";
 import { DISCLAIMER } from "@/lib/treatments";
 import { site, VENUE_LINE } from "@/lib/site";
 
@@ -15,7 +17,10 @@ function body(): string {
   const concerns = conditions
     .map((c) => `- [${c.name}](${abs(concernPath(c))}): ${c.overview[0]} Options: ${treatmentsFor(c).map((t) => t.name).join(", ")}.`)
     .join("\n");
-  const qa = faqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n");
+  const edit = liveProducts
+    .map((p) => `- ${shopCopy.en[p.slug]?.name ?? p.name} (${p.brand}): ${shopCopy.en[p.slug]?.note ?? p.note}`)
+    .join("\n");
+  const qa =faqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n");
 
   return `# ${site.brand}, ${site.brandLine}
 
@@ -30,6 +35,13 @@ function body(): string {
 
 ${DISCLAIMER}
 
+## Key pages
+
+- [Where to Begin](${abs("/begin")}): a two-minute questionnaire that points to the right guides
+- [Book a consultation](${abs("/book")}): request a private 30–60 minute consultation
+- [About Jenny](${abs("/about")}): who Jenny is and the partner spas she introduces
+- [Questions & contact](${abs("/faq")}): common questions and how to get in touch
+
 ## Treatment guides
 
 ${guides}
@@ -37,6 +49,12 @@ ${guides}
 ## Skin concerns
 
 ${concerns}
+
+## The Edit (recommended skincare)
+
+${edit}
+
+Shop: ${abs("/shop")}
 
 ## Frequently asked questions
 

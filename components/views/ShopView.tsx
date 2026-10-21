@@ -2,11 +2,13 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 import Photo from "@/components/Photo";
 import LangRoot from "@/components/views/LangRoot";
 import { pageCopy } from "@/components/views/copy";
 import { localePath, type Lang } from "@/lib/i18n";
 import { shopCopy } from "@/lib/i18n/content";
+import { shopJsonLd } from "@/lib/seo";
 import { SHOP_DISCLOSURE, hasOliveYoung, liveProducts, productLinks, storeNames } from "@/lib/shop";
 
 const copy = {
@@ -50,6 +52,7 @@ export default function ShopView({ lang }: { lang: Lang }) {
 
   return (
     <LangRoot lang={lang}>
+      <JsonLd data={shopJsonLd(lang)} />
       <Nav lang={lang} path="/shop" home={false} />
       <main id="top" className="guide">
         <section className="section">

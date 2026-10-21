@@ -27,6 +27,20 @@ function pageMetadata(
       siteName: `${site.brand}, ${site.brandLine}`,
       locale: ogLocale[lang],
       alternateLocale: [ogLocale[lang === "en" ? "ko" : "en"]],
+      images: [
+        {
+          url: "https://www.byjennykim.com/opengraph-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Jenny Kim, Beauty Consultant",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description,
+      images: ["https://www.byjennykim.com/opengraph-image.jpg"],
     },
   };
 }

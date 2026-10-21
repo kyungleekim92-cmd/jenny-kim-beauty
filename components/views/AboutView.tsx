@@ -9,7 +9,7 @@ const crumb = { en: "About", ko: "소개" };
 export default function AboutView({ lang }: { lang: Lang }) {
   return (
     <ChapterView lang={lang} path="/about" crumb={crumb[lang]}>
-      <About lang={lang} />
+      <About lang={lang} titleAs="h1" />
       <Partners lang={lang} />
     </ChapterView>
   );
