@@ -215,9 +215,9 @@ export default function Quiz({ lang }: { lang: Lang }) {
             {step === 0 && (
               <>
                 <p className="eyebrow">{t.section}</p>
-                <h2 ref={headingRef} tabIndex={-1} className="display-sm mt-2">
+                <h1 ref={headingRef} tabIndex={-1} className="display-sm mt-2">
                   {t.introTitle}
-                </h2>
+                </h1>
                 <span className="hairline-draw mt-3" style={{ width: 56 }} aria-hidden="true" />
                 <p className="lede mt-3">{t.introLede}</p>
                 <div className="quiz-actions">

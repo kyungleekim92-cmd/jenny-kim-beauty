@@ -5,7 +5,8 @@ import { site } from "@/lib/site";
 import { treatments, type Treatment } from "@/lib/treatments";
 import type { Condition } from "@/lib/conditions";
 import { localePath, schemaLang, type Lang } from "@/lib/i18n";
-import { getConditions, getFaqs, getTreatments } from "@/lib/i18n/content";
+import { getConditions, getFaqs, getTreatments, shopCopy } from "@/lib/i18n/content";
+import { liveProducts } from "@/lib/shop";
 
 // Content review date shown on guides and used in the sitemap. Bump when content changes.
 // A fixed value: new Date() during prerender is disallowed with cacheComponents.
@@ -162,6 +163,35 @@ const breadcrumb = (lang: Lang, id: string, last: { name: string; item: string }
     { "@type": "ListItem", position: 3, ...last },
   ],
 });
+
+export const chapterBreadcrumbJsonLd = (lang: Lang, path: string, name: string) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: labels[lang].home, item: abs(localePath(lang, "/")) },
+    { "@type": "ListItem", position: 2, name, item: abs(localePath(lang, path)) },
+  ],
+});
+
+// The Edit: the live shop products as an ItemList. No offers or prices, by site rule.
+export function shopJsonLd(lang: Lang = "en") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: lang === "ko" ? "제니의 추천 스킨케어" : "The Edit — Skincare Jenny Recommends",
+    itemListElement: liveProducts.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Product",
+        name: shopCopy[lang][p.slug]?.name ?? p.name,
+        brand: { "@type": "Brand", name: p.brand },
+        ...(p.image ? { image: abs(p.image) } : {}),
+        url: abs(localePath(lang, "/shop")),
+      },
+    })),
+  };
+}
 
 export function guideJsonLd(t: Treatment, title: string, lang: Lang = "en") {
   const url = abs(localePath(lang, guidePath(t)));

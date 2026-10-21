@@ -41,8 +41,8 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   async redirects() {
     return Object.entries(sectionAliases).flatMap(([alias, dest]) => [
-      { source: `/${alias}`, destination: dest, permanent: false },
-      { source: `/ko/${alias}`, destination: toKo(dest), permanent: false },
+      { source: `/${alias}`, destination: dest, permanent: true },
+      { source: `/ko/${alias}`, destination: toKo(dest), permanent: true },
     ]);
   },
 };

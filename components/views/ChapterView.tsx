@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import LangRoot from "@/components/views/LangRoot";
 import { pageCopy } from "@/components/views/copy";
 import { localePath, type Lang } from "@/lib/i18n";
+import { chapterBreadcrumbJsonLd } from "@/lib/seo";
 
 type ChapterViewProps = {
   lang: Lang;
@@ -24,6 +25,7 @@ export default function ChapterView({ lang, path, crumb, jsonLd, children }: Cha
 
   return (
     <LangRoot lang={lang}>
+      <JsonLd data={chapterBreadcrumbJsonLd(lang, path, crumb)} />
       {jsonLd && <JsonLd data={jsonLd} />}
       <Nav lang={lang} path={path} home={false} />
       <main id="top">

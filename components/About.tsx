@@ -59,7 +59,7 @@ const copy = {
   },
 };
 
-export default function About({ lang }: { lang: Lang }) {
+export default function About({ lang, titleAs = "h2" }: { lang: Lang; titleAs?: "h1" | "h2" }) {
   const [open, setOpen] = useState(false);
   const t = copy[lang];
 
@@ -81,7 +81,7 @@ export default function About({ lang }: { lang: Lang }) {
             <Reveal as="p" className="eyebrow chrome">
               {t.eyebrow}
             </Reveal>
-            <Reveal as="h2" delay={60} className="display-sm mt-2">
+            <Reveal as={titleAs} delay={60} className="display-sm mt-2">
               <span id="about-title">{t.title}</span>
             </Reveal>
             <Reveal delay={120}>

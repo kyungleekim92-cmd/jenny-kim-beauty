@@ -49,12 +49,12 @@ const copy = {
   },
 };
 
-export default function HowItWorks({ lang }: { lang: Lang }) {
+export default function HowItWorks({ lang, titleAs }: { lang: Lang; titleAs?: "h1" | "h2" }) {
   const t = copy[lang];
   return (
     <section id="how" className="section band-cream2" aria-labelledby="how-title">
       <div className="wrap">
-        <SectionHead id="how-title" eyebrow={t.eyebrow} title={t.title} />
+        <SectionHead id="how-title" eyebrow={t.eyebrow} title={t.title} titleAs={titleAs} />
         <ol className="grid-3 mt-4" style={{ listStyle: "none" }}>
           {t.steps.map((s, i) => (
             <Reveal as="li" key={s.n} delay={120 + i * 110} className="step">
