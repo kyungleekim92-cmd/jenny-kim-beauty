@@ -486,7 +486,7 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .statement-text p {
   font-family: var(--font-serif), serif;
   font-weight: 300;
-  font-size: clamp(1.3rem, 2.9vw, 2.35rem);
+  font-size: clamp(1.1rem, 2.3vw, 1.8rem);
   line-height: 1.18;
   max-width: 22ch;
   margin: 0 auto;
