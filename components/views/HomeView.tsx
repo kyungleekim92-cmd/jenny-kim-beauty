@@ -19,9 +19,27 @@ export default function HomeView({ lang }: { lang: Lang }) {
       <main>
         <Hero lang={lang} />
         <Statement>
-          {lang === "ko"
-            ? "피부는 매일의 연습이에요. 집에서는 꾸준하게, 시술이 필요할 땐 제대로 안내받으면서요. 이 페이지들은 그런 마음으로 만들었어요."
-            : "Skin is a daily practice. Kept at home, guided well when a treatment is right — that is the idea behind everything here."}
+          {lang === "ko" ? (
+            <>
+              피부는 매일의 연습이에요.
+              <br />
+              집에서는 꾸준하게,
+              <br />
+              시술이 필요할 땐 제대로 안내받으면서요.
+              <br />
+              이 페이지들은 그런 마음으로 만들었어요.
+            </>
+          ) : (
+            <>
+              Skin is a daily practice.
+              <br />
+              Kept at home,
+              <br />
+              guided well when a treatment is right —
+              <br />
+              that is the idea behind everything here.
+            </>
+          )}
         </Statement>
         <Contents lang={lang} />
         <BookCta lang={lang} />
