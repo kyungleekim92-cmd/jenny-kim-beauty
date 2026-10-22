@@ -23,7 +23,7 @@ export default function Statement({ children, className = "" }: StatementProps) 
         </Reveal>
         <figcaption className="statement-sign">
           <Reveal as="span" delay={260}>
-            Jenny Kim
+            Jenny K.
           </Reveal>
         </figcaption>
       </figure>
