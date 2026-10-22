@@ -283,7 +283,7 @@ export default function Booking({ lang }: { lang: Lang }) {
               <div>
                 <Reveal>
                   <p className="eyebrow chrome">{t.formEyebrow}</p>
-                  <h3 className="display-sm mt-2" style={{ fontSize: "clamp(1.7rem, 3vw, 2.3rem)" }}>
+                  <h3 className="display-sm mt-2" style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.8rem)" }}>
                     {t.formTitle}
                   </h3>
                   <p className="form-hint">{t.formHint}</p>
