@@ -46,6 +46,17 @@ export const products: ShopProduct[] = [
     image: "/images/shop/biodance-real-deep-mask.jpg",
   },
   {
+    slug: "biodance-collagen-jelly-serum-mist",
+    brand: "Biodance",
+    name: "Collagen Peptides Jelly Serum Mist",
+    note: "From the same brand as Jenny's favourite overnight mask, in a travel-size spray. An ultra-fine jelly-to-mist with low-molecular collagen and peptides — a midday hydration reset that sits lightly over makeup, for skin that looks dewy and plump again.",
+    oliveYoungUrl: "",
+    oliveYoungKoreaUrl: "",
+    sephoraUrl: "",
+    asin: "B0GF86QJK7",
+    image: "/images/shop/biodance-collagen-jelly-serum-mist.jpg",
+  },
+  {
     slug: "arocell-super-collagen-mask",
     brand: "Arocell",
     name: "Super Collagen Mask 2.0",
