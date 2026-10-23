@@ -54,7 +54,7 @@ export const products: ShopProduct[] = [
     oliveYoungKoreaUrl: "",
     sephoraUrl: "",
     asin: "B0GF86QJK7",
-    image: "",
+    image: "/images/shop/biodance-collagen-jelly-serum-mist.jpg",
   },
   {
     slug: "arocell-super-collagen-mask",
