@@ -16,14 +16,14 @@ export default function HomeView({ lang }: { lang: Lang }) {
     <LangRoot lang={lang}>
       <JsonLd data={homeJsonLd(lang)} />
       <Nav lang={lang} path="/" />
-      <main>
+      <main className="home">
         <Hero lang={lang} />
         <Statement>
           {lang === "ko" ? (
             <>
-              피부는 매일의 연습이에요.
+              당신의 피부는 하루하루 쌓이는 습관으로 달라져요.
               <br />
-              홈케어를 기본으로, 시술이 필요할 땐 제대로 안내받으면서요.
+              홈케어를 기본으로, 시술은 꼭 필요할 때 충분한 상담과 함께요.
             </>
           ) : (
             <>
