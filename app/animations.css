@@ -480,6 +480,9 @@ fieldset.form-group + fieldset.form-group { margin-top: 56px; }
 .block-gap { margin-top: clamp(80px, 10vw, 152px); }
 
 .statement { padding: clamp(72px, 9vw, 136px) 0; }
+/* Home only: tighter editorial pauses (owner: gaps around the statement felt too big). */
+.home .statement { padding: clamp(36px, 4.5vw, 68px) 0; }
+.home .contents { padding-top: clamp(40px, 6vw, 96px); }
 .statement figure { display: flex; flex-direction: column; align-items: center; }
 .statement-rule { width: 56px; margin: 0 auto; transform-origin: center; }
 .statement-text { margin-top: clamp(32px, 4vw, 48px); }
