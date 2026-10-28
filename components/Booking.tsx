@@ -65,7 +65,6 @@ const copy = {
         Thirty minutes to an hour, entirely <em>yours</em>.
       </>
     ),
-    lede: "Tea or coffee near the office, thoughtful counsel, and a plan composed for your skin alone.",
     alt: "A quiet room in soft daylight: sheer linen curtains, a travertine side table, folded towels",
     caption: "By appointment at Bay & Adelaide, in quiet privacy. No clinic visit needed; simply bring your questions.",
     formEyebrow: "The form",
@@ -117,7 +116,6 @@ const copy = {
         30분에서 한 시간, 온전히 <em>당신의 피부</em> 이야기.
       </>
     ),
-    lede: "Bay & Adelaide에서 차 한잔 나누며 충분히 이야기하고, 당신의 피부에 맞는 시술 계획을 함께 세워요.",
     alt: "부드러운 햇살이 드는 조용한 방: 얇은 리넨 커튼, 트래버틴 사이드 테이블, 개어 둔 수건",
     caption: "Bay & Adelaide, 예약제로 조용하게 진행해요. 클리닉에 가실 필요 없이, 궁금한 점만 편하게 가져오세요.",
     formEyebrow: "상담 신청서",
@@ -259,7 +257,6 @@ export default function Booking({ lang }: { lang: Lang }) {
               id="consult-title"
               eyebrow={t.eyebrow}
               title={t.title}
-              lede={t.lede}
             />
 
             <div className="booking-grid mt-4">

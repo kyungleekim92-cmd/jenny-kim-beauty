@@ -15,7 +15,7 @@ export default function BookCta({ lang }: { lang: Lang }) {
   return (
     <section id="consult" className="section band-cream2 book-cta" aria-labelledby="consult-title">
       <div className="wrap-narrow">
-        <SectionHead id="consult-title" eyebrow={t.eyebrow} title={t.title} lede={t.lede} center />
+        <SectionHead id="consult-title" eyebrow={t.eyebrow} title={t.title} center />
         <Reveal delay={400} className="book-cta-action">
           <Link href={localePath(lang, "/book")} className="btn-outline">
             {button[lang]}
