@@ -33,8 +33,9 @@ const copy = {
     ),
     lede: (
       <>
-        토론토 Bay & Adelaide, 당신만을 위한 <span style={{ whiteSpace: "nowrap" }}>1:1</span> 스킨케어
-        상담.
+        토론토 Bay & Adelaide, 당신만을 위한
+        <br />
+        1:1 스킨케어 상담.
       </>
     ),
     cta: "상담 예약하기",
