@@ -59,7 +59,6 @@ const copy = {
     receivedTitle: "Thank you — your consultation is in motion.",
     receivedLede:
       "Jenny replies personally within one business day to arrange your consultation. Keep an eye on your inbox.",
-    eyebrow: "Consultation",
     title: (
       <>
         A private consultation, on <em>your time</em>.
@@ -110,7 +109,6 @@ const copy = {
     receivedEyebrow: "신청 완료",
     receivedTitle: "신청해 주셔서 감사해요.",
     receivedLede: "영업일 기준 하루 안에 직접 연락드려, 상담 일정을 잡아 드릴게요. 메일함을 확인해 보세요.",
-    eyebrow: "상담",
     title: (
       <>
         <em>당신만을 위한</em> 프라이빗 상담.
@@ -255,7 +253,6 @@ export default function Booking({ lang }: { lang: Lang }) {
           <>
             <SectionHead
               id="consult-title"
-              eyebrow={t.eyebrow}
               title={t.title}
             />
 

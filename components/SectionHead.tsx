@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Reveal } from "@/components/motion";
 
 type SectionHeadProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   lede?: ReactNode;
   center?: boolean;
@@ -16,9 +16,11 @@ type SectionHeadProps = {
 export default function SectionHead({ eyebrow, title, lede, center = false, id, titleAs = "h2" }: SectionHeadProps) {
   return (
     <header className={`section-head${center ? " center" : ""}`}>
-      <Reveal as="p" className="eyebrow chrome">
-        {eyebrow}
-      </Reveal>
+      {eyebrow && (
+        <Reveal as="p" className="eyebrow chrome">
+          {eyebrow}
+        </Reveal>
+      )}
       <Reveal as={titleAs} delay={100} className="display-sm mt-2">
         <span id={id}>{title}</span>
       </Reveal>
