@@ -27,9 +27,10 @@ export default function HomeView({ lang }: { lang: Lang }) {
             </>
           ) : (
             <>
-              Skin is a daily practice.
+              Your skin changes through small, daily rituals.
               <br />
-              Homecare, guided well when a treatment is right.
+              Homecare is the foundation; treatment comes only when necessary, and always after a
+              proper consultation.
             </>
           )}
         </Statement>
