@@ -62,7 +62,7 @@ const copy = {
     eyebrow: "Consultation",
     title: (
       <>
-        Thirty minutes to an hour, entirely <em>yours</em>.
+        A private consultation, on <em>your time</em>.
       </>
     ),
     alt: "A quiet room in soft daylight: sheer linen curtains, a travertine side table, folded towels",
@@ -113,7 +113,7 @@ const copy = {
     eyebrow: "상담",
     title: (
       <>
-        30분에서 한 시간, 온전히 <em>당신의 피부</em> 이야기.
+        <em>당신의 시간</em>으로, 프라이빗 상담.
       </>
     ),
     alt: "부드러운 햇살이 드는 조용한 방: 얇은 리넨 커튼, 트래버틴 사이드 테이블, 개어 둔 수건",
