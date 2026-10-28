@@ -17,7 +17,7 @@ const copy = {
       "Jenny Kim provides independent consultation and introductions only, and does not perform, supervise or guarantee any treatment. Treatments are provided by independent licensed practitioners, who are solely responsible for assessment, care and outcomes. Jenny Kim accepts no liability for any treatment or its results. Partner privileges vary and are subject to each provider's terms.",
   },
   ko: {
-    byAppointment: "예약제 운영 (토론토 시간)",
+    byAppointment: "예약제 운영 (북미 동부 시간)",
     venue: `${site.venue.building}, ${site.venue.address}, 토론토`,
     legal:
       "제니는 의료인이 아닌 독립 뷰티 컨설턴트예요. 이 사이트의 내용은 정보 제공을 위한 것이며, 의학적 조언을 대신하지 않아요.",
