@@ -33,11 +33,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
             <>
               Skin is a daily practice.
               <br />
-              Kept at home,
-              <br />
-              guided well when a treatment is right —
-              <br />
-              that is the idea behind everything here.
+              Homecare, guided well when a treatment is right.
             </>
           )}
         </Statement>
