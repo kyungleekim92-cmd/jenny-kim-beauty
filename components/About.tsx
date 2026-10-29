@@ -12,11 +12,11 @@ const copy = {
     eyebrow: "About",
     title: (
       <>
-        On skin, and the art of choosing <em>well</em>.
+        Let&rsquo;s find the <em>right</em> choice for your skin.
       </>
     ),
-    p1: "An independent beauty consultant in Toronto, Jenny begins where most advice ends: with time, attention, and a careful reading of your skin and the life around it.",
-    p2: "She performs no treatments and answers to no clinic. What she offers instead is perspective — the same counsel she would want for her own skin, with no clinic visit until you are ready.",
+    p1: "I'm Jenny, an independent beauty consultant in Toronto. We'll look at your skin together, along with your daily habits, your schedule, and the treatments you've had.",
+    p2: "I don't perform treatments, and I'm not part of any clinic. I'll tell you honestly what I think, as if it were my own skin. There's no need to visit a clinic until you've decided.",
     detail: "The consultation, in detail",
     includedLabel: "Included",
     included: [
